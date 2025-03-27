@@ -49,18 +49,30 @@ class ProfilePage extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 2),
-                  child: Row(
+                  child: Stack(
+                    alignment: const Alignment(0.6, 0.6),
                     children: [
-
-                       CircleAvatar(
+                       const CircleAvatar(
                         radius: 55,
                         backgroundImage: AssetImage(
                           'assets/images/profile.jpg',
                         ),
-
                        ),
+                       
+                       Container(
+                        decoration: const BoxDecoration(),
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 78.0),
+                          child: 
+                          InkWell(onTap: (){},
+                          child:
+                          Container( decoration: const BoxDecoration(color: Colors.white),
+                           child:Icon(Icons.camera_alt_outlined, )),),
+                          
+                        ),
+                        ),
+                        
                     ],
-
                   ),
                 ),
             
