@@ -52,12 +52,13 @@ class ProfilePage extends StatelessWidget {
                   child: Stack(
                     alignment: const Alignment(0.6, 0.6),
                     children: [
-                       const CircleAvatar(
+                      Expanded(child: const CircleAvatar(
                         radius: 55,
                         backgroundImage: AssetImage(
                           'assets/images/profile.jpg',
                         ),
-                       ),
+                       ),),
+                       
                        
                        Container(
                         decoration: const BoxDecoration(),

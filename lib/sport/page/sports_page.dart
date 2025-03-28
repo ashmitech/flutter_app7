@@ -15,15 +15,10 @@ final List<Map<String, String>> sportsOptions = [
       {"name": "Match Schedule", "route": '/match_schedule'},
     ]; 
 
-final List<Map<String, String>> sportsBannerOptions = [
-      {
-        "title": "Kebin on strike",
-        "subtitle":"kevin on strike on ucl final", 
-        "route": '/kevin_debruina',
-        "photo":"assets/images/banner.jpg",
-        "autor":"Ram",
-        "followers":"1.5M"
-       },
+final List<Map<String, String>> sportsBanner = [
+      {"image": "assets/images/banner.jpg"},
+      {"image": "assets/images/banner.jpg"},
+      {"image": "assets/images/banner.jpg"},
     ]; 
 
   @override
@@ -53,47 +48,57 @@ final List<Map<String, String>> sportsBannerOptions = [
       body: 
       ListView(
         children: [
-             SafeArea(
-        child: 
-        Column(
-          children: [
-              SizedBox(
-                height: 150,
-                child: ListView.builder( 
-                scrollDirection: Axis.horizontal, 
-                
-                padding: const EdgeInsets.symmetric(vertical: 2),
-                itemCount: sportsOptions.length,
-                itemBuilder: (context, index) 
-                  {
-                    return 
-                      TopRowButton(
-                        name: sportsOptions[index]["name"]!,
-                        routeName: sportsOptions[index]["route"]!,
-                      );
-                    },
-                  ),
-              ),
+             Column(
+               children: [
+                   SizedBox(
+                     height: 80,
+                     
+                     child: ListView.builder( 
+                     scrollDirection: Axis.horizontal,                      
+                     itemCount: sportsOptions.length,
+                     itemBuilder: (context, index) 
+                       {
+                         return TopRowButton(
+                           name: sportsOptions[index]["name"]??"",
+                           routeName: sportsOptions[index]["route"]??"",
+                         );
+                         },
+                       ),
+                   ),
 
-              SizedBox(
-                height: 300,
-                child: BannerImageWidget(image: "assets/images/banner.jpg" )
-                ),
-
-              SizedBox(
-                height: 150,
-                child: 
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text("Explore"),
-                    Text("See More"),
-                  ],
-                ),
-              ),
-          ],
-        ),
-      ),
+                   
+                   Container(
+                    margin: EdgeInsets.all(10.0),
+                     child: SizedBox(
+                       height: 300,
+                       width: 500,
+                       child: ListView.builder(
+                         scrollDirection: Axis.horizontal,
+                         itemCount: sportsBanner.length,
+                         itemBuilder: (context, index){
+                           return 
+                           Expanded(
+                            child: BannerImageWidget(
+                             image: sportsBanner[index]["image"]),
+                             );
+                             }
+                          ), 
+                       ),
+                   ),
+             
+                   SizedBox(
+                     height: 150,
+                     child: 
+                     Row(
+                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                       children: [
+                         Text("Explore"),
+                         Text("See More"),
+                       ],
+                     ),
+                   ),
+               ],
+             ),
    
         ],
       ),

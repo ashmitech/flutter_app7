@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/flutter_layout/page/flutter_layout_page.dart';
 import 'package:my_app/form/page/form_page.dart';
 import 'package:my_app/home/page/home_page.dart';
 import 'package:my_app/profile/page/profile_page.dart';
@@ -22,6 +23,9 @@ class AppRoute {
       "/extractArguments":(context)=>ExtractArgumentsScreen(),
       
       "/form":(context)=>MyCustomForm(),
+
+      "/flutterlayout":(context)=>FlutterLayoutDemo(),
+
     };
   }
 
