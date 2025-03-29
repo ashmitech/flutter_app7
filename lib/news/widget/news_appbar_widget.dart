@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class NewsAppBar extends StatelessWidget {
+class NewsAppBarWidget extends StatelessWidget {
   // You might want to pass the screen padding as a parameter
   final EdgeInsets screenPadding;
 
-  const NewsAppBar({super.key, required this.screenPadding});
+  const NewsAppBarWidget({super.key, required this.screenPadding});
 
   @override
   Widget build(BuildContext context) {
