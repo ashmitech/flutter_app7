@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class NewsFeaturedImage extends StatelessWidget {
+class FeaturedNewsImage extends StatelessWidget {
   final String imageUrl;
   final String title;
   final EdgeInsets padding;
 
-  const NewsFeaturedImage({
+  const FeaturedNewsImage({
     super.key,
     required this.imageUrl,
     required this.title,
