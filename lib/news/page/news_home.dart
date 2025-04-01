@@ -39,7 +39,7 @@ class NewsHomePage extends StatefulWidget {
 }
 
 class _NewsHomePageState extends State<NewsHomePage> {
-  int _selectedCategoryIndex = 0;
+  // int _selectedCategoryIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +60,7 @@ class _NewsHomePageState extends State<NewsHomePage> {
                 onCategorySelected: (selectedCategory) {
                   // Handle the selected category in NewsHomePage
                   setState(() {
-                    _selectedCategoryIndex = _categories.indexOf(selectedCategory);
+                    // _selectedCategoryIndex = _categories.indexOf(selectedCategory);
                   });
                   print('Category selected in HomePage: $selectedCategory');
                 },
@@ -71,7 +71,8 @@ class _NewsHomePageState extends State<NewsHomePage> {
             SizedBox(
               height: 200, // Adjust height as needed
               child: FeaturedNewsImage(
-              imageUrl: "assets/images/lake.jpg",
+              // imageUrl: "assets/images/lake.jpg",
+              imageUrl: 'https://cdn.pixabay.com/photo/2018/04/26/16/31/marine-3352341_1280.jpg',
               title: "Beautiflul lake",
               padding: EdgeInsets.all(16)),
             
