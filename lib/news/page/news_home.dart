@@ -6,8 +6,7 @@ import 'package:my_app/news/widget/news_latest_widget.dart';
 import 'package:my_app/news/widget/latest_news_tile.dart';
 import 'package:my_app/news/widget/news_bottom_navigation.dart';
 
-const List<String> _categories = ['All news', 'Business', 'Sports', 'Tech', "Science"]; //list of categories in navigation bar
-const EdgeInsets _screenPadding = EdgeInsets.all(16.0); // news padding throughout the screen
+// const List<String> _categories = ['All news', 'Business', 'Sports', 'Tech', "Science"]; //list of categories in navigation bar
 const List<Map<String, String>> _latestNewsData = [
   {
     'imageUrl': 'assets/images/lake.jpg',
@@ -49,23 +48,8 @@ class _NewsHomePageState extends State<NewsHomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Top app bar
-            NewsAppBarWidget(screenPadding: _screenPadding),
-            
-            // News category list
-            Padding(
-              padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16.0),
-              child: NewsCategoryWidget(
-                categories: _categories,
-                onCategorySelected: (selectedCategory) {
-                  // Handle the selected category in NewsHomePage
-                  setState(() {
-                    // _selectedCategoryIndex = _categories.indexOf(selectedCategory);
-                  });
-                  print('Category selected in HomePage: $selectedCategory');
-                },
-              ),
-            ),
+            NewsAppBarWidget(),
+            NewsCategoryWidget(),
             
             // Container with fixed height for horizontal ListView
             SizedBox(
