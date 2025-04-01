@@ -14,8 +14,10 @@ import 'package:my_app/sport/page/sports_detail_page.dart';
 
 class AppRoute {
   static Map<String, WidgetBuilder> routes = {
-      "/":(context)=> NewsHomePage(), //current direcotry 
+      "/":(context)=> HomePage(), //current direcotry 
       "/home":(context)=> HomePage(),
+
+      "/news":(context)=> NewsHomePage(),
 
       "/weather":(context)=> WeatherPage(),
 
