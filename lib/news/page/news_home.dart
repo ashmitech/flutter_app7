@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/news/model/news_data_model.dart';
 import 'package:my_app/news/widget/news_appbar_widget.dart';
 import 'package:my_app/news/widget/news_category_widget.dart';
 import 'package:my_app/news/widget/news_featured_image.dart';
@@ -70,15 +71,15 @@ class _NewsHomePageState extends State<NewsHomePage> {
             
             // Latest News list - vertical scrolling
             Expanded(
-              child: ListView.builder(
+              child: ListView.separated(
+                separatorBuilder: (context, index) => SizedBox(),
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 itemCount: _latestNewsData.length,
                 itemBuilder: (BuildContext context, int index) {
-                  final newsItem = _latestNewsData[index];
                   return NewsItemTile(
-                    imageUrl: newsItem['imageUrl']!,
-                    title: newsItem['title']!,
-                    time: newsItem['time']!,
+                    imageUrl: _latestNewsData[index]['imageUrl']??'',
+                    title: _latestNewsData[index]['title']??'No Title',
+                    time: _latestNewsData[index]['time']??'',
                   );
                 },
               ),
