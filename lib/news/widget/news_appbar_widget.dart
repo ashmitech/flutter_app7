@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 
 class NewsAppBarWidget extends StatelessWidget {
-  // You might want to pass the screen padding as a parameter
-  final EdgeInsets screenPadding;
 
-  const NewsAppBarWidget({super.key, required this.screenPadding});
+const  NewsAppBarWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: screenPadding,
+      padding: EdgeInsets.all(16.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -19,7 +17,7 @@ class NewsAppBarWidget extends StatelessWidget {
             width: 100,
           ),
           // You might want to add the search icon back in the separated widget
-          // const Icon(Icons.search, size: 30),
+          const Icon(Icons.menu, size: 30),
         ],
       ),
     );

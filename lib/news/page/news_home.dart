@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/news/model/news_data_model.dart';
 import 'package:my_app/news/widget/news_appbar_widget.dart';
 import 'package:my_app/news/widget/news_category_widget.dart';
 import 'package:my_app/news/widget/news_featured_image.dart';
@@ -6,8 +7,7 @@ import 'package:my_app/news/widget/news_latest_widget.dart';
 import 'package:my_app/news/widget/latest_news_tile.dart';
 import 'package:my_app/news/widget/news_bottom_navigation.dart';
 
-const List<String> _categories = ['All news', 'Business', 'Sports', 'Tech', "Science"]; //list of categories in navigation bar
-const EdgeInsets _screenPadding = EdgeInsets.all(16.0); // news padding throughout the screen
+// const List<String> _categories = ['All news', 'Business', 'Sports', 'Tech', "Science"]; //list of categories in navigation bar
 const List<Map<String, String>> _latestNewsData = [
   {
     'imageUrl': 'assets/images/lake.jpg',
@@ -49,23 +49,8 @@ class _NewsHomePageState extends State<NewsHomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Top app bar
-            NewsAppBarWidget(screenPadding: _screenPadding),
-            
-            // News category list
-            Padding(
-              padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16.0),
-              child: NewsCategoryWidget(
-                categories: _categories,
-                onCategorySelected: (selectedCategory) {
-                  // Handle the selected category in NewsHomePage
-                  setState(() {
-                    // _selectedCategoryIndex = _categories.indexOf(selectedCategory);
-                  });
-                  print('Category selected in HomePage: $selectedCategory');
-                },
-              ),
-            ),
+            NewsAppBarWidget(),
+            NewsCategoryWidget(),
             
             // Container with fixed height for horizontal ListView
             SizedBox(
@@ -86,15 +71,15 @@ class _NewsHomePageState extends State<NewsHomePage> {
             
             // Latest News list - vertical scrolling
             Expanded(
-              child: ListView.builder(
+              child: ListView.separated(
+                separatorBuilder: (context, index) => SizedBox(),
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 itemCount: _latestNewsData.length,
                 itemBuilder: (BuildContext context, int index) {
-                  final newsItem = _latestNewsData[index];
                   return NewsItemTile(
-                    imageUrl: newsItem['imageUrl']!,
-                    title: newsItem['title']!,
-                    time: newsItem['time']!,
+                    imageUrl: _latestNewsData[index]['imageUrl']??'',
+                    title: _latestNewsData[index]['title']??'No Title',
+                    time: _latestNewsData[index]['time']??'',
                   );
                 },
               ),
