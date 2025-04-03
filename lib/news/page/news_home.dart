@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/news/model/news_data_model.dart';
+// import 'package:my_app/news/model/news_data_model.dart';
 import 'package:my_app/news/widget/news_appbar_widget.dart';
 import 'package:my_app/news/widget/news_category_widget.dart';
 import 'package:my_app/news/widget/news_featured_image.dart';
@@ -8,7 +8,7 @@ import 'package:my_app/news/widget/latest_news_tile.dart';
 import 'package:my_app/news/widget/news_bottom_navigation.dart';
 
 // const List<String> _categories = ['All news', 'Business', 'Sports', 'Tech', "Science"]; //list of categories in navigation bar
-const List<Map<String, String>> _latestNewsData = [
+const List<Map<String, dynamic>> _latestNewsData = [
   {
     'imageUrl': 'assets/images/lake.jpg',
     'title': 'Awesome Trip Around the World',
