@@ -14,32 +14,30 @@ class _NewsCategoryWidgetState extends State<NewsCategoryWidget> {
   final List<Map<String,dynamic>> categoriesList = [
     {
       'title':'All news',
-      'routeName':"/all_news"
+      'routeName':"/all_news_page"
     },
     
      {
       'title':'Business',
-      'routeName':"/business_news"
+      'routeName':"/business_news_page"
      },
 
     {
       'title':'Sports',
-      'routeName':"/sports_news"
+      'routeName':"/sports_news_page"
     },
 
     {
       'title':'Tech',
-      'routeName':"/tech_news"
+      'routeName':"/tech_news_page"
     },
 
     {
       'title':"Science",
-      'routeName':"/science_news"
+      'routeName':"/science_news_page"
     },
   ];
   
-  bool cat=false;
-
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -85,7 +83,6 @@ class CatWidget extends StatelessWidget {
         Navigator.pushNamed(
           context, 
             routeName??"/");
-        
       })
       ;
   }

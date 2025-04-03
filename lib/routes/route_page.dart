@@ -5,12 +5,12 @@ import 'package:my_app/home/page/home_page.dart';
 
 // current directory for different pages of news
 
-import 'package:my_app/news/page/news_home.dart';
-import 'package:my_app/news/page/all_news_page.dart';
+import 'package:my_app/news/page/news_home_page.dart';
+import 'package:my_app/news/page/bookmarked_news_page.dart';
 import 'package:my_app/news/page/business_news_page.dart';
-import 'package:my_app/news/page/sports_news.dart';
-import 'package:my_app/news/page/tech_news.dart';
-import 'package:my_app/news/page/science_news.dart';
+import 'package:my_app/news/page/sports_news_page.dart';
+import 'package:my_app/news/page/tech_news_page.dart';
+import 'package:my_app/news/page/science_news_page.dart';
 
 import 'package:my_app/profile/page/profile_page.dart';
 import 'package:my_app/sport/page/extract_argument_screen.dart';
@@ -24,12 +24,12 @@ class AppRoute {
       "/":(context)=> HomePage(), 
       "/home":(context)=> HomePage(),
 
-      "/news":(context)=> NewsHomePage(),
-      "/all_news":(context)=> AllNewsPage(),
-      "/business_news":(context)=> BusinesNewsPage(),
-      "/sports_news":(context)=> SportsNewsPage(),
-      "/tech_news":(context)=> TechNewsPage(),
-      "/science_news":(context)=> ScienceNewsPage(),
+      "/all_news_page":(context)=> NewsHomePage(),
+      "/bookmarked_news_page":(context)=> AllNewsPage(),
+      "/business_news_page":(context)=> BusinesNewsPage(),
+      "/sports_news_page":(context)=> SportsNewsPage(),
+      "/tech_news_page":(context)=> TechNewsPage(),
+      "/science_news_page":(context)=> ScienceNewsPage(),
 
       "/weather":(context)=> WeatherPage(),
 

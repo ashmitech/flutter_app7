@@ -9,11 +9,11 @@ class AllNewsPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.red.shade800,
         foregroundColor: Colors.white,
-        title: Text("A L L  N E W S"),
+        title: Text("Y O U R   B O O K M A R K S"),
       ),
         
       body: Center(
-        child: Text('All News Here...'),
+        child: Text('All Bookmarked News Here...'),
       ),
     );
   }

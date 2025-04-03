@@ -5,7 +5,7 @@ class HomePage extends StatelessWidget {
   HomePage({super.key});
 
   final List<Map> homeData=[
-    {"prefixIcon":Icons.newspaper, "name":"N E W S ", "routeName":"/news"},
+    {"prefixIcon":Icons.newspaper, "name":"N E W S ", "routeName":"/all_news_page"},
     {"prefixIcon":Icons.format_align_justify_outlined,"name":"F O R M", "routeName":"/form", "suffixIcon":Icons.expand_circle_down_outlined},
     {"prefixIcon":Icons.sunny, "name":"W E A T H E R", "routeName":"/weather"},
     {"prefixIcon":Icons.verified_user_sharp, "name":"P R O F I L E", "routeName":"/profile"},
@@ -26,7 +26,7 @@ class HomePage extends StatelessWidget {
       ),
     
     body: 
-    
+  
     ListView.builder(
      shrinkWrap: false,
      physics: NeverScrollableScrollPhysics(),
