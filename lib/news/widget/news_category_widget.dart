@@ -37,6 +37,7 @@ class _NewsCategoryWidgetState extends State<NewsCategoryWidget> {
       'routeName':"/science_news"
     },
   ];
+  
   bool cat=false;
 
   @override
@@ -64,30 +65,6 @@ class _NewsCategoryWidgetState extends State<NewsCategoryWidget> {
   }
 }
 
-// categories.map((category) => Padding(
-            //         padding: const EdgeInsets.only(right: 10),
-            //         child: ElevatedButton(
-            //           onPressed: () {
-            //             setState(() {
-            //             });
-            //           },
-            //           style: ElevatedButton.styleFrom(
-            //             foregroundColor: category == categories.first
-            //                 ? Colors.white
-            //                 : Colors.black,
-            //             backgroundColor: category == categories.first
-            //                 ? Color.fromARGB(255, 178, 18, 7)
-            //                 : Colors.grey[200],
-            //             shape: RoundedRectangleBorder(
-            //               borderRadius: BorderRadius.circular(20),
-            //             ),
-            //           ),
-            //           child: Text(category),
-            //         ),
-            //       ),
-            //       )
-            //   .toList(),
-
 class CatWidget extends StatelessWidget {
   const CatWidget({
       super.key,
@@ -113,3 +90,28 @@ class CatWidget extends StatelessWidget {
       ;
   }
 }
+
+
+// categories.map((category) => Padding(
+            //         padding: const EdgeInsets.only(right: 10),
+            //         child: ElevatedButton(
+            //           onPressed: () {
+            //             setState(() {
+            //             });
+            //           },
+            //           style: ElevatedButton.styleFrom(
+            //             foregroundColor: category == categories.first
+            //                 ? Colors.white
+            //                 : Colors.black,
+            //             backgroundColor: category == categories.first
+            //                 ? Color.fromARGB(255, 178, 18, 7)
+            //                 : Colors.grey[200],
+            //             shape: RoundedRectangleBorder(
+            //               borderRadius: BorderRadius.circular(20),
+            //             ),
+            //           ),
+            //           child: Text(category),
+            //         ),
+            //       ),
+            //       )
+            //   .toList(),
