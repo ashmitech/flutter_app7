@@ -12,6 +12,7 @@ class NewsCategoryWidget extends StatefulWidget {
 
 class _NewsCategoryWidgetState extends State<NewsCategoryWidget> {
   final List<String> categories = ['All news', 'Business', 'Sports', 'Tech', "Science"];
+  bool categoryClicked=false;
 
   @override
   Widget build(BuildContext context) {
@@ -19,12 +20,15 @@ class _NewsCategoryWidgetState extends State<NewsCategoryWidget> {
       scrollDirection: Axis.horizontal,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Row(
-          children: categories
-              .map((category) => Padding(
+        child: 
+        Row(
+          children: 
+            categories.map((category) => Padding(
                     padding: const EdgeInsets.only(right: 10),
                     child: ElevatedButton(
                       onPressed: () {
+                        setState(() {
+                        });
                       },
                       style: ElevatedButton.styleFrom(
                         foregroundColor: category == categories.first
@@ -42,8 +46,14 @@ class _NewsCategoryWidgetState extends State<NewsCategoryWidget> {
                   ),
                   )
               .toList(),
+ 
+          
+                         
+              
         ),
+
       ),
+      
     );
   }
 }
