@@ -11,7 +11,32 @@ class NewsCategoryWidget extends StatefulWidget {
 }
 
 class _NewsCategoryWidgetState extends State<NewsCategoryWidget> {
-  final List<String> categories = ['All news', 'Business', 'Sports', 'Tech', "Science"];
+  final List<Map<String,dynamic>> categoriesList = [
+    {
+      'title':'All news',
+      'routeName':"/all_news"
+    },
+    
+     {
+      'title':'Business',
+      'routeName':"/business_news"
+     },
+
+    {
+      'title':'Sports',
+      'routeName':"/sports_news"
+    },
+
+    {
+      'title':'Tech',
+      'routeName':"/tech_news"
+    },
+
+    {
+      'title':"Science",
+      'routeName':"/science_news"
+    },
+  ];
   bool cat=false;
 
   @override
@@ -21,11 +46,25 @@ class _NewsCategoryWidgetState extends State<NewsCategoryWidget> {
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: 
-        Row(
-          children: [
-            CatWidget(),
-          ],
-            // categories.map((category) => Padding(
+
+        ListView.builder(
+          itemCount: categoriesList.length,
+          itemBuilder: (context,index){
+            return 
+              Row(children: [
+                CatWidget(
+                  title: categoriesList[index]['title']??'all news',
+                  routeName: categoriesList[index]['/all_news']??'/',
+                )
+              ],
+            );
+          }),
+      ),
+    );
+  }
+}
+
+// categories.map((category) => Padding(
             //         padding: const EdgeInsets.only(right: 10),
             //         child: ElevatedButton(
             //           onPressed: () {
@@ -48,26 +87,29 @@ class _NewsCategoryWidgetState extends State<NewsCategoryWidget> {
             //       ),
             //       )
             //   .toList(),
-        ),
-      ),
-    );
-  }
-}
 
-class CatWidget extends StatefulWidget {
-  const CatWidget({super.key});
+class CatWidget extends StatelessWidget {
+  const CatWidget({
+      super.key,
+      required this.title,
+      required this.routeName
+    });
+  final String?title;
+  final String?routeName;
 
-  @override
-  State<CatWidget> createState() => _CatWidgetState();
-}
+  final int number=0;
 
-class _CatWidgetState extends State<CatWidget> {
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: (){
 
-      },
-      child: Text('CLick Me'));
+    return ElevatedButton(
+      child: Text(title??'All News'),
+      onPressed: (){
+        Navigator.pushNamed(
+          context, 
+            routeName??"/");
+        
+      })
+      ;
   }
 }
