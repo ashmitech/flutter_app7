@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
     {"prefixIcon":Icons.sunny, "name":"W E A T H E R", "routeName":"/weather"},
     {"prefixIcon":Icons.verified_user_sharp, "name":"P R O F I L E", "routeName":"/profile"},
     {"prefixIcon":Icons.sports_soccer, "name":"S P O R T S", "routeName":"/sports"},
-    {"prefixIcon":Icons.layers_outlined, "name":"F L U T T E R  L A Y O U T ", "routeName":"/flutterlayout"},
+    {"prefixIcon":Icons.layers_outlined, "name":"F L U T T E R   L A Y O U T ", "routeName":"/flutterlayout"},
 
   ];
      
