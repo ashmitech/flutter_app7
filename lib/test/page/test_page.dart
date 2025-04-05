@@ -6,15 +6,12 @@ class TestPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-        Text("String"),
-        Text("String"),
-        Text("String"),
-        Text("String"),
-        ],
-
+      appBar: AppBar(
+        title:Text("Test Page")
+      ),
+      body: const Center(
+        child: 
+        Text("Test Navigation Page"),
       ),
     );
   }

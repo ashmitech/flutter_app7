@@ -20,7 +20,9 @@ class HomeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
   return
     Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 8),
+      padding: const EdgeInsets.symmetric(
+        horizontal: 20.0,
+         vertical: 8),
       child: SizedBox(
         width: double.infinity,
         child: 
@@ -37,10 +39,13 @@ class HomeWidget extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Icon(prefixIcon??Icons.circle, color: Colors.white,),
-                      SizedBox(width: 8,
+                      Icon(prefixIcon??Icons.circle,
+                       color: Colors.white,),
+                      SizedBox(
+                        width: 8,
                         ),
-                      Text(name ?? 'H O M E',
+                      Text(
+                        name ?? 'H O M E',
                         style: TextStyle(
                           color:Colors.white,
                           fontSize: 16,
@@ -48,7 +53,10 @@ class HomeWidget extends StatelessWidget {
                         ),
                     ],
                   ),
-                  Icon(suffixIcon??Icons.expand_circle_down_outlined, color: Colors.white,),
+                  Icon(
+                    suffixIcon
+                    ??Icons.expand_circle_down_outlined,
+                     color: Colors.white,),
                 ],
               )   
             ),

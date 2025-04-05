@@ -1,18 +1,27 @@
-class NewsDataModel {
-  String title;
-  String description;
-  String image;
-  String publishedAt;
-  String ?author="Anonymous";
-  String ?activeReader="1.5 M";
+class NewsDataModel{
+  final String? author;
+  final String? title;
+  final String? description;
+  final String? urlToImage;
+  final String? publishedAt;
 
-  NewsDataModel({
-    required this.title,
-    required this.description,
-    required this.publishedAt,
-    required this.image,
+NewsDataModel(
+  {
     this.author,
-    this.activeReader,
-  });
-}
+    this.title,
+    this.description,
+    this.urlToImage,
+    this.publishedAt,
+  }
+);
 
+factory NewsDataModel.fromJson(Map<String, dynamic> json){
+  return NewsDataModel(
+    author: json['author'],
+    title: json['title'],
+    description: json['description'],
+    urlToImage: json['urlToImage'],
+    publishedAt: json['publishedAt'],
+  );
+}
+}

@@ -12,16 +12,19 @@ const List<Map<String, dynamic>> _latestNewsData = [
     'title': 'Awesome Trip Around the World',
     'time': '4 hours ago',
   },
+
   {
     'imageUrl': 'assets/images/lake.jpg',
     'title': 'The Best Philosophy Locations',
     'time': '1 day ago',
   },
+
   {
     'imageUrl': 'assets/images/lake.jpg',
     'title': 'Another Interesting Article',
     'time': '2 days ago',
   },
+
   {
     'imageUrl': 'assets/images/lake.jpg',
     'title': 'Breaking Development in Technology',

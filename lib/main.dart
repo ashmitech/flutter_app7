@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
         primaryColor: const Color.fromARGB(255, 228, 145, 19)
       ),
+      initialRoute: '/',
       routes: AppRoute.routes,
     );
   }
