@@ -32,11 +32,12 @@ dependencies:
     sdk: flutter
 
   smooth_page_indicator: ^1.2.1
-  dio: ^5.8.0
+  dio: ^5.8.0+1
   url_launcher: ^6.2.6
   open_file: ^3.5.10
   file_picker: ^10.0.0
   carousel_slider: ^5.0.0
+  cached_network_image: ^3.4.1
 
 
   # The following adds the Cupertino Icons font to your application.
