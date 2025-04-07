@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/tourism/widget/tourism_layout_widget/button_layout_widget.dart';
 import 'package:my_app/tourism/widget/tourism_layout_widget/image_section_widget.dart';
 import 'package:my_app/tourism/widget/tourism_layout_widget/title_layout_widget.dart';
+import 'package:my_app/tourism/widget/tourism_layout_widget/button_layout_widget.dart';
 import 'package:my_app/tourism/widget/tourism_layout_widget/text_section_widget.dart';
 
 class TourismPage extends StatelessWidget {
@@ -9,7 +9,7 @@ class TourismPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const String appTitle = 'Tourism Application Demo';
+    const String appTitle = 'Visit Switzerland';
     return 
       Scaffold(
         appBar: 
@@ -19,10 +19,12 @@ class TourismPage extends StatelessWidget {
         const SingleChildScrollView(
           child: Column(
             children: [
-                ImageSection(image: 'images/assets/lake.jpg'),
+                ImageSection(
+                  image: 'assets/images/lake.jpg'
+                  ),
                 TitleSection(
-                name: 'Oeschinen Lake Campground',
-                location: 'Kandersteg, Switzerland',
+                  name: 'Oeschinen Lake Campground',
+                  location: 'Kandersteg, Switzerland',
                 ),
                 ButtonSection(),
                 TextSection(
