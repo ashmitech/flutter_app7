@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/weather/widget/feature_widget.dart' show WeatherForecastWidget; 
-import 'package:url_launcher/url_launcher.dart' show launchUrl;
+// import 'package:url_launcher/url_launcher.dart' show launchUrl;
 
 class WeatherPage extends StatefulWidget {
   const WeatherPage({super.key});
@@ -160,7 +160,7 @@ class _WeatherPageState extends State<WeatherPage> {
                       child: Text("Source: The Weather Channel",
                         style:TextStyle(color: Colors.white, fontStyle: FontStyle.italic),),
                       onTap:() {
-                        launchUrl(Uri.parse('https://weather.com'));
+                        // launchUrl(Uri.parse('https://weather.com'));
                       }
                       ,
                     ),
