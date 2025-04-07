@@ -13,7 +13,8 @@ class ImageSection extends StatelessWidget {
     return 
     Image.asset(
       image,
-      width:600, height:240, 
+      width:600, 
+      height:240, 
       fit: BoxFit.cover);
   }
 }

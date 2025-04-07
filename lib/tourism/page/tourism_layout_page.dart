@@ -4,15 +4,17 @@ import 'package:my_app/tourism/widget/tourism_layout_widget/image_section_widget
 import 'package:my_app/tourism/widget/tourism_layout_widget/title_layout_widget.dart';
 import 'package:my_app/tourism/widget/tourism_layout_widget/text_section_widget.dart';
 
-class FlutterLayoutDemo extends StatelessWidget {
-  const FlutterLayoutDemo({super.key});
+class TourismPage extends StatelessWidget {
+  const TourismPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    const String appTitle = 'Some Beautiful Places';
+    const String appTitle = 'Tourism Application Demo';
     return 
       Scaffold(
-        appBar: AppBar(title: const Text(appTitle), centerTitle: true,),
+        appBar: 
+        AppBar(title: const Text(appTitle), 
+              centerTitle: true,),
         body: 
         const SingleChildScrollView(
           child: Column(
