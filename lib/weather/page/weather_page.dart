@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/weather/widget/feature_widget.dart' show WeatherForecastWidget; 
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher.dart' show launchUrl;
 
 class WeatherPage extends StatefulWidget {
   const WeatherPage({super.key});

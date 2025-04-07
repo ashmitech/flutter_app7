@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/flutter_layout/widget/button_layout_widget.dart';
-import 'package:my_app/flutter_layout/widget/image_section_widget.dart';
-import 'package:my_app/flutter_layout/widget/title_layout_widget.dart';
-import 'package:my_app/flutter_layout/widget/text_section_widget.dart';
+import 'package:my_app/tourism/widget/tourism_layout_widget/button_layout_widget.dart';
+import 'package:my_app/tourism/widget/tourism_layout_widget/image_section_widget.dart';
+import 'package:my_app/tourism/widget/tourism_layout_widget/title_layout_widget.dart';
+import 'package:my_app/tourism/widget/tourism_layout_widget/text_section_widget.dart';
 
 class FlutterLayoutDemo extends StatelessWidget {
   const FlutterLayoutDemo({super.key});

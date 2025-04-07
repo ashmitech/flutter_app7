@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/flutter_layout/page/flutter_layout_page.dart';
+import 'package:my_app/tourism/page/tourism_layout_page.dart';
 import 'package:my_app/form/page/form_page.dart';
 import 'package:my_app/home/page/home_page.dart';
 
@@ -14,7 +14,8 @@ import 'package:my_app/sport/page/sports_detail_page.dart';
 
 class AppRoute {
   static Map<String, WidgetBuilder> routes = {
-      "/":(context)=> HomePage(), //current direcotry 
+      "/":(context)=>TourismPage(), 
+      //HomePage(), //current direcotry 
       "/home":(context)=> HomePage(),
 
       "/news":(context)=> NewsHomePage(),
@@ -31,7 +32,7 @@ class AppRoute {
       
       "/form":(context)=>MyCustomForm(),
 
-      "/flutterlayout":(context)=>FlutterLayoutDemo(),
+      // "/flutterlayout":(context)=>FlutterLayoutDemo(),
 
     };
   }

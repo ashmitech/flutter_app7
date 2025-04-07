@@ -12,7 +12,7 @@ class TitleSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:EdgeInsets.all(32),
+      padding:const EdgeInsets.all(32),
       child: Row(
         children: [
           Expanded(
@@ -33,8 +33,7 @@ class TitleSection extends StatelessWidget {
               ],
             ),
           ),
-          Icon(Icons.star, color: Colors.red[500]),
-          const Text('41'),
+          const FavouriteWidget(),
         ],
       ),
       // Icon(Icons.star, color:Colors.red.shade800),
