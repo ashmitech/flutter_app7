@@ -14,7 +14,9 @@ import 'package:my_app/sport/page/sports_detail_page.dart';
 
 class AppRoute {
   static Map<String, WidgetBuilder> routes = {
-      "/":(context)=>TourismPage(), 
+      "/":(context)=>SharedPreferencePage(), 
+      
+      // "/":(context)=>TourismPage(), 
       //HomePage(), //current direcotry 
       "/home":(context)=> HomePage(),
 
