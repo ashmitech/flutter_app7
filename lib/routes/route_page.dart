@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_app/tourism/page/tourism_layout_page.dart';
 import 'package:my_app/form/page/form_page.dart';
 import 'package:my_app/home/page/home_page.dart';
-
-import 'package:my_app/news/pages/1home_page.dart'; // current directory
-
+import 'package:my_app/news/pages/test_home_page.dart'; // current directory
 import 'package:my_app/profile/page/profile_page.dart';
 import 'package:my_app/sport/page/extract_argument_screen.dart';
 import 'package:my_app/sport/page/sports_page.dart';
@@ -14,7 +12,7 @@ import 'package:my_app/sport/page/sports_detail_page.dart';
 
 class AppRoute {
   static Map<String, WidgetBuilder> routes = {
-      "/":(context)=>NewsHomePage(), 
+      "/":(context)=>HomePage(), 
       
       "/tourism":(context)=>TourismPage(), 
       //HomePage(), //current direcotry 
