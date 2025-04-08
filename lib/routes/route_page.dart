@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/tourism/page/shared_preference_page.dart';
 import 'package:my_app/tourism/page/tourism_layout_page.dart';
 import 'package:my_app/form/page/form_page.dart';
 import 'package:my_app/home/page/home_page.dart';
@@ -16,8 +17,8 @@ class AppRoute {
   static Map<String, WidgetBuilder> routes = {
       "/":(context)=>SharedPreferencePage(), 
       
-      // "/":(context)=>TourismPage(), 
-      //HomePage(), //current direcotry 
+      "/tourism":(context)=>TourismPage(), 
+      //HomePage(), //default direcotry 
       "/home":(context)=> HomePage(),
 
       "/news":(context)=> NewsHomePage(),
