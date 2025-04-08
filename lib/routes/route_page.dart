@@ -3,7 +3,7 @@ import 'package:my_app/tourism/page/tourism_layout_page.dart';
 import 'package:my_app/form/page/form_page.dart';
 import 'package:my_app/home/page/home_page.dart';
 
-import 'package:my_app/news/page/news_home.dart'; // current directory
+import 'package:my_app/news/pages/home_page.dart'; // current directory
 
 import 'package:my_app/profile/page/profile_page.dart';
 import 'package:my_app/sport/page/extract_argument_screen.dart';
