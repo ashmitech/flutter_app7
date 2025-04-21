@@ -8,7 +8,7 @@
             android:exported="true"
             android:launchMode="singleTop"
             android:taskAffinity=""
-            android:theme="@style/LaunchTheme"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" 
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize">
@@ -32,6 +32,11 @@
             android:value="2" />
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:label="my_app"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        android:icon="@mipmap/ic_launcher"> 
 
     <!-- Required to query activities that can process text, see:
          https://developer.android.com/training/package-visibility and

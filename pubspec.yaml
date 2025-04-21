@@ -47,6 +47,10 @@ dependencies:
   path: ^1.9.1
   http: ^1.3.0
 
+  #esewa dependency
+  esewa_flutter_sdk:
+    path: ./esewa_flutter_sdk
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

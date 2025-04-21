@@ -17,7 +17,6 @@ class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
 
   List<int> bookmarkedItems = [];
-
   late List<Widget> _pages;
 
   @override
@@ -51,8 +50,8 @@ class _HomePageState extends State<HomePage> {
         style: TextStyle(color: Colors.white,
          fontWeight: FontWeight.bold)),
         centerTitle: true,
-        
       ),
+
       bottomNavigationBar: CustomBottomNav(
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
