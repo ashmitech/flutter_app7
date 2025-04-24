@@ -37,6 +37,7 @@
         android:label="my_app"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:icon="@mipmap/ic_launcher"> 
+    </application>    
 
     <!-- Required to query activities that can process text, see:
          https://developer.android.com/training/package-visibility and
