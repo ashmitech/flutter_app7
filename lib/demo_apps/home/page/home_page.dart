@@ -6,19 +6,20 @@ class kHomePage extends StatelessWidget {
   kHomePage({super.key});
 
   final List<Map> homeData=[
-    {"prefixIcon":Icons.newspaper, "name":"N E W S ", "routeName":"/news-home"},
-    {"prefixIcon":Icons.format_align_justify_outlined,"name":"F O R M", "routeName":"/form", "suffixIcon":Icons.expand_circle_down_outlined},
-    {"prefixIcon":Icons.sunny, "name":"W E A T H E R", "routeName":"/weather"},
-    {"prefixIcon":Icons.verified_user_sharp, "name":"P R O F I L E", "routeName":"/profile"},
-    {"prefixIcon":Icons.sports_soccer, "name":"S P O R T S", "routeName":"/sports"},
-    {"prefixIcon":Icons.layers_outlined, "name":"T O U R I S M ", "routeName":"/tourism"},
+    {"prefixIcon":Icons.layers_outlined, "name":"Flutter Layout", "routeName":"/tourism"},
+    {"prefixIcon":Icons.sunny, "name":"Weather Application", "routeName":"/weather"},
+    {"prefixIcon":Icons.format_align_justify_outlined,"name":"Login/Registration Form", "routeName":"/form", "suffixIcon":Icons.expand_circle_down_outlined},
+    {"prefixIcon":Icons.verified_user_sharp, "name":"Profile Application", "routeName":"/profile"},
+    {"prefixIcon":Icons.newspaper, "name":"News Application", "routeName":"/news-home"},
+    {"prefixIcon":Icons.sports_soccer, "name":"Sports Application", "routeName":"/sports"},
+
   ];
      
   @override
   Widget build(BuildContext context) {
     return Scaffold(
     appBar: AppBar(
-        title: Text(" A P P L I C A T I O N S ",style: TextStyle(fontWeight: FontWeight.bold),
+        title: Text(" Flutter Apps Demo ",style: TextStyle(fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
         backgroundColor: Colors.blue.shade600,
