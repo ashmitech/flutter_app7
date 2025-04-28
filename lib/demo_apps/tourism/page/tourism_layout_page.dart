@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/demo%20apps/tourism/widget/tourism_layout_widget/image_section_widget.dart';
-import 'package:my_app/demo%20apps/tourism/widget/tourism_layout_widget/title_layout_widget.dart';
-import 'package:my_app/demo%20apps/tourism/widget/tourism_layout_widget/button_layout_widget.dart';
-import 'package:my_app/demo%20apps/tourism/widget/tourism_layout_widget/text_section_widget.dart';
+import 'package:my_app/demo_apps/tourism/widget/tourism_layout_widget/image_section_widget.dart';
+import 'package:my_app/demo_apps/tourism/widget/tourism_layout_widget/title_layout_widget.dart';
+import 'package:my_app/demo_apps/tourism/widget/tourism_layout_widget/button_layout_widget.dart';
+import 'package:my_app/demo_apps/tourism/widget/tourism_layout_widget/text_section_widget.dart';
 
 class TourismPage extends StatelessWidget {
   const TourismPage({super.key});

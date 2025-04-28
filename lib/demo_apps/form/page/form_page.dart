@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/demo%20apps/form/page/registration_form.dart';
+import 'package:my_app/demo_apps/form/page/registration_form.dart';
 
 class MyCustomForm extends StatefulWidget {
   const MyCustomForm({super.key});

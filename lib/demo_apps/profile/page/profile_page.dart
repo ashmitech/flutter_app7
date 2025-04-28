@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/demo%20apps/profile/widget/profile_widget.dart' show ProfileWidget;
+import 'package:my_app/demo_apps/profile/widget/profile_widget.dart' show ProfileWidget;
 
 class ProfilePage extends StatelessWidget {
   ProfilePage({super.key});

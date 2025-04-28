@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/demo%20apps/weather/widget/feature_widget.dart' show WeatherForecastWidget; 
+import 'package:my_app/demo_apps/weather/widget/feature_widget.dart' show WeatherForecastWidget; 
 // import 'package:url_launcher/url_launcher.dart' show launchUrl;
 
 class WeatherPage extends StatefulWidget {
