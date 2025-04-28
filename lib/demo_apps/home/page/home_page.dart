@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/demo_apps/home/widget/home_widget.dart';
 
-class HomePage extends StatelessWidget {
-  HomePage({super.key});
+// ignore: camel_case_types
+class kHomePage extends StatelessWidget {
+  kHomePage({super.key});
 
   final List<Map> homeData=[
     {"prefixIcon":Icons.newspaper, "name":"N E W S ", "routeName":"/news-home"},
