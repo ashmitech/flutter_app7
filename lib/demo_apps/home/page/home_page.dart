@@ -8,11 +8,10 @@ class kHomePage extends StatelessWidget {
   final List<Map> homeData=[
     {"prefixIcon":Icons.layers_outlined, "name":"Flutter Layout", "routeName":"/tourism"},
     {"prefixIcon":Icons.sunny, "name":"Weather Application", "routeName":"/weather"},
-    {"prefixIcon":Icons.format_align_justify_outlined,"name":"Login/Registration Form", "routeName":"/form", "suffixIcon":Icons.expand_circle_down_outlined},
+    {"prefixIcon":Icons.format_align_justify_outlined,"name":"Login/Registration Form", "routeName":"/login_form", "suffixIcon":Icons.expand_circle_down_outlined},
     {"prefixIcon":Icons.verified_user_sharp, "name":"Profile Application", "routeName":"/profile"},
     {"prefixIcon":Icons.newspaper, "name":"News Application", "routeName":"/news-home"},
     {"prefixIcon":Icons.sports_soccer, "name":"Sports Application", "routeName":"/sports"},
-
   ];
      
   @override
@@ -25,9 +24,7 @@ class kHomePage extends StatelessWidget {
         backgroundColor: Colors.blue.shade600,
         foregroundColor: Colors.white,
       ),
-    
     body: 
-    
     ListView.builder(
      shrinkWrap: false,
      physics: NeverScrollableScrollPhysics(),
