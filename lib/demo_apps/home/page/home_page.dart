@@ -10,7 +10,7 @@ class kHomePage extends StatelessWidget {
     {"prefixIcon":Icons.sunny, "name":"Weather Application", "routeName":"/weather"},
     {"prefixIcon":Icons.format_align_justify_outlined,"name":"Login/Registration Form", "routeName":"/login_form", "suffixIcon":Icons.expand_circle_down_outlined},
     {"prefixIcon":Icons.verified_user_sharp, "name":"Profile Application", "routeName":"/profile"},
-    {"prefixIcon":Icons.newspaper, "name":"News Application", "routeName":"/news-home"},
+    {"prefixIcon":Icons.newspaper, "name":"News Application", "routeName":"/news_home"},
     {"prefixIcon":Icons.sports_soccer, "name":"Sports Application", "routeName":"/sports"},
   ];
      
