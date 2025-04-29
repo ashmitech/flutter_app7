@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/news/widgets/first_row_widget.dart';
-import 'package:my_app/news/widgets/second_row_widget.dart';
-import 'package:my_app/news/widgets/third_row_widget.dart';
+import 'package:my_app/news_apps/widgets/first_row_widget.dart';
+import 'package:my_app/news_apps/widgets/second_row_widget.dart';
+import 'package:my_app/news_apps/widgets/third_row_widget.dart';
 // import 'package:full_news_app/repository/network_request.dart';
 
 class MainHomePage extends StatelessWidget {

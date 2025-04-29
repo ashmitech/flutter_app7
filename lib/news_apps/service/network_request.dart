@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:my_app/news/models/article_model.dart';
+import 'package:my_app/news_apps/models/article_model.dart';
 
 Future<List<Articles>> fetchArticles() async {
   try {

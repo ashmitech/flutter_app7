@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-
-import 'package:my_app/news/screens/main_home_page.dart';
-import 'package:my_app/news/screens/search_page.dart';
-import 'package:my_app/news/screens/bookmark_page.dart';
-import 'package:my_app/news/screens/settings_page.dart';
+import 'package:my_app/news_apps/screens/main_home_page.dart';
+import 'package:my_app/news_apps/screens/search_page.dart';
+import 'package:my_app/news_apps/screens/bookmark_page.dart';
+import 'package:my_app/news_apps/screens/settings_page.dart';
 
 import 'navigation/custom_bottom_nav.dart' show CustomBottomNav;
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class NewsHomePage extends StatefulWidget {
+  const NewsHomePage({super.key});
   @override
-  State<StatefulWidget> createState() => _HomePageState();
+  State<StatefulWidget> createState() => _NewsHomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _NewsHomePageState extends State<NewsHomePage> {
   int _selectedIndex = 0;
 
   List<int> bookmarkedItems = [];

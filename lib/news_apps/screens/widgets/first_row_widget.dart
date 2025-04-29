@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/news/models/article_model.dart';
-import 'package:my_app/news/services/api_service.dart';
+import 'package:my_app/news_apps/models/article_model.dart';
+import 'package:my_app/news_apps/services/api_service.dart';
 
 class FirstRowWidget extends StatefulWidget {
   const FirstRowWidget({super.key});

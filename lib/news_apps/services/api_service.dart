@@ -1,10 +1,13 @@
 import 'package:dio/dio.dart';
-import 'package:my_app/news/models/article_model.dart';
+import 'package:my_app/news_apps/core/constants.dart';
+import 'package:my_app/news_apps/models/article_model.dart';
 
 Future<List<Articles>> fetchArticles() async {
+final String url= "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=$newsApiKey";
+
   try {
     final response = await Dio().get(
-      "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=6d1d37bcbdbf478da80c1b55b9f4a4f3"
+      url
     );
     print("Response Status Code: ${response.statusCode}");
     print("Response Data: ${response.data}");

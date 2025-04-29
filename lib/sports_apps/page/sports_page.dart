@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/sports/widget/sport_widget.dart';
+import 'package:my_app/sports_apps/widget/sport_widget.dart';
 
 class SportPage extends StatelessWidget {
   SportPage({

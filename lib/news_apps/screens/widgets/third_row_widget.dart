@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/news/services/api_service.dart';
+import 'package:my_app/news_apps/services/api_service.dart';
 
 class ThirdRowWidget extends StatefulWidget {
   const ThirdRowWidget({super.key});
