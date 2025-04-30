@@ -1,6 +1,8 @@
 # my_app
 
 A new Flutter Application Demo Project.
+BroadWay InfoSys
+
 version 1.1 Basic Layout if Flutter Application
 
 ## Getting Started
