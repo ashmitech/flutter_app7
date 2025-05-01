@@ -20,7 +20,7 @@ class SecondRowWidget extends StatelessWidget {
                           // color: Colors.red,
                           child: Row(
                             children: [
-                              Text("25".toUpperCase(),style: TextStyle(
+                              Text("24".toUpperCase(),style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 100,
                                   fontWeight: FontWeight.bold,
@@ -33,13 +33,13 @@ class SecondRowWidget extends StatelessWidget {
                       ],
                           ),
                         ),
-                        Text("cloudy ".toUpperCase(),style:TextStyle(
+                        Text("sunny ".toUpperCase(),style:TextStyle(
                               color:Colors.white,
                               fontSize: 20, 
                             )
                             ),
                         SizedBox(width: 5,),
-                        Text("22°/27°".toUpperCase(),style:TextStyle(
+                        Text("22°/25°".toUpperCase(),style:TextStyle(
                             color:Colors.white,
                             fontSize:20,
                           ),
