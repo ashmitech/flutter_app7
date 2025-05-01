@@ -5,7 +5,8 @@ class ProfilePage extends StatelessWidget {
   ProfilePage({super.key});
 
   final List<Map> profileData =[
-    {"title":"Favrorite", "icon":Icon(Icons.favorite_outline)},
+    {"title":"Favrorite",
+     "icon":Icon(Icons.favorite_outline)},
     {"title":"Download", "icon":Icon(Icons.download)},
     {"title":"Language", "icon":Icon(Icons.language)},
     {"title":"Location", "icon":Icon(Icons.location_on_outlined)},
@@ -34,7 +35,7 @@ class ProfilePage extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal:20.0),
-            child: Icon(Icons.settings,),
+            child: Icon(Icons.menu,),
           )],
           centerTitle: true,
       ),

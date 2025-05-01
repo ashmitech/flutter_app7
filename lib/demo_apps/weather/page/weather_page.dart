@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/demo_apps/profile/page/profile_page.dart';
 import 'package:my_app/demo_apps/weather/widget/first_row_widget.dart' show FirstRowWidget;
 import 'package:my_app/demo_apps/weather/widget/fourth_row_widget.dart' show FourthRowWidget;
 import 'package:my_app/demo_apps/weather/widget/second_row_widget.dart' show SecondRowWidget;
@@ -26,7 +27,22 @@ class _WeatherPageState extends State<WeatherPage> {
         centerTitle: true,
         backgroundColor: Colors.blue.shade700,
         foregroundColor: Colors.white,
-
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: 
+            //TODO: check if user islogged in
+            //if user is logged in then go to profile page else go to login page
+            InkWell(
+              child:Icon(Icons.verified_user_outlined),
+              onDoubleTap:(){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context)=>ProfilePage()));
+              }
+            ),
+          ),
+        ],
       ),
       body: 
       ListView(
