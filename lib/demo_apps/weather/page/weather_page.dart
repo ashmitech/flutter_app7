@@ -4,7 +4,8 @@ import 'package:my_app/demo_apps/weather/widget/first_row_widget.dart' show Firs
 import 'package:my_app/demo_apps/weather/widget/fourth_row_widget.dart' show FourthRowWidget;
 import 'package:my_app/demo_apps/weather/widget/second_row_widget.dart' show SecondRowWidget;
 import 'package:my_app/demo_apps/weather/widget/third_row_widget.dart' show ThirdRowWidget; 
-// import 'package:url_launcher/url_launcher.dart' show launchUrl;
+
+import 'package:url_launcher/url_launcher.dart';
 
 class WeatherPage extends StatefulWidget {
   const WeatherPage({super.key});
@@ -67,8 +68,8 @@ class _WeatherPageState extends State<WeatherPage> {
                         InkWell(
                       child: Text("Source: The Weather Channel",
                         style:TextStyle(color: Colors.white, fontStyle: FontStyle.italic),),
-                      onTap:() {
-                        // launchUrl(Uri.parse('https://weather.com'));
+                      onDoubleTap:() {
+                        _launchURL();
                       }
                       ,
                     ),
@@ -81,5 +82,13 @@ class _WeatherPageState extends State<WeatherPage> {
         ],
       ),
     );
+  }
+}
+void _launchURL() async {
+  final Uri url = Uri.parse('https://example.com');
+  if (await canLaunchUrl(url)) {
+    await launchUrl(url, mode: LaunchMode.externalApplication);
+  } else {
+    throw 'Could not launch $url';
   }
 }
