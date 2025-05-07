@@ -26,7 +26,7 @@ class _NewsHomePageState extends State<NewsHomePage> {
       SearchPage(),
       BookmarkPage(
         bookmarkedItems: bookmarkedItems,
-      ), // Now accessed inside initState
+      ), 
       SettingsPage(),
     ];
   }
@@ -61,4 +61,3 @@ class _NewsHomePageState extends State<NewsHomePage> {
   }
 }
 
-//The issue is that you are trying to initialize _pages with bookmarkedItems, but bookmarkedItems is an instance variable, and instance variables cannot be accessed directly during initialization.

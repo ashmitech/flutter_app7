@@ -70,7 +70,6 @@ class ProfilePage extends StatelessWidget {
                           child:
                           Container( decoration: const BoxDecoration(color: Colors.white),
                            child:Icon(Icons.camera_alt_outlined, )),),
-                          
                         ),
                         ),
                         

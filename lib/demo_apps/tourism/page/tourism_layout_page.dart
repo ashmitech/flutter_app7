@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/demo_apps/form/page/login_form_page.dart';
+import 'package:my_app/demo_apps/profile/page/profile_page.dart';
 import 'package:my_app/demo_apps/tourism/widget/tourism_layout_widget/image_section_widget.dart';
 import 'package:my_app/demo_apps/tourism/widget/tourism_layout_widget/title_layout_widget.dart';
 import 'package:my_app/demo_apps/tourism/widget/tourism_layout_widget/button_layout_widget.dart';
 import 'package:my_app/demo_apps/tourism/widget/tourism_layout_widget/text_section_widget.dart';
 import 'package:my_app/demo_apps/weather/page/weather_page.dart';
+
+// import 'package:path/path.dart';
 
 class TourismPage extends StatelessWidget {
   const TourismPage({super.key});
@@ -18,21 +22,27 @@ class TourismPage extends StatelessWidget {
               centerTitle: true,
               backgroundColor: Colors.red[700],
               foregroundColor: Colors.white,
-              actions: [
+              actions:[
                 Padding(
                   padding: EdgeInsets.all(16.0),
                   child:
-                  InkWell(child: Icon(Icons.sunny), 
-                  onDoubleTap:(){
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder:(context)=>WeatherPage()),
-                    );
-                    
-                  })
-                  
+                  InkWell(
+                    child: UserLoggedInIcon(), 
+                    onTap:(){
+                        if(isUserLoggedIn)
+                        {
+                         MaterialPageRoute<void>(
+                          builder: (BuildContext context) => ProfilePage(),
+                          );
+                        }else{
+                          MaterialPageRoute<void>(
+                          builder: (BuildContext context) => LoginFormPage(),
+                          );
+                        }
+                       }
+                      ),
                   )
-                  ]
+                ]
               ),
 
         body: 
