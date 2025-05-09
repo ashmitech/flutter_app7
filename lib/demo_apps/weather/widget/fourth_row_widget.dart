@@ -8,19 +8,19 @@ class FourthRowWidget extends StatelessWidget {
     return 
     Column(
       children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Container(
-                        height:160,
-                        width: 450,
-                        decoration: BoxDecoration(
-                        color:Colors.white,
-                        borderRadius: BorderRadius.circular(20),
-                        ),
-                        padding:EdgeInsets.symmetric(horizontal: 25,vertical: 25),
-                        child: 
-                        FutureBuilder(
+Column(
+  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  children: [
+    Container(
+      height:160,
+      width: 450,
+      decoration: BoxDecoration(
+      color:Colors.white,
+      borderRadius: BorderRadius.circular(20),
+      ),
+      padding:EdgeInsets.symmetric(horizontal: 25,vertical: 25),
+      child: 
+      FutureBuilder(
         future: fetchDummyWeather(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
@@ -37,13 +37,16 @@ class FourthRowWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text("Location:${weather.location}",style:TextStyle(fontSize:20)),
-                
+                Text("Temperature:${weather.temperature}"),
+                Text("Condition:${weather.condition}"),
+                // Text("Range of Temperature: ${weather.condition}"),
               ],
-             ),
+            ),
             );
             }),
-          
+                            
         ),
+       
       ],
     ),
 
