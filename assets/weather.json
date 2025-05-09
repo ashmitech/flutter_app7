@@ -1,6 +1,13 @@
 {
     "location":"Kathmandu",
-    "temperature":23,
+    "temperature":22,
+    "condition":"Sunny",
+    "humidity":60,
+    "windSpeed":12
+}
+{
+    "location":"Pokhara",
+    "temperature":22,
     "condition":"Sunny",
     "humidity":60,
     "windSpeed":12
