@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.blue[700]
       ),
       routes: AppRoute.routes,
+
     );
   }
 }

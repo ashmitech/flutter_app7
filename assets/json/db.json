@@ -1,0 +1,9 @@
+{
+    "weather":{
+        "location":"Pokhara",
+        "temperature":18,
+        "condition":"Cloudy",
+        "humidity":70,
+        "windSpeed":8
+    }
+}
