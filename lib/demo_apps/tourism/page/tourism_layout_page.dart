@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/demo_apps/form/page/login_form_page.dart';
-import 'package:my_app/demo_apps/profile/page/profile_page.dart';
+// import 'package:my_app/demo_apps/form/page/login_form_page.dart';
+// import 'package:my_app/demo_apps/profile/page/profile_page.dart';
 import 'package:my_app/demo_apps/tourism/widget/tourism_layout_widget/image_section_widget.dart';
 import 'package:my_app/demo_apps/tourism/widget/tourism_layout_widget/title_layout_widget.dart';
 import 'package:my_app/demo_apps/tourism/widget/tourism_layout_widget/button_layout_widget.dart';
 import 'package:my_app/demo_apps/tourism/widget/tourism_layout_widget/text_section_widget.dart';
-import 'package:my_app/demo_apps/weather/page/weather_page.dart';
+// import 'package:my_app/demo_apps/weather/page/weather_page.dart';
 
 // import 'package:path/path.dart';
 
@@ -27,18 +27,18 @@ class TourismPage extends StatelessWidget {
                   padding: EdgeInsets.all(16.0),
                   child:
                   InkWell(
-                    child: UserLoggedInIcon(), 
+                    // child: UserLoggedInIcon(), 
                     onTap:(){
-                        if(isUserLoggedIn)
-                        {
-                         MaterialPageRoute<void>(
-                          builder: (BuildContext context) => ProfilePage(),
-                          );
-                        }else{
-                          MaterialPageRoute<void>(
-                          builder: (BuildContext context) => LoginFormPage(),
-                          );
-                        }
+                        // if(isUserLoggedIn)
+                        // {
+                        //  MaterialPageRoute<void>(
+                        //   builder: (BuildContext context) => ProfilePage(),
+                        //   );
+                        // }else{
+                        //   MaterialPageRoute<void>(
+                        //   builder: (BuildContext context) => LoginFormPage(),
+                        //   );
+                        // }
                        }
                       ),
                   )
