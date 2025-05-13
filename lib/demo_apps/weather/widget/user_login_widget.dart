@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-bool isUserLoggedIn =false;
+bool isUserLoggedIn =true;
 class UserLoginWidget extends StatelessWidget 
 {
   const UserLoginWidget(
@@ -14,6 +14,7 @@ class UserLoginWidget extends StatelessWidget
     //check login status and return the appropriate widget
     if(!isUserLoggedIn){
       return const Icon(Icons.verified_user_outlined);
+
     }else{
       return SizedBox(
         width: 40, // Circle diameter = 2 * radius

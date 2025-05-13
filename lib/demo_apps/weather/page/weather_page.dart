@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/demo_apps/weather/widget/user_login_widget.dart' show UserLoginWidget, isUserLoggedIn;
+import 'package:my_app/demo_apps/form/page/login_form_page.dart' show LoginFormPage;
 import 'package:my_app/demo_apps/profile/page/profile_page.dart';
 import 'package:my_app/demo_apps/weather/widget/fifth_row_widget.dart';
 import 'package:my_app/demo_apps/weather/widget/first_row_widget.dart' show FirstRowWidget;
@@ -35,9 +36,16 @@ class _WeatherPageState extends State<WeatherPage> {
               // login status is passed here from the user login widget
               child:UserLoginWidget(isUserLoggedIn),
               onTap:(){
-                Navigator.push(
+                if(isUserLoggedIn){
+                  Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context)=>ProfilePage()));
+                }else{
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context)=>LoginFormPage()));
+                }
+                
               }
             ),
           ),
