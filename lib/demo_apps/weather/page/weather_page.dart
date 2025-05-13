@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/demo_apps/weather/widget/user_login_widget.dart' show UserLoginWidget, isUserLoggedIn;
 import 'package:my_app/demo_apps/profile/page/profile_page.dart';
 import 'package:my_app/demo_apps/weather/widget/fifth_row_widget.dart';
 import 'package:my_app/demo_apps/weather/widget/first_row_widget.dart' show FirstRowWidget;
@@ -6,6 +7,7 @@ import 'package:my_app/demo_apps/weather/widget/second_row_widget.dart' show Sec
 import 'package:my_app/demo_apps/weather/widget/third_row_widget.dart' show ThirdRowWidget;
 import 'package:my_app/demo_apps/weather/widget/fourth_row_widget.dart' show FourthRowWidget;
 import 'package:my_app/demo_apps/weather/widget/fifth_row_widget.dart' show FifthRowWidget;
+
 
 class WeatherPage extends StatefulWidget {
   const WeatherPage({super.key});
@@ -21,7 +23,7 @@ class _WeatherPageState extends State<WeatherPage> {
     return Scaffold(
       backgroundColor: Colors.blue,
       appBar: AppBar(
-        title: Text("Weather Application "),
+        title: Text("Weather Application"),
         centerTitle: false,
         backgroundColor: Colors.blue.shade700,
         foregroundColor: Colors.white,
@@ -30,7 +32,8 @@ class _WeatherPageState extends State<WeatherPage> {
             padding: const EdgeInsets.all(8.0),
             child: 
             InkWell(
-              child:UserLoggedInIcon(),
+              // login status is passed here from the user login widget
+              child:UserLoginWidget(isUserLoggedIn),
               onTap:(){
                 Navigator.push(
                   context,
@@ -64,32 +67,3 @@ class _WeatherPageState extends State<WeatherPage> {
   }
 }
 
-bool isUserLoggedIn =true;
-class UserLoggedInIcon extends StatelessWidget 
-{
-  const UserLoggedInIcon({super.key});
-  @override
-  Widget build(BuildContext context) {
-    //check login status and return the appropriate widget
-    if(!isUserLoggedIn){
-      return const Icon(Icons.verified_user_outlined);
-    }else{
-      
-      return SizedBox(
-        width: 40, // Circle diameter = 2 * radius
-        height: 40,
-        child: 
-        ClipOval(
-          child: Center(
-            child: SizedBox(
-              width: 50, // Size of the image inside the circle
-              height: 50,
-              child: 
-              Image.asset('assets/images/profile.jpg'),
-            ),
-          ),
-        ),
-      );
-    }
-  }
-}
