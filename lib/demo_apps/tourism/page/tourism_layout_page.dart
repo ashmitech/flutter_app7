@@ -14,7 +14,7 @@ class TourismPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const String appTitle = 'Visit Switzerland';
+    const String appTitle = 'Tourism Application';
     return 
       Scaffold(
         appBar: 

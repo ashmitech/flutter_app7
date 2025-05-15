@@ -26,7 +26,7 @@ class HomeWidget extends StatelessWidget {
         child: 
           ElevatedButton(
           style: ButtonStyle(
-            backgroundColor: WidgetStateProperty.all(Colors.blueGrey), 
+            backgroundColor: WidgetStateProperty.all(Colors.brown[700]), 
           ),
           child:
           Padding(

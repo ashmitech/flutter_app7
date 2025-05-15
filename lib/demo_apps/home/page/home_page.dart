@@ -6,7 +6,7 @@ class kHomePage extends StatelessWidget {
   kHomePage({super.key});
 
   final List<Map> homeData=[
-    {"prefixIcon":Icons.layers_outlined, "name":"Flutter Layout", "routeName":"/tourism"},
+    {"prefixIcon":Icons.layers_outlined, "name":"Tourism Application", "routeName":"/tourism"},
     {"prefixIcon":Icons.sunny, "name":"Weather Application", "routeName":"/weather"},
     {"prefixIcon":Icons.format_align_justify_outlined,"name":"Login/Registration Form", "routeName":"/login_form", "suffixIcon":Icons.expand_circle_down_outlined},
     {"prefixIcon":Icons.verified_user_sharp, "name":"Profile Application", "routeName":"/profile"},
