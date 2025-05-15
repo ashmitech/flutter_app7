@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/demo_apps/home/widget/home_widget.dart';
 
-// ignore: camel_case_types
+// ignore: camel_case_types 
 class kHomePage extends StatelessWidget {
   kHomePage({super.key});
 
