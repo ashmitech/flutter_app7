@@ -8,8 +8,7 @@ import 'package:my_app/news_apps/screens/home_page.dart';
 
 class AppRoute {
   static Map<String, WidgetBuilder> routes = {
-      // "/":(context)=>kHomePage(), 
-      "/":(context)=>WeatherPage(),
+      "/":(context)=>NewsHomePage(),
       "/dashboard":(context)=>kHomePage(),
       "/tourism":(context)=>TourismPage(),
       "/weather":(context)=>WeatherPage(),
