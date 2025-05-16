@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/widgets/dropdown_widget.dart' show MyDropdown;
 import 'package:my_app/news_apps/screens/main_home_page.dart';
 import 'package:my_app/news_apps/screens/search_page.dart';
 import 'package:my_app/news_apps/screens/bookmark_page.dart';
@@ -34,7 +35,7 @@ class _NewsHomePageState extends State<NewsHomePage> {
   // Function to handle bottom navigation tap
   void _onItemTapped(int index) {
     setState(() {
-      _selectedIndex = index; // Update the selected index
+      _selectedIndex = index; 
     });
   }
 
@@ -42,13 +43,19 @@ class _NewsHomePageState extends State<NewsHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-
       appBar: AppBar(
-        backgroundColor: Colors.blue[700],
-        title: Text("News Application", 
+        backgroundColor: const Color.fromRGBO(25, 118, 210, 1),
+        title: Text("News Apps Demo", 
         style: TextStyle(color: Colors.white,
          fontWeight: FontWeight.bold)),
-        centerTitle: true,
+        centerTitle: false,
+        actions: [
+          Padding(padding: EdgeInsets.fromLTRB(0, 0, 18.0, 0), 
+          child: 
+          InkWell(onTap: () => MyDropdown(),
+          child: Icon(Icons.menu, color: Colors.white70,),)
+          )
+        ],
       ),
 
       bottomNavigationBar: CustomBottomNav(
