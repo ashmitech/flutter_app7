@@ -11,16 +11,10 @@ class _SearchPageState extends State<SearchPage> {
   final TextEditingController _searchController = TextEditingController();
 
   final List<String> _items = [
-    "Politics News",
-    "Economics News",
-    "Social News",
-    "Technology News",
-    "Environmental News",
-    "Legal News",
-    "Environemntal News",
-    "Global News",
-    "Sports News",
-    "Health News",
+    "Politics",
+    "Economics",
+    "Social",
+    "Technology",
   ];
   @override
   Widget build(BuildContext context) {
