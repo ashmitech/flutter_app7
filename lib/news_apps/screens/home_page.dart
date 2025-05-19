@@ -58,7 +58,7 @@ class _NewsHomePageState extends State<NewsHomePage> {
     builder: (BuildContext context){
       return AlertDialog(
         title: Text("Conform Logout"),
-        content: Text("Are you sure you waht to log out"),
+        content: Text("Are you sure you waht to log out?"),
         actions: [
           TextButton(
             onPressed:(){
@@ -79,7 +79,7 @@ class _NewsHomePageState extends State<NewsHomePage> {
         //if user press yes logout the screen with message on snack bar successfully logout.
         // if user press no, continue to the same screen.
       );
-          }, child: Text("Logout"),
+          }, child: Text("Yes"),
           ),
         ],
       );
