@@ -4,6 +4,7 @@ import 'package:my_app/demo_apps/form/page/registration_form_page.dart';
 
 class LoginFormPage extends StatefulWidget {
   const LoginFormPage({super.key});
+ 
   @override
   State<LoginFormPage> createState() {
     return _LoginFormPageState();
@@ -18,6 +19,8 @@ class _LoginFormPageState extends State<LoginFormPage> {
     if(!isValid){
       return;
     }else{
+      // TODO: 
+      // check login details username and password then redirect to the home page with success message
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           backgroundColor: Colors.green,

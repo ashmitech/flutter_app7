@@ -12,9 +12,6 @@ class EsewaConfig {
   });
 }
 
-// ="JB0BBQ4aD0UqIThFJwAKBgAXEUkEGQUBBAwdOgABHD4DChwUAB0R"
-// ="BhwIWQQADhIYSxILExMcAgFXFhcOBwAKBgAXEQ=="
-
 extension ConfigExt on EsewaConfig {
   Map<String, dynamic> toMap() => {
         "client_id": clientId,
