@@ -24,21 +24,28 @@ class Esewa {
         ),
 
         onPaymentSuccess: (EsewaPaymentSuccessResult result) { 
-          debugPrint("success"); },
+          debugPrint(":::SUCCESS::: "); 
+          verify(result);},
 
         onPaymentFailure: (){
-          debugPrint("failed");
+          debugPrint(":::FAILURE:::");
         },
 
         onPaymentCancellation: (){
-          debugPrint("cancelled");
+          debugPrint(":::CANCELLATION:::");
         }, 
         
         );
       
     }
-    catch(e){
-        debugPrint("please try again later");
+    on Exception catch(e){
+        debugPrint("please try again later. EXCEPTION : ${e.toString()}");
     }
   }
+
+  void verify(EsewaPaymentSuccessResult result) async{
+  //TODO: After verification
+  }
 }
+
+
