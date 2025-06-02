@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/demo_apps/form/page/login_form_page.dart';
 import 'package:my_app/demo_apps/profile/page/profile_page.dart' show ProfilePage;
+import 'package:my_app/function/esewa.dart';
 import 'package:my_app/news_apps/screens/main_home_page.dart'show MainHomePage;
 import 'package:my_app/news_apps/screens/search_page.dart' show SearchPage;
 import 'package:my_app/news_apps/screens/bookmark_page.dart' show BookmarkPage;
@@ -42,6 +43,12 @@ class _NewsHomePageState extends State<NewsHomePage> {
   // function to handle the navigation menu
   void _onMenuSelected(BuildContext context, String value){
     switch (value){
+      
+      case 'esewa':
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (_)=> ProfilePage()),
+      );
       case 'profile':
       Navigator.push(
         context,
@@ -97,8 +104,23 @@ class _NewsHomePageState extends State<NewsHomePage> {
         centerTitle: false,
         actions: [
           Padding(padding: EdgeInsets.fromLTRB(0, 0, 18.0, 0), 
-          child: MenuButtonWidget(
-            onSelected: (value) => _onMenuSelected(context, value))
+          child: 
+          Row(children: [
+            Row(children: [
+              ElevatedButton(child: const Text("eSewa"),onPressed: (){
+                Esewa esewa =Esewa();
+                esewa.pay();
+              }, 
+              ),
+              SizedBox(width: 5.0,),
+              MenuButtonWidget(
+            onSelected: (value) => _onMenuSelected(context, value)
+            )
+            ],)
+          ],)
+          // MenuButtonWidget(
+          //   onSelected: (value) => _onMenuSelected(context, value)
+          //   )
           ),
         ],
       ),
