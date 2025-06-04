@@ -3,7 +3,11 @@
 A new Flutter Application Demo Project.
 BroadWay InfoSys
 
-version 1.1 Basic Layout if Flutter Application
+version 1.1 Basic Layout of Flutter Application with appbar, text, button, image, icon, scaffold, row, column, container, sizedbox, list view, maps 
+
+# news_app
+
+version 1.2 Use of application in the News Apps Demo including navigation, profile page, edit profile, login, registration, forgot password, payment option 
 
 ## Getting Started
 
