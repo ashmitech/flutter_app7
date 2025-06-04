@@ -26,7 +26,7 @@ class MenuButtonWidget extends StatelessWidget {
       itemBuilder: (context)=>
       [
         PopupMenuItem(value: 'profile', child: Text('Profile')),
-        PopupMenuItem(value: 'logout', child: Text('Logout')),
+        PopupMenuItem(value: 'logout', child: Text('Logout')),    
       ], 
       child: UserLoginWidget(isUserLoggedIn));
   }  

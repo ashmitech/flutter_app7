@@ -16,6 +16,7 @@ class Articles {
     this.publishedAt,
     this.content,
   });
+  
   factory Articles.fromJson(Map<String, dynamic> json) {
     return Articles(
       author: json['author'],

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/demo_apps/form/page/forgot_password_page.dart';
 import 'package:my_app/demo_apps/form/page/registration_form_page.dart';
 
 class LoginFormPage extends StatefulWidget {
   const LoginFormPage({super.key});
-
+ 
   @override
   State<LoginFormPage> createState() {
     return _LoginFormPageState();
@@ -18,6 +19,8 @@ class _LoginFormPageState extends State<LoginFormPage> {
     if(!isValid){
       return;
     }else{
+      // TODO: 
+      // check login details username and password then redirect to the home page with success message
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           backgroundColor: Colors.green,
@@ -37,24 +40,6 @@ class _LoginFormPageState extends State<LoginFormPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        
-        // leading: Icon(Icons.menu),
-        // backgroundColor: Colors.white,
-        // foregroundColor: Colors.white,
-        // title: Text("Login Form",
-        //   style: TextStyle(
-        //     fontWeight: FontWeight.bold,
-        //     fontSize: 18
-        //   ),
-        // ),
-        // actions: [
-        //   Padding(
-        //     padding: const EdgeInsets.symmetric(horizontal: 10.0),
-        //     child: Icon(Icons.format_align_justify_outlined),
-        //     )
-        // ],
-        // centerTitle: true,
-
       ),
       body:
       ListView(
@@ -65,26 +50,29 @@ class _LoginFormPageState extends State<LoginFormPage> {
             padding: const EdgeInsets.all(25.0),
             child: Column(
               children: <Widget>[
-                Text("L O G I N ",
+                Text("Login Form",
                 style:TextStyle(
                   fontSize:24.0,
                   fontWeight:FontWeight.bold),
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.width*0.1,),
+                  height: MediaQuery.of(context).size.width*0.15,),
+                
                 TextFormField( decoration: InputDecoration(
-                  labelText:'E-mail'
+                  labelText:'E-mail or Phone'
                   ),
                 keyboardType: TextInputType.emailAddress,
                 validator:(value){
-                    if(value!.isEmpty|| !RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(value)){
-                      return 'Please enter a valid email address!';
-                    }
+                    if((value!.isEmpty|| !RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(value)) || (value.isEmpty || value.length>10 || value.length<10)){
+                      return 'Please enter a valid email address or phone number!';
+                    }else {
                     return null;
+                    }
                   },
                 ),
                 SizedBox(height:MediaQuery.of(context).size.width*0.1,
                 ),
+                //TODO: show and hide password field
                 TextFormField(
                   decoration: InputDecoration(
                     labelText: "Password"),
@@ -105,11 +93,17 @@ class _LoginFormPageState extends State<LoginFormPage> {
                       InkWell(
                         child: Text("Forgot Password?", 
                           style: TextStyle(
+                            color: Colors.grey,
                             decoration: TextDecoration.underline,
+                            decorationColor: Colors.grey,
                             ),
                           ),
-                        onDoubleTap: (){
-                          // Navigator.pushNamed(context, "/forgot_password_page")
+                        onTap: (){
+                          Navigator.pushAndRemoveUntil(context, 
+                          MaterialPageRoute(builder: (BuildContext context)
+                          =>const ForgotPasswordPage(),
+                          ), ModalRoute.withName('/forgot_password_page'),
+                          );
                         },  
                       ),
                       SizedBox(
@@ -118,7 +112,7 @@ class _LoginFormPageState extends State<LoginFormPage> {
                     ],
                   ),
                   
-                  SizedBox(height: MediaQuery.of(context).size.width*0.1,),
+                  SizedBox(height: MediaQuery.of(context).size.width*0.15,),
                   SizedBox(
                     width:double.infinity,
                     child:ElevatedButton(
