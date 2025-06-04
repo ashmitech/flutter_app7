@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 class ProfileWidget extends StatelessWidget {
   const ProfileWidget
   ({super.key,
+      //attributes
       this.prefixIcon,
       this.featureName,
-      this.suffixIcon,
+      this.suffixIcon, 
+      //TODO:methods test for navigation
+      required featureMethod,
     });
 
     final Icon?prefixIcon;
@@ -23,7 +26,8 @@ class ProfileWidget extends StatelessWidget {
             children: [
               prefixIcon??Icon(Icons.error),
               SizedBox(width: 8),
-              Text(featureName??"Text", style: TextStyle(fontSize: 16),),
+              Text(featureName??"Text", 
+              style: TextStyle(fontSize: 14),),
             ],
           ),
           suffixIcon??Icon(Icons.error),

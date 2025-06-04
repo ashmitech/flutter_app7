@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/demo_apps/home/page/home_page.dart';
+import 'package:my_app/demo_apps/profile/page/edit_profile_page.dart';
 import 'package:my_app/demo_apps/profile/page/profile_page.dart';
 import 'package:my_app/demo_apps/tourism/page/tourism_layout_page.dart';
 import 'package:my_app/demo_apps/weather/page/weather_page.dart';
@@ -15,7 +16,9 @@ class AppRoute {
       "/weather":(context)=>WeatherPage(),
       "/login_form":(context)=>LoginFormPage(),
       "/profile":(context)=>ProfilePage(),
+      "/edit_profile":(context)=>EditProfilePage(),
       "/news_home":(context)=>NewsHomePage(),
+
     };
   }
   

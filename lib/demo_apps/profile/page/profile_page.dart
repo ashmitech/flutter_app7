@@ -1,19 +1,89 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/demo_apps/form/page/login_form_page.dart';
+// import 'package:my_app/demo_apps/home/page/home_page.dart';
 import 'package:my_app/demo_apps/profile/widget/profile_widget.dart' show ProfileWidget;
+import 'package:my_app/demo_apps/profile/page/edit_profile_page.dart' show EditProfilePage;
+
+// ignore: unused_import
+import 'package:my_app/news_apps/screens/bookmark_page.dart'show BookmarkPage;
+import 'package:my_app/news_apps/screens/home_page.dart';
+import 'package:my_app/news_apps/widgets/menu_button_widget.dart';
+// import 'package:path/path.dart';
+
 
 class ProfilePage extends StatelessWidget {
   ProfilePage({super.key});
 
   final List<Map> profileData =[
-    {"title":"Favrorite",
-     "icon":Icon(Icons.favorite_outline)},
-    {"title":"Download", "icon":Icon(Icons.download)},
-    {"title":"Language", "icon":Icon(Icons.language)},
-    {"title":"Location", "icon":Icon(Icons.location_on_outlined)},
-    {"title":"Subscription", "icon":Icon(Icons.subscriptions_outlined)},
-    {"title":"Clear History", "icon":Icon(Icons.delete_outline_outlined)},
-    {"title":"Log Out", "icon":Icon(Icons.logout_rounded)},
+    {"title":"Bookmark",
+     "icon":Icon(Icons.bookmark_outline),
+     "method":null,
+    },
+    {"title":"Settings", "icon":Icon(Icons.settings)}, 
+    {"title":"Log Out",
+     "icon":Icon(Icons.logout_rounded,),
+     "method":LogoutButtonWidget}, // logout button in the profile page change this color to red
   ];
+
+  // function to handle the navigation menu
+  void _onMenuSelected(BuildContext context, String value){
+    switch (value){
+      case 'subscribe':
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (_)=> EsewaApp(
+            title: 'Subscribe',)
+            ),
+      );
+      case 'profile':
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (_)=> ProfilePage()),
+      );
+      break;
+      case 'logout':
+      _showLogoutDialog(context);
+      break;
+    }
+  }
+
+  // function to show logout dialog box
+  void _showLogoutDialog(BuildContext context){
+    showDialog(context: context,
+    builder: (BuildContext context){
+      return 
+      AlertDialog(
+        title: Text("Conform Logout", 
+        ),
+        content: Text("Are you sure you want to logout?"),
+        
+        actions: [
+          TextButton(
+            onPressed:(){
+              Navigator.of(context).pop(); // close the dialog
+            }, 
+            child: Text("Cancel"),
+          ),
+          TextButton(onPressed: (){
+            Navigator.of(context).pop(); //close the dialog
+
+            Navigator.push(
+        context, 
+        MaterialPageRoute(builder: (_)=>LoginFormPage()),
+      );
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("You have successfully Logged out. Please login again to continue"), backgroundColor: Colors.green,),
+        // TODO:
+        //to display message are you sure you want to logout when user press on logout menu
+        //if user press yes logout the screen with message on snack bar successfully logout.
+        // if user press no, continue to the same screen.
+      );
+          }, child: Text("Yes"),
+          ),
+        ],
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,10 +92,12 @@ class ProfilePage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.blue.shade600,
         foregroundColor: Colors.white,
+        centerTitle: false,
         title: Text("My Profile",
+        textAlign: TextAlign.left,
          style:TextStyle(
           fontWeight: FontWeight.bold,
-           fontSize: 18
+           fontSize: 18,
            ),
         ),
         actions: [
@@ -37,7 +109,6 @@ class ProfilePage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal:20.0),
             child: Icon(Icons.menu,),
           )],
-          centerTitle: true,
       ),
 
       body: 
@@ -60,19 +131,31 @@ class ProfilePage extends StatelessWidget {
                         ),
                        ),),
                        
-                       
                        Container(
                         decoration: const BoxDecoration(),
                         child: Padding(
-                          padding: const EdgeInsets.only(left: 78.0),
+                          padding: const EdgeInsets.only(left: 108.0),
                           child: 
-                          InkWell(onTap: (){},
+                          InkWell(onTap: (){
+
+                          }, 
                           child:
-                          Container( decoration: const BoxDecoration(color: Colors.white),
-                           child:Icon(Icons.camera_alt_outlined, )),),
+                          Container( 
+                            padding: EdgeInsets.all(2),
+                            margin: EdgeInsets.all(2),
+                            decoration: 
+                              BoxDecoration(
+                                border: Border.all(color:Colors.white10, width: 1),
+                                borderRadius: BorderRadius.circular(20),
+                                boxShadow: [
+                                  BoxShadow(color: Colors.white),
+                                ],
+                                color: Colors.white54),
+                           child:Icon(Icons.camera_alt_outlined, 
+                           
+                           )),),
                         ),
                         ),
-                        
                     ],
                   ),
                 ),
@@ -83,17 +166,36 @@ class ProfilePage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      //name
                       Text("Mahesh Sharma",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18,),),
+                      //email address
                       Text("mahesh.sharma@gmail.com"),
+                      // edit profile button
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical:8.0),
                         child: Column(
                           children: [
-                            ElevatedButton(
+                            TextButton(
+                              style: TextButton.styleFrom(
+                                textStyle: const TextStyle(fontSize: 12),
+                                backgroundColor: Colors.blue[700],
+                                foregroundColor:Colors.white ,
+                              ),
                               onPressed: (){
-                              // Navigator.of(context).push(_editPageRoute);
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (_)=> EditProfilePage()),
+                                );
                               },
-                              child: Text("Edit Profile"),
+                              child: Row(
+                                children: [
+                                  Text("Edit Profile"),
+                                  SizedBox( width:5),
+                                  Icon(Icons.edit_outlined, 
+                                  color: Colors.white,
+                                  ),
+                                ],
+                              ),
                               ),
                           ],
                         ),
@@ -126,7 +228,12 @@ class ProfilePage extends StatelessWidget {
                 ProfileWidget(
                   prefixIcon: profileData[index]['icon'],
                   featureName: profileData[index]['title'],
-                  suffixIcon: Icon(Icons.arrow_forward_ios_outlined, size: 16,),
+                  suffixIcon: Icon(
+                    Icons.arrow_forward_ios_outlined,
+                    size: 16,
+                    color: Colors.blue[700],
+                    ),
+                  featureMethod:profileData[index]['method'],
                 );
             }
           ),         
@@ -136,10 +243,5 @@ class ProfilePage extends StatelessWidget {
   }
 }  
 
-
-        
-    
-    
-    
-  
+// TODO: ask permission for camera gallery image on profile image gallery tap
 
