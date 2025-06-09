@@ -14,7 +14,9 @@ class LoginFormPage extends StatefulWidget {
 
 class _LoginFormPageState extends State<LoginFormPage> {
   final _formKey = GlobalKey<FormState>();
-
+  bool _obscureText=true;
+  final TextEditingController passwordController =TextEditingController();
+  
   void _submit(){
     final isValid = _formKey.currentState!.validate();
     if(!isValid){
@@ -39,40 +41,33 @@ class _LoginFormPageState extends State<LoginFormPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.blue.shade600,
+        backgroundColor: const Color.fromRGBO(25, 118, 210, 1),
         foregroundColor: Colors.white,
+        title: Text("News Apps Demo", 
+        style: TextStyle(color: Colors.white70,
+         fontWeight: FontWeight.bold)),
         centerTitle: false,
-        title: Text("User Login ",
-        textAlign: TextAlign.left,
-         style:TextStyle(
-          fontWeight: FontWeight.bold,
-           fontSize: 18,
-           ),
-        ),
-        actions: [
+         actions: [
           Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10.0),
           child: 
           InkWell(
           onTap: () => Navigator.push(context, 
           MaterialPageRoute(builder: (_)=>SettingsPage())),
-          child: Icon(Icons.zoom_in_outlined),
+          child: Icon(Icons.zoom_in_outlined, color: Colors.white,),
           )
           
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal:20.0),
-            child: 
-            InkWell(onTap: ()=>Navigator.push(context, 
-            MaterialPageRoute(builder: (_)=>RegistrationForm())),
-            child: Icon(Icons.app_registration,)
-
-            ),
+            child: Icon(Icons.login, color: Colors.white,)
+            
             ),
             
             ],
-          ),
+      ),
 
       body:
       ListView(
@@ -91,28 +86,50 @@ class _LoginFormPageState extends State<LoginFormPage> {
                 SizedBox(
                   height: MediaQuery.of(context).size.width*0.15,),
                 
-                TextFormField( decoration: InputDecoration(
-                  labelText:'E-mail or Phone'
+                TextFormField( 
+                  keyboardType: TextInputType.phone,
+                  decoration: InputDecoration(
+                  labelText:'Mobile Number',
+                  prefixText: '+977  ',
                   ),
-                keyboardType: TextInputType.emailAddress,
+                
                 validator:(value){
-                    if((value!.isEmpty|| !RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(value)) || (value.isEmpty || value.length>10 || value.length<10)){
-                      return 'Please enter a valid email address or phone number!';
-                    }else {
-                    return null;
+                    if(value==null|| value.isEmpty){
+                      return 'Please enter your phone number';
+
+                    }else if(!RegExp(r'^\+?\d{10,10}$').hasMatch(value)){
+                      return 'Enter a valid phone number';
                     }
+                    return null;
                   },
                 ),
                 SizedBox(height:MediaQuery.of(context).size.width*0.1,
                 ),
                 
                 TextFormField(
+                 
+                  // controller: passwordController,
+                  obscureText:_obscureText,
                   decoration: InputDecoration(
-                    labelText: "Password"),
-                    obscureText:true,
+                  labelText: "Password",
+                   
+                    
+                  suffixIcon: IconButton(
+                    icon: Icon( 
+                      _obscureText ? Icons.visibility_off : Icons.visibility,),
+                      onPressed: (){
+                        setState(() {
+                          _obscureText=!_obscureText;
+                        });
+                      }), 
+                    ),
                     validator:(value){
                       if(value!.isEmpty){
-                        return 'Enter a valid password!';
+                        return 'Enter a enter your password!';
+                        
+                      }else if(!RegExp(
+                        r'^(?=.*[0-9])(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,}$').hasMatch(value)){
+                        return 'Please enter a valid password with atleast 8 characters, number and special character';
                       }
                       return null;
                     },
@@ -203,6 +220,12 @@ class _LoginFormPageState extends State<LoginFormPage> {
       ),
     );
   }
+
+  @override
+  void dispose(){
+    passwordController.dispose();
+    super.dispose();
+  }
 }
 
  /* TODO: 
@@ -213,7 +236,37 @@ class _LoginFormPageState extends State<LoginFormPage> {
       // if user clicks on not registered yet then redirect to the registration screen
 
       // if user clicks on the show password help to show the password on tap with changed state for few seconds
-       
       */
+
+/**For Mobile number verification in the Form field*/
+
+//       TextFormField(
+//   keyboardType: TextInputType.phone,
+//   decoration: InputDecoration(labelText: 'Phone Number'),
+//   validator: (value) {
+//     if (value == null || value.isEmpty) {
+//       return 'Please enter your phone number';
+//     } else if (!RegExp(r'^\+?\d{10,13}$').hasMatch(value)) {
+//       return 'Enter a valid phone number';
+//     }
+//     return null;
+//   },
+// )
+
+/**For Email Verification in text field */
+// TextFormField( 
+                  
+//                   decoration: InputDecoration(
+//                   labelText:'Mobile Number'
+//                   ),
+//                 keyboardType: TextInputType.emailAddress,
+//                 validator:(value){
+//                     if((value!.isEmpty|| !RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(value)) || (value.isEmpty || value.length>10 || value.length<10)){
+//                       return 'Please enter a valid phone number!';
+//                     }else {
+//                     return null;
+//                     }
+//                   },
+//                 )
 
       
