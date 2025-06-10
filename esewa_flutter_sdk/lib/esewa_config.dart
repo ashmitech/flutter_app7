@@ -10,6 +10,8 @@ class EsewaConfig {
     required this.secretId,
     required this.environment,
   });
+
+  static dev() {}
 }
 
 extension ConfigExt on EsewaConfig {

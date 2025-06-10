@@ -18,7 +18,10 @@ class MenuButtonWidget extends StatelessWidget {
         MaterialPageRoute(builder: (_)=> LoginFormPage()),
         ),
         child: Text("Login", style: TextStyle(color: Colors.white),),
+        
       );
+
+      // TODO: Snackbar to login again if logout
     }else{
     return 
     PopupMenuButton <String>(
@@ -32,3 +35,36 @@ class MenuButtonWidget extends StatelessWidget {
   }  
   }
 }
+
+class LogoutButtonWidget extends StatelessWidget {
+  final void Function(String) onSelected;
+  const LogoutButtonWidget({
+    super.key,
+    required this.onSelected,
+  });
+  
+  @override
+  Widget build(BuildContext context) {
+    if(!isUserLoggedIn){
+      return 
+      InkWell(
+        onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(builder: (_)=> LoginFormPage()),
+        ),
+        child: Text("Login", style: TextStyle(color: Colors.white),),
+      );
+    }else{
+    return 
+    PopupMenuButton <String>(
+      onSelected: onSelected,
+      itemBuilder: (context)=>
+      [
+        PopupMenuItem(value: 'logout', child: Text('Logout')),    
+      ], 
+      child: UserLoginWidget(isUserLoggedIn));
+    }  
+  }
+}
+  
+// TODO: Snackbar to login again if user is logout already

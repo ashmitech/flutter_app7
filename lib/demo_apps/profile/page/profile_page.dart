@@ -27,6 +27,7 @@ class ProfilePage extends StatelessWidget {
   ];
 
   // function to handle the navigation menu
+  // ignore: unused_element
   void _onMenuSelected(BuildContext context, String value){
     switch (value){
       case 'subscribe':
