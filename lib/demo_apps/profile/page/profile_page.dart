@@ -7,6 +7,7 @@ import 'package:my_app/demo_apps/profile/page/edit_profile_page.dart' show EditP
 // ignore: unused_import
 import 'package:my_app/news_apps/screens/bookmark_page.dart'show BookmarkPage;
 import 'package:my_app/news_apps/screens/home_page.dart';
+// ignore: unused_import
 import 'package:my_app/news_apps/widgets/menu_button_widget.dart';
 // import 'package:path/path.dart';
 
@@ -32,8 +33,11 @@ class ProfilePage extends StatelessWidget {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (_)=> EsewaApp(
-            title: 'Subscribe',)
+          builder: (_)=>NewsHomePage()
+            // var esewaApp = EsewaApp(
+            // title: 'Subscribe',);
+            // return esewaApp;
+          
             ),
       );
       case 'profile':
@@ -241,6 +245,12 @@ class ProfilePage extends StatelessWidget {
       ),
     );
   }
+}
+
+class EsewaApp {
+}
+
+class LogoutButtonWidget {
 }  
 
 // TODO: ask permission for camera gallery image on profile image gallery tap
