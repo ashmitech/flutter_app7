@@ -1,26 +1,31 @@
+import 'package:esewa_flutter_sdk/esewa_flutter_sdk.dart';
 import 'package:flutter/material.dart';
 import 'package:my_app/demo_apps/form/page/login_form_page.dart';
+
 // import 'package:my_app/demo_apps/home/page/home_page.dart';
 import 'package:my_app/demo_apps/profile/widget/profile_widget.dart' show ProfileWidget;
 import 'package:my_app/demo_apps/profile/page/edit_profile_page.dart' show EditProfilePage;
+import 'package:my_app/news_apps/screens/settings_page.dart'show SettingsPage;
+import 'package:my_app/news_apps/screens/bookmark_page.dart';
 
-// ignore: unused_import
-import 'package:my_app/news_apps/screens/bookmark_page.dart'show BookmarkPage;
 import 'package:my_app/news_apps/screens/home_page.dart';
-// ignore: unused_import
 import 'package:my_app/news_apps/widgets/menu_button_widget.dart';
-// import 'package:path/path.dart';
-
 
 class ProfilePage extends StatelessWidget {
   ProfilePage({super.key});
 
   final List<Map> profileData =[
+    //map
+    {"title":"Settings", 
+    "icon":Icon(Icons.settings_outlined),
+    "routeName":SettingsPage(),
+    },
+
     {"title":"Bookmark",
      "icon":Icon(Icons.bookmark_outline),
-     "method":null,
+     "routeName":BookmarkPage(bookmarkedItems: [],),
     },
-    {"title":"Settings", "icon":Icon(Icons.settings)}, 
+     
     {"title":"Log Out",
      "icon":Icon(Icons.logout_rounded,),
      "method":LogoutButtonWidget}, // logout button in the profile page change this color to red
@@ -29,17 +34,7 @@ class ProfilePage extends StatelessWidget {
   // function to handle the navigation menu
   void _onMenuSelected(BuildContext context, String value){
     switch (value){
-      case 'subscribe':
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (_)=>NewsHomePage()
-            // var esewaApp = EsewaApp(
-            // title: 'Subscribe',);
-            // return esewaApp;
-          
-            ),
-      );
+      
       case 'profile':
       Navigator.push(
         context,
@@ -77,16 +72,14 @@ class ProfilePage extends StatelessWidget {
         MaterialPageRoute(builder: (_)=>LoginFormPage()),
       );
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("You have successfully Logged out. Please login again to continue"), backgroundColor: Colors.green,),
-        // TODO:
-        //to display message are you sure you want to logout when user press on logout menu
-        //if user press yes logout the screen with message on snack bar successfully logout.
-        // if user press no, continue to the same screen.
+        
       );
           }, child: Text("Yes"),
           ),
         ],
       );
     });
+  }
   }
 
   @override
@@ -141,7 +134,7 @@ class ProfilePage extends StatelessWidget {
                           padding: const EdgeInsets.only(left: 108.0),
                           child: 
                           InkWell(onTap: (){
-
+                            // permission to the camera and gallery
                           }, 
                           child:
                           Container( 
@@ -155,9 +148,10 @@ class ProfilePage extends StatelessWidget {
                                   BoxShadow(color: Colors.white),
                                 ],
                                 color: Colors.white54),
-                           child:Icon(Icons.camera_alt_outlined, 
-                           
-                           )),),
+                                child:
+                                Icon(Icons.camera_alt_outlined, 
+                             )
+                           ),),
                         ),
                         ),
                     ],
@@ -195,8 +189,11 @@ class ProfilePage extends StatelessWidget {
                                 children: [
                                   Text("Edit Profile"),
                                   SizedBox( width:5),
-                                  Icon(Icons.edit_outlined, 
-                                  color: Colors.white,
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Icon(Icons.edit_outlined, 
+                                    color: Colors.white,
+                                    ),
                                   ),
                                 ],
                               ),
@@ -237,7 +234,7 @@ class ProfilePage extends StatelessWidget {
                     size: 16,
                     color: Colors.blue[700],
                     ),
-                  featureMethod:profileData[index]['method'],
+                  routeName:profileData[index]['routeName'],
                 );
             }
           ),         
@@ -251,7 +248,15 @@ class EsewaApp {
 }
 
 class LogoutButtonWidget {
+}
+
+class EsewaApp extends EsewaFlutterSdk{
 }  
 
-// TODO: ask permission for camera gallery image on profile image gallery tap
+// TODO: 
+     // logout button in the profile page change this color to red
+     // ask user are you sure you want to logout dialog box
+      
+      // to ask permission for camera gallery image on profile image gallery tap
+      // to request for the esewa application login on click of the subscribe button
 

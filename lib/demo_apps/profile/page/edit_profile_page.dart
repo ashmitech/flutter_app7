@@ -13,7 +13,8 @@ class EditProfilePage extends StatelessWidget {
         centerTitle:false,
         title:Text("Edit Profile", 
         style: TextStyle(
-          fontSize: 14.0,
+          fontSize: 18.0,
+          fontWeight: FontWeight.bold,
           color: Colors.white
         ),
         ),

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/demo_apps/home/page/home_page.dart';
+import 'package:my_app/demo_apps/profile/page/profile_page.dart';
+import 'package:my_app/news_apps/screens/settings_page.dart';
 
 class ProfileWidget extends StatelessWidget {
   const ProfileWidget
@@ -7,19 +10,28 @@ class ProfileWidget extends StatelessWidget {
       this.prefixIcon,
       this.featureName,
       this.suffixIcon, 
-      //TODO:methods test for navigation
-      required featureMethod,
+      this.routeName, required featureMethod,
     });
 
     final Icon?prefixIcon;
     final String?featureName;
     final Icon?suffixIcon;
+    final dynamic routeName;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical:10),
-      child: Row(
+      child: 
+      InkWell(onTap: (){
+        // builder: (_)=> EditProfilePage()
+        Navigator.push(context, 
+        MaterialPageRoute(
+          // routeName
+          builder: (_)=>routeName??"HomePage"));
+      },
+      child:
+        Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
@@ -32,6 +44,7 @@ class ProfileWidget extends StatelessWidget {
           ),
           suffixIcon??Icon(Icons.error),
         ],
+      ),
       ),
     );
   }
