@@ -9,12 +9,20 @@ class UserLoginWidget extends StatelessWidget
       super.key,
     }
   );
+
   @override
   Widget build(BuildContext context) {
-    //check login status and return the appropriate widget
+    /* check login status and return the appropriate widget login link or user with profile image and popup menu */
+    
     if(!isUserLoggedIn){
-      return const Icon(Icons.verified_user_outlined);
-
+      return 
+      const 
+      Text("Login?",
+      textAlign: TextAlign.right,
+      style: TextStyle(
+        color: Colors.white70),
+        );
+      
     }else{
       return SizedBox(
         width: 40, // Circle diameter = 2 * radius

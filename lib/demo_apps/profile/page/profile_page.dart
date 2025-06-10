@@ -225,7 +225,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     size: 16,
                     color: Colors.blue[700],
                     ),
-                  routeName:profileData[index]['routeName'],
+                  routeName:profileData[index]['routeName'], featureMethod: null,
                 ),
                   // widget for logout
                   InkWell(onTap: (){
@@ -268,9 +268,6 @@ class EsewaApp {
 
 class LogoutButtonWidget {
 }
-
-class EsewaApp extends EsewaFlutterSdk{
-}  
 
 // TODO: 
      // logout button in the profile page change this color to red

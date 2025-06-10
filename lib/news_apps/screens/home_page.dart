@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/demo_apps/form/page/login_form_page.dart';
 import 'package:my_app/demo_apps/profile/page/profile_page.dart' show ProfilePage;
 import 'package:my_app/news_apps/screens/main_home_page.dart'show MainHomePage;
 import 'package:my_app/news_apps/screens/search_page.dart' show SearchPage;
@@ -51,14 +50,7 @@ class _NewsHomePageState extends State<NewsHomePage> {
   // function to handle the navigation menu
   void _onMenuSelected(BuildContext context, String value){
     switch (value){
-      case 'subscribe':
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (_)=> EsewaApp(
-            title: 'Subscribe',)
-            ),
-      );
+      
       case 'profile':
       Navigator.push(
         context,
@@ -68,40 +60,51 @@ class _NewsHomePageState extends State<NewsHomePage> {
       case 'logout':
       _showLogoutDialog(context);
       break;
+
     }
   }
-
+  /* function to display message are you sure you want to logout when user press on logout menu*/
+        
   void _showLogoutDialog(BuildContext context){
     showDialog(context: context,
     builder: (BuildContext context){
-      return 
-      AlertDialog(
-        title: Text("Conform Logout", 
-        ),
-        content: Text("Are you sure you want to logout?"),
-        
+      return AlertDialog(
+        //title
+        title: Text("Conform Logout?"),
+        //content description
+        content: Text("This will close your application. You'll need to re-login."),
+        //background color
+        backgroundColor: Colors.blue.shade50,
+        //elevation
+        elevation: 8.0,
+        //actions 
         actions: [
           TextButton(
             onPressed:(){
-              Navigator.of(context).pop(); // close the dialog
+              Navigator.of(context).pop(); 
+              // close the dialog and continue to the same page
             }, 
             child: Text("Cancel"),
           ),
           TextButton(onPressed: (){
-            Navigator.of(context).pop(); //close the dialog
-
+            Navigator.of(context).pop(); 
+            // close the dialog with navigation to home page with a scaffold message
             Navigator.push(
-        context, 
-        MaterialPageRoute(builder: (_)=>LoginFormPage()),
+            context, 
+            MaterialPageRoute(builder: (_)=>NewsHomePage()),
       );
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("You have successfully Logged out. Please login again to continue"), backgroundColor: Colors.red[700],),
-        // TODO:
-        //to display message are you sure you want to logout when user press on logout menu
-        //if user press yes logout the screen with message on snack bar successfully logout.
-        // if user press no, continue to the same screen.
-      );
-          }, child: Text("Yes"),
-          ),
+
+      /*if user press yes logout the screen with message on snack bar successfully logout else continue to the same screen.*/
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('''You have successfully Logged out. 
+          Please re-login to continue.'''), 
+          backgroundColor: Colors.red[700],
+        ),
+        );
+      }, child: Text("Ok"),
+      ),
         ],
       );
     });
@@ -124,11 +127,6 @@ class _NewsHomePageState extends State<NewsHomePage> {
           Row(children: [
             Row(
               children: [
-              // ElevatedButton(child: const Text("eSewa"),onPressed: (){
-              //   Esewa esewa =Esewa();
-              //   esewa.pay();
-              // }, 
-              // ),
               Column(
                 children: [
                   Container(
@@ -136,9 +134,9 @@ class _NewsHomePageState extends State<NewsHomePage> {
                     padding: EdgeInsets.all(8.0),
                     child:
                   Text(
-                    "Hi, Mahesh!", 
-                  style: TextStyle(
-                    color: Colors.white70),
+                    "Hello, Reader!", 
+                    style: TextStyle(
+                      color: Colors.white70),
                     ), 
                   ),
                 ],
@@ -151,75 +149,20 @@ class _NewsHomePageState extends State<NewsHomePage> {
             ],
             ),
           ],)
-          // MenuButtonWidget(
-          //   onSelected: (value) => _onMenuSelected(context, value)
-          //   )
           ),
         ],
       ),
-      // center build welcome to news application
+
       bottomNavigationBar: CustomBottomNav(
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
       ),
       // Display selected page
       body: _pages[_selectedIndex],
-    );
-  
+    ); 
   }
 }
 
-// TODO:
+/* TODO:
 // make esewa subscription button inside the subscription of the profile page.
-// in place of esewa button write test as logged in as username
-
-// TODO:
-// make esewa subscription button inside the subscription of the profile page.
-// in place of esewa button write test as logged in as username
-
-/// Esewa app stateful widget from docuemntation
-class EsewaApp extends StatefulWidget {
-  const EsewaApp({super.key, 
-  required this.title});
-  final String title;
-  @override
-  State<EsewaApp> createState() => _EsewaAppState();
-}
-
-class _EsewaAppState extends State<EsewaApp> {
-  String refId='';
-  String hasError='';
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            EsewaPayButton(
-              paymentConfig:EsewaConfig.dev(), 
-              onSuccess: onSuccess, 
-              onFailure: onFailure)
-          ],
-        ),
-      ),
-    );
-  }
-
-  onSuccess(EsewaPaymentResponse p1) {
-  }
-
-  onFailure(String p1) {
-  }
-}
-
- // TODO:
-        //to display message are you sure you want to logout when user press on logout menu
-        //if user press yes logout the screen with message on snack bar successfully logout.
-        // if user press no, continue to the same screen.
-
-        // esewa link not working in the chrome, test in application in the smart phone for flutter 
+// in place of esewa button write test as logged in as username*/

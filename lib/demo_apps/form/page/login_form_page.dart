@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/demo_apps/form/page/forgot_password_page.dart';
 import 'package:my_app/demo_apps/form/page/registration_form_page.dart';
+import 'package:my_app/news_apps/screens/settings_page.dart';
 
 class LoginFormPage extends StatefulWidget {
   const LoginFormPage({super.key});
@@ -8,7 +9,7 @@ class LoginFormPage extends StatefulWidget {
   @override
   State<LoginFormPage> createState() {
     return _LoginFormPageState();
-  } 
+  }
 }
 
 class _LoginFormPageState extends State<LoginFormPage> {
@@ -19,8 +20,7 @@ class _LoginFormPageState extends State<LoginFormPage> {
     if(!isValid){
       return;
     }else{
-      // TODO: 
-      // check login details username and password then redirect to the home page with success message
+     
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           backgroundColor: Colors.green,
@@ -40,11 +40,44 @@ class _LoginFormPageState extends State<LoginFormPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-      ),
+        backgroundColor: Colors.blue.shade600,
+        foregroundColor: Colors.white,
+        centerTitle: false,
+        title: Text("User Login ",
+        textAlign: TextAlign.left,
+         style:TextStyle(
+          fontWeight: FontWeight.bold,
+           fontSize: 18,
+           ),
+        ),
+        actions: [
+          Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          child: 
+          InkWell(
+          onTap: () => Navigator.push(context, 
+          MaterialPageRoute(builder: (_)=>SettingsPage())),
+          child: Icon(Icons.zoom_in_outlined),
+          )
+          
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal:20.0),
+            child: 
+            InkWell(onTap: ()=>Navigator.push(context, 
+            MaterialPageRoute(builder: (_)=>RegistrationForm())),
+            child: Icon(Icons.app_registration,)
+
+            ),
+            ),
+            
+            ],
+          ),
+
       body:
       ListView(
         children: [
-          Form(
+        Form(
           key: _formKey,
           child: Padding(
             padding: const EdgeInsets.all(25.0),
@@ -72,7 +105,7 @@ class _LoginFormPageState extends State<LoginFormPage> {
                 ),
                 SizedBox(height:MediaQuery.of(context).size.width*0.1,
                 ),
-                //TODO: show and hide password field
+                
                 TextFormField(
                   decoration: InputDecoration(
                     labelText: "Password"),
@@ -85,9 +118,9 @@ class _LoginFormPageState extends State<LoginFormPage> {
                     },
                   ),
 
-                  SizedBox(height: MediaQuery.of(context).size.width*0.1,),
+                SizedBox(height: MediaQuery.of(context).size.width*0.1,),
 
-                  Row(
+                Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       InkWell(
@@ -112,8 +145,9 @@ class _LoginFormPageState extends State<LoginFormPage> {
                     ],
                   ),
                   
-                  SizedBox(height: MediaQuery.of(context).size.width*0.15,),
-                  SizedBox(
+                SizedBox(height: MediaQuery.of(context).size.width*0.15,),
+                  
+                SizedBox(
                     width:double.infinity,
                     child:ElevatedButton(
                       style: ButtonStyle(
@@ -133,8 +167,10 @@ class _LoginFormPageState extends State<LoginFormPage> {
                   ),
               ],
             ),
+
           ),
         ),
+
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -149,6 +185,7 @@ class _LoginFormPageState extends State<LoginFormPage> {
                   decorationColor: Colors.blue,
                   ),
                ),
+
               onTap:(){
                 Navigator.pushAndRemoveUntil(context, 
                 MaterialPageRoute<void>(
@@ -158,6 +195,7 @@ class _LoginFormPageState extends State<LoginFormPage> {
                   ModalRoute.withName('/registration_page'),
                 );
               } 
+              
             ),
           ],
         ),
@@ -166,3 +204,16 @@ class _LoginFormPageState extends State<LoginFormPage> {
     );
   }
 }
+
+ /* TODO: 
+      // check login details username and password then redirect to the home page with success message
+
+      // if user click on forgot password then redirect to forgot password screen
+
+      // if user clicks on not registered yet then redirect to the registration screen
+
+      // if user clicks on the show password help to show the password on tap with changed state for few seconds
+       
+      */
+
+      
