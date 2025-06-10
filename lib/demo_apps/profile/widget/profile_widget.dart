@@ -20,32 +20,38 @@ class ProfileWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical:10),
-      child: 
-      InkWell(onTap: (){
-        // builder: (_)=> EditProfilePage()
-        Navigator.push(context, 
-        MaterialPageRoute(
-          // routeName
-          builder: (_)=>routeName??"HomePage"));
-      },
-      child:
-        Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Row(
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical:10),
+          child: 
+          InkWell(onTap: (){
+            // builder: (_)=> EditProfilePage()
+            Navigator.push(context, 
+            MaterialPageRoute(
+              // routeName
+              builder: (_)=>routeName??"HomePage"));
+          },
+          child:
+            Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              prefixIcon??Icon(Icons.error),
-              SizedBox(width: 8),
-              Text(featureName??"Text", 
-              style: TextStyle(fontSize: 14),),
+              Row(
+                children: [
+                  prefixIcon??Icon(Icons.error),
+                  SizedBox(width: 8),
+                  Text(featureName??"Text", 
+                  style: TextStyle(fontSize: 14),),
+                ],
+              ),
+              suffixIcon??Icon(Icons.error),
             ],
           ),
-          suffixIcon??Icon(Icons.error),
-        ],
-      ),
-      ),
+          ),
+        ),
+      
+      ],
+
     );
   }
 }

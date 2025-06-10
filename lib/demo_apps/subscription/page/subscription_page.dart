@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
-class EditProfilePage extends StatelessWidget {
-  const EditProfilePage({super.key});
+class SubscriptionPage extends StatelessWidget {
+  const SubscriptionPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return 
+      Scaffold(
       backgroundColor: Colors.white,
-      appBar: 
-      AppBar(
+      appBar: AppBar(
         backgroundColor: Colors.blue.shade600,
         foregroundColor: Colors.white,
         centerTitle:false,
-        title:Text("Edit Profile", 
+        title:Text("Subscription", 
         style: TextStyle(
           fontSize: 18.0,
           fontWeight: FontWeight.bold,
@@ -22,23 +22,20 @@ class EditProfilePage extends StatelessWidget {
         actions:
          <Widget>[
           IconButton(
-            icon: const Icon(Icons.edit),
-            tooltip: 'Edit Profile',
+            icon: const Icon(Icons.newspaper),
+            tooltip: 'My Subscription',
             onPressed: () {
               // handle the press
             },
           ),
         ],
       ),
-      body:
-      Center(child: 
-        Row(
-          children: [
-            Text("Edit Profile Form Page"),
-          ],
-        )
-        )
+      body: Center(
+      child: Text(" Subscription Page",
+       style: TextStyle(fontSize: 24)
+       ),
+    ),
     );
-
+    
   }
 }

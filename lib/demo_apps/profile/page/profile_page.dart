@@ -1,90 +1,66 @@
 import 'package:esewa_flutter_sdk/esewa_flutter_sdk.dart';
 import 'package:flutter/material.dart';
 import 'package:my_app/demo_apps/form/page/login_form_page.dart';
+import 'package:my_app/demo_apps/form/page/login_form_page.dart';
+import 'package:my_app/demo_apps/home/page/home_page.dart';
 
 // import 'package:my_app/demo_apps/home/page/home_page.dart';
 import 'package:my_app/demo_apps/profile/widget/profile_widget.dart' show ProfileWidget;
 import 'package:my_app/demo_apps/profile/page/edit_profile_page.dart' show EditProfilePage;
+import 'package:my_app/demo_apps/subscription/page/subscription_page.dart' show SubscriptionPage;
 import 'package:my_app/news_apps/screens/settings_page.dart'show SettingsPage;
-import 'package:my_app/news_apps/screens/bookmark_page.dart';
+import 'package:my_app/news_apps/screens/bookmark_page.dart'show BookmarkPage;
 
 import 'package:my_app/news_apps/screens/home_page.dart';
-import 'package:my_app/news_apps/widgets/menu_button_widget.dart';
+import 'package:my_app/widgets/logout_widget/logout_widget.dart';
+// ignore: unused_import
+import 'package:my_app/function/esewa.dart'; 
+// ignore: unused_import
+import 'package:path/path.dart';
 
-class ProfilePage extends StatelessWidget {
-  ProfilePage({super.key});
+
+
+class ProfilePage extends StatefulWidget {
+  const ProfilePage({super.key});
+
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  dynamic routeName=kHomePage();
 
   final List<Map> profileData =[
     //map
-    {"title":"Settings", 
+    {
+    "title":"Settings", 
     "icon":Icon(Icons.settings_outlined),
     "routeName":SettingsPage(),
     },
 
-    {"title":"Bookmark",
-     "icon":Icon(Icons.bookmark_outline),
-     "routeName":BookmarkPage(bookmarkedItems: [],),
+    {
+    "title":"Bookmark",
+    "icon":Icon(Icons.bookmark_outline),
+    "routeName":BookmarkPage(bookmarkedItems: [],),
     },
      
-    {"title":"Log Out",
-     "icon":Icon(Icons.logout_rounded,),
-     "method":LogoutButtonWidget}, // logout button in the profile page change this color to red
+    {
+    "title":"Subscription",
+    "icon":Icon(Icons.newspaper_outlined,),
+    "routeName":SubscriptionPage()
+    }, 
+
+    {
+    "title":"Logout",
+    "icon":Icon(Icons.logout_outlined,),
+    "routeName":LoginFormPage()
+    }, 
   ];
-
-  // function to handle the navigation menu
-  void _onMenuSelected(BuildContext context, String value){
-    switch (value){
-      
-      case 'profile':
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (_)=> ProfilePage()),
-      );
-      break;
-      case 'logout':
-      _showLogoutDialog(context);
-      break;
-    }
-  }
-
-  // function to show logout dialog box
-  void _showLogoutDialog(BuildContext context){
-    showDialog(context: context,
-    builder: (BuildContext context){
-      return 
-      AlertDialog(
-        title: Text("Conform Logout", 
-        ),
-        content: Text("Are you sure you want to logout?"),
-        
-        actions: [
-          TextButton(
-            onPressed:(){
-              Navigator.of(context).pop(); // close the dialog
-            }, 
-            child: Text("Cancel"),
-          ),
-          TextButton(onPressed: (){
-            Navigator.of(context).pop(); //close the dialog
-
-            Navigator.push(
-        context, 
-        MaterialPageRoute(builder: (_)=>LoginFormPage()),
-      );
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("You have successfully Logged out. Please login again to continue"), backgroundColor: Colors.green,),
-        
-      );
-          }, child: Text("Yes"),
-          ),
-        ],
-      );
-    });
-  }
-  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return 
+      Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.blue.shade600,
@@ -100,13 +76,26 @@ class ProfilePage extends StatelessWidget {
         actions: [
           Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          child: 
+          InkWell(
+          onTap: () => Navigator.push(context, 
+          MaterialPageRoute(builder: (_)=>SettingsPage())),
           child: Icon(Icons.zoom_in_outlined),
+          )
+          
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal:20.0),
-            child: Icon(Icons.menu,),
-          )],
-      ),
+            child: 
+            InkWell(onTap: ()=>Navigator.push(context, 
+            MaterialPageRoute(builder: (_)=>NewsHomePage())),
+            child: Icon(Icons.home,)
+
+            ),
+            ),
+            
+            ],
+          ),
 
       body: 
       ListView(
@@ -226,7 +215,9 @@ class ProfilePage extends StatelessWidget {
             itemBuilder: (context, index) 
             {
             return 
-                ProfileWidget(
+            Column(
+              children: [
+                  ProfileWidget(
                   prefixIcon: profileData[index]['icon'],
                   featureName: profileData[index]['title'],
                   suffixIcon: Icon(
@@ -235,7 +226,35 @@ class ProfilePage extends StatelessWidget {
                     color: Colors.blue[700],
                     ),
                   routeName:profileData[index]['routeName'],
-                );
+                ),
+                  // widget for logout
+                  InkWell(onTap: (){
+                    
+                    // builder: (_)=> EditProfilePage()
+                    Navigator.push(context, 
+                    MaterialPageRoute(
+                      // routeName
+                      builder: (_)=>LoginFormPage()));
+                  },
+                  
+                  child:
+                    Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      // Row(
+                      //   children: [
+                      //     prefixIcon??Icon(Icons.error),
+                      //     SizedBox(width: 8),
+                      //     Text(featureName??"Text", 
+                      //     style: TextStyle(fontSize: 14),),
+                      //   ],
+                      // ),
+                      // suffixIcon??Icon(Icons.error),
+                    ],
+                  ),
+                  ),    
+              ],
+            );           
             }
           ),         
         ],    

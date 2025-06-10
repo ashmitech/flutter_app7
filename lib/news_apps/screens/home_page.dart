@@ -70,6 +70,7 @@ class _NewsHomePageState extends State<NewsHomePage> {
       break;
     }
   }
+
   void _showLogoutDialog(BuildContext context){
     showDialog(context: context,
     builder: (BuildContext context){
@@ -90,12 +91,14 @@ class _NewsHomePageState extends State<NewsHomePage> {
             Navigator.of(context).pop(); //close the dialog
 
             Navigator.push(
-            context, 
-            MaterialPageRoute(builder: (_)=>LoginFormPage()),
-          );
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: 
-            Text("You have successfully Logged out. Please login again to continue"), backgroundColor: Colors.green,),
+        context, 
+        MaterialPageRoute(builder: (_)=>LoginFormPage()),
+      );
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("You have successfully Logged out. Please login again to continue"), backgroundColor: Colors.red[700],),
+        // TODO:
+        //to display message are you sure you want to logout when user press on logout menu
+        //if user press yes logout the screen with message on snack bar successfully logout.
+        // if user press no, continue to the same screen.
       );
           }, child: Text("Yes"),
           ),
@@ -103,6 +106,8 @@ class _NewsHomePageState extends State<NewsHomePage> {
       );
     });
   }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -110,26 +115,33 @@ class _NewsHomePageState extends State<NewsHomePage> {
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(25, 118, 210, 1),
         title: Text("News Apps Demo", 
-        style: TextStyle(color: Colors.white,
+        style: TextStyle(color: Colors.white70,
          fontWeight: FontWeight.bold)),
         centerTitle: false,
         actions: [
           Padding(padding: EdgeInsets.fromLTRB(0, 0, 18.0, 0), 
           child: 
           Row(children: [
-            //this row contains esewa subscribe and profile section horizontally
-            Row(children: [
-              TextButton(
-                style: TextButton.styleFrom(
-                  textStyle: const TextStyle(fontSize: 12),
-                  backgroundColor: Colors.white,
-                  foregroundColor: Colors.blue[700],
-                ),
-                onPressed: (){
-                Esewa esewa =Esewa();
-                esewa.pay();
-                }, 
-                child: const Text("Subscribe"),
+            Row(
+              children: [
+              // ElevatedButton(child: const Text("eSewa"),onPressed: (){
+              //   Esewa esewa =Esewa();
+              //   esewa.pay();
+              // }, 
+              // ),
+              Column(
+                children: [
+                  Container(
+                    margin: EdgeInsets.all(8.0),
+                    padding: EdgeInsets.all(8.0),
+                    child:
+                  Text(
+                    "Hi, Mahesh!", 
+                  style: TextStyle(
+                    color: Colors.white70),
+                    ), 
+                  ),
+                ],
               ),
               SizedBox(width: 5.0,),
               // profile section
@@ -153,8 +165,17 @@ class _NewsHomePageState extends State<NewsHomePage> {
       // Display selected page
       body: _pages[_selectedIndex],
     );
+  
   }
 }
+
+// TODO:
+// make esewa subscription button inside the subscription of the profile page.
+// in place of esewa button write test as logged in as username
+
+// TODO:
+// make esewa subscription button inside the subscription of the profile page.
+// in place of esewa button write test as logged in as username
 
 /// Esewa app stateful widget from docuemntation
 class EsewaApp extends StatefulWidget {

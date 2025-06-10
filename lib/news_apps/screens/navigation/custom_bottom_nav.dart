@@ -15,8 +15,8 @@ class CustomBottomNav extends StatelessWidget {
     return BottomNavigationBar(
       currentIndex: currentIndex,
       onTap: onTap, // Calls the function when tapped
-      selectedItemColor: Colors.blue[700], // Selected color
-      unselectedItemColor: Colors.blueGrey, // Unselected color
+      selectedItemColor: Colors.red[600], // Selected color
+      unselectedItemColor: Colors.red[100], // Unselected color
 
       items: const [
         BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),

@@ -14,8 +14,8 @@ class SettingsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
-<<<<<<< HEAD
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.blue.shade600,
@@ -149,35 +149,6 @@ class SettingsPage extends StatelessWidget {
           ),         
         ],    
       ),
-=======
-      appBar: AppBar(
-        backgroundColor: Colors.blue.shade600,
-        foregroundColor: Colors.white,
-        centerTitle:false,
-        title:Text("Settings", 
-        style: TextStyle(
-          fontSize: 18.0,
-          fontWeight: FontWeight.bold,
-          color: Colors.white
-        ),
-        ),
-        actions:
-         <Widget>[
-          IconButton(
-            icon: const Icon(Icons.settings),
-            tooltip: 'Edit Settings',
-            onPressed: () {
-              // handle the press
-            },
-          ),
-        ],
-      ),
-      body: Center(
-      child: Text("⚙️ Settings Page",
-       style: TextStyle(fontSize: 24)
-       ),
-    ),
->>>>>>> f7ad4aa (Added navitation to profile page settings)
     );
     
     
