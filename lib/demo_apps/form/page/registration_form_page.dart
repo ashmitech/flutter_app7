@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/news_apps/screens/settings_page.dart';
 
 class RegistrationForm extends StatefulWidget {
   const RegistrationForm({super.key});
@@ -11,6 +12,7 @@ class RegistrationForm extends StatefulWidget {
 class _RegistrationFormState extends State<RegistrationForm> {
   final _formKey= GlobalKey<FormState>();
   bool? value= false; //initialize as nullable bool 
+  bool _obscureText=true;
 
   void _submit(){
     final isValid=_formKey.currentState!.validate();
@@ -20,9 +22,10 @@ class _RegistrationFormState extends State<RegistrationForm> {
       else{
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(
-          "Registration Successful",
+          "Registration Successful. Thank you.",
             style: TextStyle(
               color: Colors.white,
+              backgroundColor: Colors.green,
             ),
           )
         ),
@@ -35,23 +38,49 @@ class _RegistrationFormState extends State<RegistrationForm> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:AppBar(
-        title: Text("R E G I S T R A T I O N",
-          style: TextStyle(
-            fontSize: 24.0, 
-            fontWeight: FontWeight.bold,
+        backgroundColor: const Color.fromRGBO(25, 118, 210, 1),
+        foregroundColor: Colors.white,
+        title: Text("News Apps Demo", 
+        style: TextStyle(color: Colors.white70,
+         fontWeight: FontWeight.bold)),
+        centerTitle: false,
+         actions: [
+          Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          child: 
+          InkWell(
+          onTap: () => Navigator.push(context, 
+          MaterialPageRoute(builder: (_)=>SettingsPage())),
+          child: Icon(Icons.zoom_in_outlined, color: Colors.white,),
+          )
+          
           ),
-        ),
-        centerTitle: true,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal:20.0),
+            child: IconButton(
+            icon: const Icon(Icons.app_registration_rounded),
+            tooltip: 'Registration Form',
+            onPressed: () {
+              // handle the press
+            },
+          ),
+            
+            ),
+            
+            ],
       ),
       body:
       ListView(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children:[
-              Text("Please fill the registration form below: "),
-            ] 
-          ),
+          SizedBox(height: 15.0,),
+          Center(
+                  child: Text("Registration Form",
+                  style:TextStyle(
+                    fontSize:24.0,
+                    fontWeight:FontWeight.bold),
+                  ),
+                ),
+          
           Form(
             key: _formKey,
             child: Padding(
@@ -61,8 +90,12 @@ class _RegistrationFormState extends State<RegistrationForm> {
                 children: <Widget>[
                   SizedBox(
                     height: MediaQuery.of(context).size.width*0.1),
-                  TextFormField( decoration: InputDecoration(
-                    labelText: "Full Name*"
+                  TextFormField( 
+                    decoration: 
+                    InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: "Full Name",
+                    prefixIcon: Icon(Icons.near_me),
                     ),
                   keyboardType: TextInputType.text,
                   validator:(value){
@@ -72,12 +105,17 @@ class _RegistrationFormState extends State<RegistrationForm> {
                     return null;
                   }
                   ),
-              
-                  // SizedBox(
-                  //   height: MediaQuery.of(context).size.width*0.1),
-                  TextFormField( decoration: InputDecoration(
-                    labelText: "Address*"
+                  
+                  SizedBox(
+                    height: MediaQuery.of(context).size.width*0.01,),
+
+                  TextFormField( 
+                    decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: "Address",
+                    prefixIcon: Icon(Icons.home),
                     ),
+
                   keyboardType: TextInputType.text,
                   validator:(value){
                     if(value!.isEmpty||(value.length<3)){
@@ -87,24 +125,36 @@ class _RegistrationFormState extends State<RegistrationForm> {
                   }
                   ),
               
-                  // SizedBox(
-                  //   height: MediaQuery.of(context).size.width*0.1),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.width*0.01),
+                  
                   TextFormField( decoration: InputDecoration(
-                    labelText: "Phone Number*"
+                    border:OutlineInputBorder(),
+                    labelText:'Mobile Number',
+                    prefixText: '+977  ',
+                    prefixIcon: Icon(Icons.phone),
                     ),
                   keyboardType: TextInputType.number,
                   validator:(value){
-                    if(value!.isEmpty||(value.length<10)){
-                      return 'Please enter a valid phone number';
+                    if(value==null|| value.isEmpty){
+                      return 'Please enter your phone number';
+
+                    }else if(!RegExp(r'^\+?\d{10,10}$').hasMatch(value)){
+                      return 'Enter a valid phone number';
                     }
                     return null;
-                  }
+                  },
                   ),
               
-                  // SizedBox(
-                  //   height: MediaQuery.of(context).size.width*0.1,),
-                  TextFormField( decoration: InputDecoration(
-                    labelText:'E-mail*'
+                  SizedBox(
+                    height: MediaQuery.of(context).size.width*0.01,),
+                  TextFormField( 
+                    decoration: InputDecoration(
+                    border:OutlineInputBorder(),
+                    labelText:'E-mail Address',
+                    
+                    prefixIcon: Icon(Icons.email),
+
                     ),
                   keyboardType: TextInputType.emailAddress,
                   validator:(value){
@@ -115,33 +165,66 @@ class _RegistrationFormState extends State<RegistrationForm> {
                     },
                   ),
                   
-                  // SizedBox(height:MediaQuery.of(context).size.width*0.1,
-                  // ),
+                  SizedBox(height:MediaQuery.of(context).size.width*0.01,
+                  ),
+                  
                   TextFormField(
-                    decoration: InputDecoration(
-                      labelText: "Password*"),
-                      obscureText:true,
-                      validator:(value){
-                        if(value!.isEmpty){
-                          return 'Enter a valid password!';
-                        }
-                        return null;
-                      },
+                    // controller: passwordController,
+                  obscureText:_obscureText,
+                  decoration: InputDecoration(
+                  border:OutlineInputBorder(),
+                  labelText: "Password",
+                  prefixIcon: Icon(Icons.security),
+                  suffixIcon: IconButton(
+                    icon: Icon( 
+                      _obscureText ? Icons.visibility_off : Icons.visibility,),
+                      onPressed: (){
+                        setState(() {
+                          _obscureText=!_obscureText;
+                        });
+                      }), 
+                    ),
+                    validator:(value){
+                      if(value!.isEmpty){
+                        return 'Enter a enter your password!';
+                        
+                      }else if(!RegExp(
+                        r'^(?=.*[0-9])(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,}$').hasMatch(value)){
+                        return 'Please enter a valid password with atleast 8 characters, number and special character';
+                      }
+                      return null;
+                    },
                     ),
               
-                  // SizedBox(height:MediaQuery.of(context).size.width*0.1,
-                  // ),
+                  SizedBox(height:MediaQuery.of(context).size.width*0.01,
+                  ),
                   TextFormField(
-                    decoration: InputDecoration(
-                      labelText: "Conform Password*"),
-                      obscureText:true,
-                      validator:(value){
-                        if(value!.isEmpty){
-                          return 'Re-Enter your password!';
-                        }
-                        return null;
-                      },
+                    obscureText:_obscureText,
+                  decoration: InputDecoration(
+                  border:OutlineInputBorder(),
+                  labelText: "Re-type Password",
+                  prefixIcon: Icon(Icons.security),
+                  suffixIcon: IconButton(
+                    icon: Icon( 
+                      _obscureText ? Icons.visibility_off : Icons.visibility,),
+                      onPressed: (){
+                        setState(() {
+                          _obscureText=!_obscureText;
+                        });
+                      }), 
+                    ),
+                    validator:(value){
+                      if(value!.isEmpty){
+                        return 'Pleas re-enter your password!';
+                        
+                      }else if(!RegExp(
+                        r'^(?=.*[0-9])(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,}$').hasMatch(value)){
+                        return 'Please enter a valid password with atleast 8 characters, number and special character';
+                      }
+                      return null;
+                    },
                     ),  
+                     SizedBox(height:MediaQuery.of(context).size.width*0.025),
 
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -155,10 +238,8 @@ class _RegistrationFormState extends State<RegistrationForm> {
                             });
                           }
                         ),
-                        Text("I agree the  "),
-                        Text("Terms "),
-                        Text("and "),
-                        Text("Conditions"),
+                        Text("I agree the"),
+                        Text("Terms and Conditions"),
                       ],
                     ),
                   SizedBox(height: MediaQuery.of(context).size.width*0.1,),
@@ -187,6 +268,15 @@ class _RegistrationFormState extends State<RegistrationForm> {
         ],
       ),
     );
+  }
+}
+
+class RegistrationFormWidget extends StatelessWidget {
+  const RegistrationFormWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
   }
 }
 

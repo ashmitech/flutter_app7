@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/demo_apps/form/page/login_form_page.dart';
 import 'package:my_app/demo_apps/profile/page/profile_page.dart' show ProfilePage;
 import 'package:my_app/news_apps/screens/main_home_page.dart'show MainHomePage;
 import 'package:my_app/news_apps/screens/search_page.dart' show SearchPage;
@@ -91,7 +92,7 @@ class _NewsHomePageState extends State<NewsHomePage> {
             // close the dialog with navigation to home page with a scaffold message
             Navigator.push(
             context, 
-            MaterialPageRoute(builder: (_)=>NewsHomePage()),
+            MaterialPageRoute(builder: (_)=>LoginFormPage()),
       );
 
       /*if user press yes logout the screen with message on snack bar successfully logout else continue to the same screen.*/

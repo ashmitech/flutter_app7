@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/demo_apps/form/page/forgot_password_page.dart';
+import 'package:my_app/demo_apps/form/page/registration_form_page.dart';
 import 'package:my_app/demo_apps/home/page/home_page.dart';
 import 'package:my_app/demo_apps/profile/page/edit_profile_page.dart';
 import 'package:my_app/demo_apps/profile/page/profile_page.dart';
@@ -11,7 +12,7 @@ import 'package:my_app/news_apps/screens/settings_page.dart';
 
 class AppRoute {
   static Map<String, WidgetBuilder> routes = {
-      "/":(context)=>ProfilePage(),
+      "/":(context)=>RegistrationForm(),
       "/dashboard":(context)=>kHomePage(),
       "/login_form":(context)=>LoginFormPage(),
       "/profile":(context)=>ProfilePage(),

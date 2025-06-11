@@ -5,7 +5,7 @@ import 'package:my_app/news_apps/screens/settings_page.dart';
 
 class LoginFormPage extends StatefulWidget {
   const LoginFormPage({super.key});
- 
+
   @override
   State<LoginFormPage> createState() {
     return _LoginFormPageState();
@@ -62,7 +62,13 @@ class _LoginFormPageState extends State<LoginFormPage> {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal:20.0),
-            child: Icon(Icons.login, color: Colors.white,)
+            child: IconButton(
+            icon: const Icon(Icons.login),
+            tooltip: 'Login',
+            onPressed: () {
+              // handle the press
+            },
+          ),
             
             ),
             
@@ -78,10 +84,12 @@ class _LoginFormPageState extends State<LoginFormPage> {
             padding: const EdgeInsets.all(25.0),
             child: Column(
               children: <Widget>[
-                Text("Login Form",
-                style:TextStyle(
-                  fontSize:24.0,
-                  fontWeight:FontWeight.bold),
+                Center(
+                  child: Text("Login Form",
+                  style:TextStyle(
+                    fontSize:24.0,
+                    fontWeight:FontWeight.bold),
+                  ),
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.width*0.15,),
@@ -89,8 +97,10 @@ class _LoginFormPageState extends State<LoginFormPage> {
                 TextFormField( 
                   keyboardType: TextInputType.phone,
                   decoration: InputDecoration(
+                  border:OutlineInputBorder(),
                   labelText:'Mobile Number',
                   prefixText: '+977  ',
+                  prefixIcon: Icon(Icons.phone),
                   ),
                 
                 validator:(value){
@@ -111,9 +121,9 @@ class _LoginFormPageState extends State<LoginFormPage> {
                   // controller: passwordController,
                   obscureText:_obscureText,
                   decoration: InputDecoration(
+                  border:OutlineInputBorder(),
                   labelText: "Password",
-                   
-                    
+                  prefixIcon: Icon(Icons.security),
                   suffixIcon: IconButton(
                     icon: Icon( 
                       _obscureText ? Icons.visibility_off : Icons.visibility,),
@@ -204,12 +214,12 @@ class _LoginFormPageState extends State<LoginFormPage> {
                ),
 
               onTap:(){
-                Navigator.pushAndRemoveUntil(context, 
+                Navigator.push(context, 
                 MaterialPageRoute<void>(
                   builder: (BuildContext context)
                    => const RegistrationForm(),
                   ),
-                  ModalRoute.withName('/registration_page'),
+                
                 );
               } 
               
