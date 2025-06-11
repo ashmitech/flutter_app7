@@ -5,9 +5,10 @@ import 'package:my_app/demo_apps/form/page/login_form_page.dart';
 import 'package:my_app/demo_apps/home/page/home_page.dart';
 
 // import 'package:my_app/demo_apps/home/page/home_page.dart';
-import 'package:my_app/demo_apps/profile/widget/profile_widget.dart' show ProfileWidget;
+import 'package:my_app/demo_apps/profile/widget/profile_widget.dart' show LogoutListWidget, ProfileWidget;
 import 'package:my_app/demo_apps/profile/page/edit_profile_page.dart' show EditProfilePage;
 import 'package:my_app/demo_apps/subscription/page/subscription_page.dart' show SubscriptionPage;
+import 'package:my_app/news_apps/screens/search_page.dart';
 import 'package:my_app/news_apps/screens/settings_page.dart'show SettingsPage;
 import 'package:my_app/news_apps/screens/bookmark_page.dart'show BookmarkPage;
 
@@ -17,8 +18,6 @@ import 'package:my_app/widgets/logout_widget/logout_widget.dart';
 import 'package:my_app/function/esewa.dart'; 
 // ignore: unused_import
 import 'package:path/path.dart';
-
-
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -33,9 +32,9 @@ class _ProfilePageState extends State<ProfilePage> {
   final List<Map> profileData =[
     //map
     {
-    "title":"Settings", 
-    "icon":Icon(Icons.settings_outlined),
-    "routeName":SettingsPage(),
+    "title":"Search", 
+    "icon":Icon(Icons.search),
+    "routeName":SearchPage(),
     },
 
     {
@@ -44,15 +43,12 @@ class _ProfilePageState extends State<ProfilePage> {
     "routeName":BookmarkPage(bookmarkedItems: [],),
     },
      
-    {
-    "title":"Subscription",
-    "icon":Icon(Icons.newspaper_outlined,),
-    "routeName":SubscriptionPage()
-    }, 
+  ];
 
+  final List<Map> logoutData =[
     {
-    "title":"Logout",
-    "icon":Icon(Icons.logout_outlined,),
+    "title":'Logout',
+    "icon":Icon(Icons.logout_outlined,color: Colors.red),
     "routeName":LoginFormPage()
     }, 
   ];
@@ -61,7 +57,7 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return 
       Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.white70,
       appBar: AppBar(
         backgroundColor: Colors.blue.shade600,
         foregroundColor: Colors.white,
@@ -79,8 +75,14 @@ class _ProfilePageState extends State<ProfilePage> {
           child: 
           InkWell(
           onTap: () => Navigator.push(context, 
-          MaterialPageRoute(builder: (_)=>SettingsPage())),
-          child: Icon(Icons.zoom_in_outlined),
+          MaterialPageRoute(builder: (_)=>NewsHomePage())),
+          child: IconButton(
+            icon: const Icon(Icons.zoom_in),
+            tooltip: 'Zoom Font',
+            onPressed: () {
+              // handle the press
+            },
+          ),
           )
           
           ),
@@ -88,12 +90,12 @@ class _ProfilePageState extends State<ProfilePage> {
             padding: const EdgeInsets.symmetric(horizontal:20.0),
             child: 
             InkWell(onTap: ()=>Navigator.push(context, 
-            MaterialPageRoute(builder: (_)=>NewsHomePage())),
-            child: Icon(Icons.home,)
+            MaterialPageRoute(builder: (_)=>SettingsPage())),
+            child: Icon(Icons.settings,)
 
             ),
             ),
-            
+
             ],
           ),
 
@@ -110,11 +112,13 @@ class _ProfilePageState extends State<ProfilePage> {
                   child: Stack(
                     alignment: const Alignment(0.6, 0.6),
                     children: [
-                      Expanded(child: const CircleAvatar(
+                      Expanded(
+                        child: const CircleAvatar(
                         radius: 55,
                         backgroundImage: AssetImage(
                           'assets/images/profile.jpg',
                         ),
+                        backgroundColor: Colors.white,
                        ),),
                        
                        Container(
@@ -157,6 +161,9 @@ class _ProfilePageState extends State<ProfilePage> {
                       Text("Mahesh Sharma",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18,),),
                       //email address
                       Text("mahesh.sharma@gmail.com"),
+                      //phone number
+                      Text("Phone: +977 98100000"),
+
                       // edit profile button
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical:8.0),
@@ -225,16 +232,59 @@ class _ProfilePageState extends State<ProfilePage> {
                     size: 16,
                     color: Colors.blue[700],
                     ),
-                  routeName:profileData[index]['routeName'], featureMethod: null,
+                  routeName:profileData[index]['routeName'], 
+                  featureMethod: null,
+                ),
+                      
+              ],
+            );           
+            }
+          ),         
+       
+          //for logout data list view saperated
+          ListView.separated(
+            separatorBuilder:(context, index) 
+            {
+              return   
+              Column(
+                children: [
+                  SizedBox(height:5,),
+                  Divider(),
+                  SizedBox(height: 5,),
+                ],
+              );
+            }, //ListView.separated separatorBuilder
+
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            itemCount: logoutData.length,
+            itemBuilder: (context, index) 
+            {
+            return 
+            Column(
+              children: [
+                  LogoutListWidget(
+                  prefixIcon: logoutData[index]['icon'],
+                  featureName: logoutData[index]['title'],
+                  suffixIcon: Icon(
+                    Icons.arrow_forward_ios_outlined,
+                    size: 16,
+                    color: Colors.red[700],
+                    ),
+                  routeName:logoutData[index]['routeName'], 
+                  featureMethod: null,
                 ),
                   // widget for logout
-                  InkWell(onTap: (){
+                  InkWell(
+                    onTap: (){
                     
                     // builder: (_)=> EditProfilePage()
                     Navigator.push(context, 
                     MaterialPageRoute(
                       // routeName
-                      builder: (_)=>LoginFormPage()));
+                      builder: (_)=>LoginFormPage(
+                      )), 
+                      );
                   },
                   
                   child:
@@ -257,6 +307,8 @@ class _ProfilePageState extends State<ProfilePage> {
             );           
             }
           ),         
+       
+       
         ],    
       ),
     );
