@@ -3,7 +3,7 @@ import 'package:my_app/demo_apps/form/page/login_form_page.dart';
 import 'package:my_app/news_apps/widgets/menu_button_widget.dart';
 
 class LogoutWidget extends StatefulWidget {
-  const LogoutWidget({super.key});
+  const LogoutWidget({super.key, required prefixIcon, required featureName, required Icon suffixIcon, required routeName, required featureMethod});
 
   @override
   State<LogoutWidget> createState() => _LogoutWidgetState();

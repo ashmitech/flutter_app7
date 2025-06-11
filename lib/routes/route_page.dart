@@ -7,11 +7,11 @@ import 'package:my_app/demo_apps/tourism/page/tourism_layout_page.dart';
 import 'package:my_app/demo_apps/weather/page/weather_page.dart';
 import 'package:my_app/demo_apps/form/page/login_form_page.dart';
 import 'package:my_app/news_apps/screens/home_page.dart';
+import 'package:my_app/news_apps/screens/settings_page.dart';
 
 class AppRoute {
   static Map<String, WidgetBuilder> routes = {
-      // "/":(context)=>LoginFormPage(),
-      "/":(context)=>LoginFormPage(),
+      "/":(context)=>ProfilePage(),
       "/dashboard":(context)=>kHomePage(),
       "/login_form":(context)=>LoginFormPage(),
       "/profile":(context)=>ProfilePage(),

@@ -84,7 +84,7 @@ class _NewsHomePageState extends State<NewsHomePage> {
               Navigator.of(context).pop(); 
               // close the dialog and continue to the same page
             }, 
-            child: Text("Cancel"),
+            child: Text("Cancel", style: TextStyle(color: Colors.red.shade300),),
           ),
           TextButton(onPressed: (){
             Navigator.of(context).pop(); 
@@ -98,9 +98,8 @@ class _NewsHomePageState extends State<NewsHomePage> {
 
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('''You have successfully Logged out. 
-          Please re-login to continue.'''), 
-          backgroundColor: Colors.red[700],
+          content: Text('You have successfully Logged out. Please re-login to continue.'), 
+          backgroundColor: Colors.orange,
         ),
         );
       }, child: Text("Ok"),
@@ -110,18 +109,21 @@ class _NewsHomePageState extends State<NewsHomePage> {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(25, 118, 210, 1),
-        title: Text("News Apps Demo", 
+        title: Text("News Apps", 
         style: TextStyle(color: Colors.white70,
          fontWeight: FontWeight.bold)),
         centerTitle: false,
+        leading: 
+        Image.asset('assets/images/news_logo.jpeg',
+        height:100.0),
         actions: [
+          
           Padding(padding: EdgeInsets.fromLTRB(0, 0, 18.0, 0), 
           child: 
           Row(children: [
