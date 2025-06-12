@@ -272,11 +272,55 @@ class _RegistrationFormState extends State<RegistrationForm> {
 }
 
 class RegistrationFormWidget extends StatelessWidget {
-  const RegistrationFormWidget({super.key});
+  final dynamic prefixIcon;
+  final dynamic labelText;
+
+  const RegistrationFormWidget
+  ({super.key, 
+      //attributes
+      this.labelText,
+      this.prefixIcon,
+      required featureValidationMethod,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return 
+    TextFormField( 
+                    decoration: 
+                    InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: "Full Name",
+                    prefixIcon: Icon(Icons.near_me),
+                    ),
+                  keyboardType: TextInputType.text,
+                  validator:(value){
+                    if(value!.isEmpty||(value.length<5)){
+                      return 'Please enter your full name';
+                    }
+                    return null;
+                  }
+                  );
+  }
+}
+
+class LargeSizedBoxWidget extends StatelessWidget {
+  const LargeSizedBoxWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return 
+    SizedBox(height:MediaQuery.of(context).size.width*0.1);
+  }
+}
+
+class SmallSizedBoxWidget extends StatelessWidget {
+  const SmallSizedBoxWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return 
+    SizedBox(height:MediaQuery.of(context).size.width*0.01);
   }
 }
 

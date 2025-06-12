@@ -17,7 +17,6 @@ import 'package:esewa_flutter_sdk/esewa_config.dart' show EsewaConfig;
 /**ESewa function import*/
 import 'package:my_app/function/esewa.dart';
 
-
 class NewsHomePage extends StatefulWidget {
   const NewsHomePage({super.key});
   @override
@@ -51,7 +50,6 @@ class _NewsHomePageState extends State<NewsHomePage> {
   // function to handle the navigation menu
   void _onMenuSelected(BuildContext context, String value){
     switch (value){
-      
       case 'profile':
       Navigator.push(
         context,
@@ -61,7 +59,6 @@ class _NewsHomePageState extends State<NewsHomePage> {
       case 'logout':
       _showLogoutDialog(context);
       break;
-
     }
   }
   /* function to display message are you sure you want to logout when user press on logout menu*/
@@ -116,13 +113,21 @@ class _NewsHomePageState extends State<NewsHomePage> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(25, 118, 210, 1),
-        title: Text("News Apps", 
-        style: TextStyle(color: Colors.white70,
-         fontWeight: FontWeight.bold)),
+        title: Text("Breaking News", 
+        style: TextStyle(
+          color: Colors.white70,
+          fontWeight: FontWeight.bold
+          )),
         centerTitle: false,
-        leading: 
-        Image.asset('assets/images/news_logo.jpeg',
-        height:100.0),
+        leading: IconButton(
+          onPressed: (){
+            // show side navigation bar 
+          }, 
+          icon: Icon(
+            Icons.menu,
+            color: Colors.white,
+            ),),
+        
         actions: [
           
           Padding(padding: EdgeInsets.fromLTRB(0, 0, 18.0, 0), 
@@ -130,17 +135,23 @@ class _NewsHomePageState extends State<NewsHomePage> {
           Row(children: [
             Row(
               children: [
+                Container(margin: EdgeInsets.fromLTRB(0.0, 0.0, 30.0, 0.0),),
+                        Image.asset('assets/images/news_logo.jpeg', height:20.0),
               Column(
                 children: [
                   Container(
                     margin: EdgeInsets.all(8.0),
                     padding: EdgeInsets.all(8.0),
                     child:
-                  Text(
-                    "Hello, Reader!", 
-                    style: TextStyle(
-                      color: Colors.white70),
-                    ), 
+                    Row(
+                      children:[
+                        Text(
+                        "Hello, Reader!", 
+                        style: TextStyle(
+                          color: Colors.white70),
+                      ), 
+                      ] 
+                    ),
                   ),
                 ],
               ),

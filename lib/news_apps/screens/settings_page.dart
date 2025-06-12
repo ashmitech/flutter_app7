@@ -78,7 +78,7 @@ class SettingsPage extends StatelessWidget {
             itemBuilder: (context, index) 
             {
             return 
-                ProfileWidget(
+                ProfileListWidget(
                   prefixIcon: profileData[index]['icon'],
                   featureName: profileData[index]['title'],
                   suffixIcon: Icon(

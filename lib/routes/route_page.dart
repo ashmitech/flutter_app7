@@ -12,8 +12,9 @@ import 'package:my_app/news_apps/screens/settings_page.dart';
 
 class AppRoute {
   static Map<String, WidgetBuilder> routes = {
-      "/":(context)=>RegistrationForm(),
+      "/":(context)=>kHomePage(),
       "/dashboard":(context)=>kHomePage(),
+      "/news_home":(context)=>NewsHomePage(),
       "/login_form":(context)=>LoginFormPage(),
       "/profile":(context)=>ProfilePage(),
       "/edit_profile":(context)=>EditProfilePage(),

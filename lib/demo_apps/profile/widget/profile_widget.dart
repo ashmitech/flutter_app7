@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/news_apps/screens/home_page.dart';
 
-class ProfileWidget extends StatelessWidget {
-  const ProfileWidget
+class ProfileListWidget extends StatelessWidget {
+  const ProfileListWidget
   ({super.key,
       //attributes
       this.prefixIcon,

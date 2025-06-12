@@ -6,12 +6,14 @@ class kHomePage extends StatelessWidget {
   kHomePage({super.key});
 
   final List<Map> homeData=[
-    {"prefixIcon":Icons.layers_outlined, "name":"Tourism Application", "routeName":"/tourism"},
-    {"prefixIcon":Icons.sunny, "name":"Weather Application", "routeName":"/weather"},
+    
+    {"prefixIcon":Icons.newspaper, "name":"News Application", "routeName":"/news_home"},
     {"prefixIcon":Icons.format_align_justify_outlined,"name":"Login/Registration Form", "routeName":"/login_form", "suffixIcon":Icons.expand_circle_down_outlined},
     {"prefixIcon":Icons.verified_user_sharp, "name":"Profile Application", "routeName":"/profile"},
-    {"prefixIcon":Icons.newspaper, "name":"News Application", "routeName":"/news_home"},
-    {"prefixIcon":Icons.sports_soccer, "name":"Sports Application", "routeName":"/sports"},
+    {"prefixIcon":Icons.search_outlined, "name":"Search Application", "routeName":"/search_page"},
+    {"prefixIcon":Icons.bookmark_outlined, "name":"Bookmark Application", "routeName":"/bookmark_page"},
+    {"prefixIcon":Icons.settings_outlined, "name":"Settings Application", "routeName":"/settings_page"},
+
   ];
      
   @override

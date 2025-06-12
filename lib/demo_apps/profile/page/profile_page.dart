@@ -5,7 +5,7 @@ import 'package:my_app/demo_apps/form/page/login_form_page.dart';
 import 'package:my_app/demo_apps/home/page/home_page.dart';
 
 // import 'package:my_app/demo_apps/home/page/home_page.dart';
-import 'package:my_app/demo_apps/profile/widget/profile_widget.dart' show LogoutListWidget, ProfileWidget;
+import 'package:my_app/demo_apps/profile/widget/profile_widget.dart' show LogoutListWidget, ProfileListWidget;
 import 'package:my_app/demo_apps/profile/page/edit_profile_page.dart' show EditProfilePage;
 import 'package:my_app/demo_apps/subscription/page/subscription_page.dart' show SubscriptionPage;
 import 'package:my_app/news_apps/screens/search_page.dart';
@@ -224,7 +224,7 @@ class _ProfilePageState extends State<ProfilePage> {
             return 
             Column(
               children: [
-                  ProfileWidget(
+                  ProfileListWidget(
                   prefixIcon: profileData[index]['icon'],
                   featureName: profileData[index]['title'],
                   suffixIcon: Icon(
