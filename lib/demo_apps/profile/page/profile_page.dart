@@ -1,23 +1,15 @@
-import 'package:esewa_flutter_sdk/esewa_flutter_sdk.dart';
 import 'package:flutter/material.dart';
-import 'package:my_app/demo_apps/form/page/login_form_page.dart';
 import 'package:my_app/demo_apps/form/page/login_form_page.dart';
 import 'package:my_app/demo_apps/home/page/home_page.dart';
 
 // import 'package:my_app/demo_apps/home/page/home_page.dart';
 import 'package:my_app/demo_apps/profile/widget/profile_widget.dart' show LogoutListWidget, ProfileListWidget;
 import 'package:my_app/demo_apps/profile/page/edit_profile_page.dart' show EditProfilePage;
-import 'package:my_app/demo_apps/subscription/page/subscription_page.dart' show SubscriptionPage;
 import 'package:my_app/news_apps/screens/search_page.dart';
 import 'package:my_app/news_apps/screens/settings_page.dart'show SettingsPage;
 import 'package:my_app/news_apps/screens/bookmark_page.dart'show BookmarkPage;
 
 import 'package:my_app/news_apps/screens/home_page.dart';
-import 'package:my_app/widgets/logout_widget/logout_widget.dart';
-// ignore: unused_import
-import 'package:my_app/function/esewa.dart'; 
-// ignore: unused_import
-import 'package:path/path.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/demo_apps/profile/widget/profile_widget.dart';
-import 'package:my_app/demo_apps/profile/page/edit_profile_page.dart';
 
 class SettingsPage extends StatelessWidget {
    SettingsPage({super.key});

@@ -10,13 +10,6 @@ import 'package:my_app/news_apps/widgets/menu_button_widget.dart' show MenuButto
 // appbar 
 import 'navigation/custom_bottom_nav.dart' show CustomBottomNav;
 
-/*esewa flutter sdk */
-import 'package:esewa_flutter/esewa_flutter.dart' show EsewaPayButton, EsewaPaymentResponse;
-import 'package:esewa_flutter_sdk/esewa_config.dart' show EsewaConfig;
-
-/**ESewa function import*/
-import 'package:my_app/function/esewa.dart';
-
 class NewsHomePage extends StatefulWidget {
   const NewsHomePage({super.key});
   @override
