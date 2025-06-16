@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/news_apps/screens/settings_page.dart';
 
-class RegistrationForm extends StatefulWidget {
-  const RegistrationForm({super.key});
+class ResetPasswordForm extends StatefulWidget {
+  const ResetPasswordForm({super.key});
 
   @override
-  State<RegistrationForm> createState() => 
-  _RegistrationFormState();
+  State<ResetPasswordForm> createState() => 
+  _ResetPasswordFormState();
 }
 
-class _RegistrationFormState extends State<RegistrationForm> {
+class _ResetPasswordFormState extends State<ResetPasswordForm> {
   final _formKey= GlobalKey<FormState>();
   bool? value= false; //initialize as nullable bool 
   bool _obscureText=true;
@@ -22,10 +22,10 @@ class _RegistrationFormState extends State<RegistrationForm> {
       else{
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(
-          "Registration Successful. Thank you.",
+          "Your Password has been Reset. Please re-login to continue",
             style: TextStyle(
               color: Colors.white,
-              backgroundColor: Colors.green,
+              backgroundColor: Colors.green.shade400,
             ),
           )
         ),
@@ -58,8 +58,8 @@ class _RegistrationFormState extends State<RegistrationForm> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal:20.0),
             child: IconButton(
-            icon: const Icon(Icons.app_registration_rounded),
-            tooltip: 'Registration Form',
+            icon: const Icon(Icons.reset_tv_outlined),
+            tooltip: 'Reset Password',
             onPressed: () {
               // handle the press
             },
@@ -74,7 +74,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
         children: [
           SizedBox(height: 15.0,),
           Center(
-                  child: Text("Registration Form",
+                  child: Text("Reset Password Form",
                   style:TextStyle(
                     fontSize:24.0,
                     fontWeight:FontWeight.bold),
@@ -88,82 +88,6 @@ class _RegistrationFormState extends State<RegistrationForm> {
               ),
               child: Column(
                 children: <Widget>[
-                  SizedBox(
-                    height: MediaQuery.of(context).size.width*0.1),
-                  TextFormField( 
-                    decoration: 
-                    InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: "Full Name",
-                    prefixIcon: Icon(Icons.near_me),
-                    ),
-                  keyboardType: TextInputType.text,
-                  validator:(value){
-                    if(value!.isEmpty||(value.length<5)){
-                      return 'Please enter your full name';
-                    }
-                    return null;
-                  }
-                  ),
-                  
-                  SizedBox(
-                    height: MediaQuery.of(context).size.width*0.01,),
-
-                  TextFormField( 
-                    decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: "Address",
-                    prefixIcon: Icon(Icons.home),
-                    ),
-
-                  keyboardType: TextInputType.text,
-                  validator:(value){
-                    if(value!.isEmpty||(value.length<3)){
-                      return 'Please enter your address';
-                    }
-                    return null;
-                  }
-                  ),
-              
-                  SizedBox(
-                    height: MediaQuery.of(context).size.width*0.01),
-                  
-                  TextFormField( decoration: InputDecoration(
-                    border:OutlineInputBorder(),
-                    labelText:'Mobile Number',
-                    prefixText: '+977  ',
-                    prefixIcon: Icon(Icons.phone),
-                    ),
-                  keyboardType: TextInputType.number,
-                  validator:(value){
-                    if(value==null|| value.isEmpty){
-                      return 'Please enter your phone number';
-
-                    }else if(!RegExp(r'^\+?\d{10,10}$').hasMatch(value)){
-                      return 'Enter a valid phone number';
-                    }
-                    return null;
-                  },
-                  ),
-              
-                  SizedBox(
-                    height: MediaQuery.of(context).size.width*0.01,),
-                  TextFormField( 
-                    decoration: InputDecoration(
-                    border:OutlineInputBorder(),
-                    labelText:'E-mail Address',
-                    
-                    prefixIcon: Icon(Icons.email),
-
-                    ),
-                  keyboardType: TextInputType.emailAddress,
-                  validator:(value){
-                      if(value!.isEmpty|| !RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(value)){
-                        return 'Please enter a valid email address!';
-                      }
-                      return null;
-                    },
-                  ),
                   
                   SizedBox(height:MediaQuery.of(context).size.width*0.01,
                   ),
@@ -173,7 +97,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                   obscureText:_obscureText,
                   decoration: InputDecoration(
                   border:OutlineInputBorder(),
-                  labelText: "Password",
+                  labelText: "New Password",
                   prefixIcon: Icon(Icons.security),
                   suffixIcon: IconButton(
                     icon: Icon( 
@@ -186,7 +110,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                     ),
                     validator:(value){
                       if(value!.isEmpty){
-                        return 'Enter a enter your password!';
+                        return 'Enter a enter your new password!';
                         
                       }else if(!RegExp(
                         r'^(?=.*[0-9])(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,}$').hasMatch(value)){
@@ -215,7 +139,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                     ),
                     validator:(value){
                       if(value!.isEmpty){
-                        return 'Pleas re-enter your password!';
+                        return 'Pleas re-enter your new password!';
                         
                       }else if(!RegExp(
                         r'^(?=.*[0-9])(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,}$').hasMatch(value)){
@@ -226,22 +150,6 @@ class _RegistrationFormState extends State<RegistrationForm> {
                     ),  
                      SizedBox(height:MediaQuery.of(context).size.width*0.025),
 
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Checkbox(
-                          tristate: false,
-                          value: value,
-                          onChanged:(bool? newValue){
-                            setState((){
-                              value= newValue;
-                            });
-                          }
-                        ),
-                        Text("I agree the"),
-                        Text("Terms and Conditions"),
-                      ],
-                    ),
                   SizedBox(height: MediaQuery.of(context).size.width*0.1,),
                     SizedBox(
                       width:double.infinity,
@@ -261,38 +169,6 @@ class _RegistrationFormState extends State<RegistrationForm> {
                         onPressed: ()=> _submit(),
                       ),
                     ),
-
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("Don't have login details?"),
-                        SizedBox(width: 8.0,),
-                        InkWell(
-                          child: Text("Register here", 
-                            style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.blue,
-                              decoration:TextDecoration.underline, 
-                              decorationColor: Colors.blue,
-                              ),
-                          ),
-
-                          onTap:(){
-                            Navigator.push(context, 
-                            MaterialPageRoute<void>(
-                              builder: (BuildContext context)
-                              => const RegistrationForm(),
-                              ),
-                            
-                            );
-                          } 
-                          
-                          
-                        ),
-                      ],
-                    ),
-                  SizedBox(height: MediaQuery.of(context).size.width*0.1,),
-
                 ],
               ),
             ),   

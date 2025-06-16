@@ -154,7 +154,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       //email address
                       Text("mahesh.sharma@gmail.com"),
                       //phone number
-                      Text("Phone: +977 98100000"),
+                      Text("Phone: +977 9810000000"),
 
                       // edit profile button
                       Padding(

@@ -8,7 +8,7 @@ import 'package:my_app/news_apps/screens/home_page.dart';
 
 class AppRoute {
   static Map<String, WidgetBuilder> routes = {
-      "/":(context)=>kHomePage(),
+      "/":(context)=>ForgotPasswordPage(),
       "/dashboard":(context)=>kHomePage(),
       "/news_home":(context)=>NewsHomePage(),
       "/login_form":(context)=>LoginFormPage(),
