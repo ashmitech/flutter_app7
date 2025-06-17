@@ -59,7 +59,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
             padding: const EdgeInsets.symmetric(horizontal:20.0),
             child: IconButton(
             icon: const Icon(Icons.app_registration_rounded),
-            tooltip: 'Registration Form',
+            tooltip: 'Edit Profile Details',
             onPressed: () {
               // handle the press
             },
@@ -349,8 +349,8 @@ class LargeSizedBoxWidget extends StatelessWidget {
 class SmallSizedBoxWidget extends StatelessWidget {
   const SmallSizedBoxWidget({super.key});
 
-  @override
-  Widget build(BuildContext context) {
+@override
+Widget build(BuildContext context) {
     return 
     SizedBox(height:MediaQuery.of(context).size.width*0.01);
   }

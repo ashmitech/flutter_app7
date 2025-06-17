@@ -23,6 +23,7 @@ class OTPFormPage extends StatelessWidget {
           Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10.0),
           child: 
+
           InkWell(
           onTap: () => Navigator.push(context, 
           MaterialPageRoute(builder: (_)=>SettingsPage())),
@@ -51,7 +52,7 @@ class OTPFormPage extends StatelessWidget {
             key: _formKey,
             child: Padding(
               padding: const EdgeInsets.all(25.0),
-              child: ForgotPasswordWidget(),),
+              child: OTPFormWidget(),),
           ),
         ],
       )
@@ -59,15 +60,15 @@ class OTPFormPage extends StatelessWidget {
   }
 }
 
-//forgot passwod widget
-class ForgotPasswordWidget extends StatefulWidget {
-  const ForgotPasswordWidget({super.key});
+//otp form widget
+class OTPFormWidget extends StatefulWidget {
+  const OTPFormWidget({super.key});
 
   @override
-  State<ForgotPasswordWidget> createState() => _ForgotPasswordWidgetState();
+  State<OTPFormWidget> createState() => _OTPFormWidgetState();
 }
 
-class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
+class _OTPFormWidgetState extends State<OTPFormWidget> {
 
   _submit_OTP(){
     final isValid=_formKey.currentState!.validate();
@@ -76,7 +77,6 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
   }else{
     // Navigator.push(context as BuildContext,MaterialPageRoute(builder: (_)=>OTPFormPage()) );
     
-    Navigator.push(context as BuildContext, MaterialPageRoute(builder: (_)ResetPasswordForm()));
     ScaffoldMessenger.of(context as BuildContext).showSnackBar(SnackBar(
       backgroundColor: Colors.green, 
       content:Text(
@@ -89,24 +89,25 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Text("Forgot Password Form",
-        style:TextStyle(
-          fontSize: 24.0,
-          fontWeight:FontWeight.bold),
-        ),
+        
         SizedBox(
         height: MediaQuery.of(context).size.width*0.15,),
 
-
-        SizedBox(height: MediaQuery.of(context).size.width*0.3,),
-
-
-        Text("Online Transaction PIN",
+        Text("Online Transaction Pin",
         style:TextStyle(
           fontSize: 24.0,
           fontWeight:FontWeight.bold),
         ),
-        SizedBox(height: MediaQuery.of(context).size.width*0.15,),
+
+        SizedBox(
+        height: MediaQuery.of(context).size.width*0.15,),
+        Text("Please enter the online transaction pin from your your SMS",
+        style:TextStyle(
+          fontSize: 14.0,
+          fontWeight:FontWeight.normal),
+        ),
+
+        SizedBox(height: MediaQuery.of(context).size.width*0.30,),
 
         TextFormField( 
                   keyboardType: TextInputType.phone,

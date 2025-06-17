@@ -21,7 +21,6 @@ class MenuButtonWidget extends StatelessWidget {
         
       );
 
-      // TODO: Snackbar to login again if logout
     }else{
     return 
     PopupMenuButton <String>(
