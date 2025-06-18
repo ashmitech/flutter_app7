@@ -10,7 +10,7 @@ import 'package:my_app/news_apps/screens/home_page.dart';
 
 class AppRoute {
   static Map<String, WidgetBuilder> routes = {
-      "/":(context)=>ProfilePage(),
+      "/":(context)=>NewsHomePage(),
       "/dashboard":(context)=>kHomePage(),
       "/news_home":(context)=>NewsHomePage(),
       "/login_form":(context)=>LoginFormPage(),
@@ -19,7 +19,7 @@ class AppRoute {
       "/edit_profile":(context)=>EditProfilePage(),
       "/forgot_password":(context)=>ForgotPasswordPage(),
       "/reset_password":(context)=>ResetPasswordForm(),
-
     };
   }
-  
+      
+  // TODO: "/news_details":(context)=>DetailsPage(), 

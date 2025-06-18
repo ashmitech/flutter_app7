@@ -53,7 +53,7 @@ class _ProfilePageState extends State<ProfilePage> {
     {
     "title":'Logout',
     "icon":Icon(Icons.logout_outlined,color: Colors.red),
-    "routeName":LoginFormPage()
+    "routeName":LoginFormPage(),
     }, 
   ];
 
