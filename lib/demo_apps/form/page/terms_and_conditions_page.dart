@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/news_apps/screens/settings_page.dart';
 
 class TermsAndConditionsPage extends StatelessWidget {
   const TermsAndConditionsPage({super.key});
