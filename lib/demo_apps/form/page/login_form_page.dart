@@ -14,6 +14,7 @@ class LoginFormPage extends StatefulWidget {
 
 class _LoginFormPageState extends State<LoginFormPage> {
   final _formKey = GlobalKey<FormState>();
+  
   bool _obscureText=true;
   final TextEditingController passwordController =TextEditingController();
   
@@ -238,7 +239,7 @@ class _LoginFormPageState extends State<LoginFormPage> {
   }
 }
 
- /* TODO: 
+ // TODO: 
       // check login details username and password then redirect to the home page with success message
 
       // if user click on forgot password then redirect to forgot password screen
@@ -246,37 +247,5 @@ class _LoginFormPageState extends State<LoginFormPage> {
       // if user clicks on not registered yet then redirect to the registration screen
 
       // if user clicks on the show password help to show the password on tap with changed state for few seconds
-      */
-
-/**For Mobile number verification in the Form field*/
-
-//       TextFormField(
-//   keyboardType: TextInputType.phone,
-//   decoration: InputDecoration(labelText: 'Phone Number'),
-//   validator: (value) {
-//     if (value == null || value.isEmpty) {
-//       return 'Please enter your phone number';
-//     } else if (!RegExp(r'^\+?\d{10,13}$').hasMatch(value)) {
-//       return 'Enter a valid phone number';
-//     }
-//     return null;
-//   },
-// )
-
-/**For Email Verification in text field */
-// TextFormField( 
-                  
-//                   decoration: InputDecoration(
-//                   labelText:'Mobile Number'
-//                   ),
-//                 keyboardType: TextInputType.emailAddress,
-//                 validator:(value){
-//                     if((value!.isEmpty|| !RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(value)) || (value.isEmpty || value.length>10 || value.length<10)){
-//                       return 'Please enter a valid phone number!';
-//                     }else {
-//                     return null;
-//                     }
-//                   },
-//                 )
-
       
+

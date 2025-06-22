@@ -34,7 +34,8 @@ class OTPFormPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal:20.0),
             child: IconButton(
-            icon: Icon(Icons.edit),
+
+            icon: Icon(Icons.output),
             tooltip: 'OTP Form',
             onPressed: () {
               // handle the press
@@ -99,21 +100,13 @@ class _OTPFormWidgetState extends State<OTPFormWidget> {
           fontWeight:FontWeight.bold),
         ),
 
-        SizedBox(
-        height: MediaQuery.of(context).size.width*0.15,),
-        Text("Please enter the online transaction pin from your your SMS",
-        style:TextStyle(
-          fontSize: 14.0,
-          fontWeight:FontWeight.normal),
-        ),
-
-        SizedBox(height: MediaQuery.of(context).size.width*0.30,),
+        SizedBox(height: MediaQuery.of(context).size.width*0.15,),
 
         TextFormField( 
                   keyboardType: TextInputType.phone,
                   decoration: InputDecoration(
                   border:OutlineInputBorder(),
-                  labelText:'Online Transaction PIN',
+                  labelText:'Please enter OTP Pin number',
                   prefixText: '',
                   prefixIcon: Icon(Icons.output),
                   ),
@@ -129,8 +122,7 @@ class _OTPFormWidgetState extends State<OTPFormWidget> {
                   },
                 ),  
         SizedBox(height: MediaQuery.of(context).size.width*0.15,),
-
-
+        
         SizedBox(
           width: double.infinity,
           child: ElevatedButton(
@@ -148,17 +140,14 @@ class _OTPFormWidgetState extends State<OTPFormWidget> {
             ),),
             onPressed: ()=>_submit_OTP),
             ),          
-
       ],
-    );
-    
-  }
-
-  
+    );   
+  }  
 }
 
 
-
+// TODO
+  // on validate otp pin number from the sms, redirect to the password reset page else show the invalid otp number  
 
 
 

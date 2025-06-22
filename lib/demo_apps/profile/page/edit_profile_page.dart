@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/demo_apps/form/page/registration_form_page.dart';
-import 'package:my_app/demo_apps/profile/page/profile_page.dart';
 
 class EditProfilePage extends StatefulWidget {
   const EditProfilePage({super.key});
@@ -13,7 +11,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
 
   final _formKey= GlobalKey<FormState>();
   bool? value= false; //initialize as nullable bool 
-  bool _obscureText=true;
+  // bool _obscureText=true;
 
   void _submit(){
     final isValid=_formKey.currentState!.validate();

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/demo_apps/form/page/login_form_page.dart';
+import 'package:my_app/demo_apps/form/page/login_form_page.dart' show LoginFormPage;
 import 'package:my_app/demo_apps/profile/page/profile_page.dart' show ProfilePage;
 import 'package:my_app/news_apps/screens/main_home_page.dart'show MainHomePage;
 import 'package:my_app/news_apps/screens/search_page.dart' show SearchPage;
@@ -60,8 +60,8 @@ class _NewsHomePageState extends State<NewsHomePage> {
     showDialog(context: context,
     builder: (BuildContext context){
       return AlertDialog(
-        //title
-        title: Text("Conform Logout?"),
+        //if user press yes logout the screen with message on snack bar successfully logout else continue to the same screen
+        title: Text("Conform Logout?",),
         //content description
         content: Text("This will close your application. You'll need to re-login."),
         //background color
@@ -75,30 +75,42 @@ class _NewsHomePageState extends State<NewsHomePage> {
               Navigator.of(context).pop(); 
               // close the dialog and continue to the same page
             }, 
-            child: Text("Cancel", style: TextStyle(color: Colors.red.shade300),),
+
+            // style: TextStyle(decoration: TextDecoration.underline),
+
+            child: Text("Cancel", style: TextStyle(color: Colors.red.shade300, decoration: TextDecoration.underline, decorationColor: Colors.red.shade300),),
           ),
-          TextButton(onPressed: (){
+          TextButton(
+            
+            onPressed: (){
             Navigator.of(context).pop(); 
             // close the dialog with navigation to home page with a scaffold message
-            Navigator.push(
-            context, 
-            MaterialPageRoute(builder: (_)=>LoginFormPage()),
-      );
+            Navigator.push(context, MaterialPageRoute(builder: (_)=>LoginFormPage()));
 
-      /*if user press yes logout the screen with message on snack bar successfully logout else continue to the same screen.*/
+             ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text('You have successfully Logged out. Please re-login to continue.'), 
+                backgroundColor: Colors.orange,
+              ),
+              );
+            },
+            child: Text("Ok", style: TextStyle(color:Colors.black87, decoration: TextDecoration.underline),),
 
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('You have successfully Logged out. Please re-login to continue.'), 
-          backgroundColor: Colors.orange,
-        ),
-        );
-      }, child: Text("Ok"),
-      ),
+            ),
         ],
       );
     });
-  }
+    }
+
+      
+
+     
+  //     }, child: Text("Ok"),
+  //     )
+      
+    
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {

@@ -1,13 +1,37 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/demo_apps/form/page/otp_form_page';
 import 'package:my_app/news_apps/screens/settings_page.dart';
 import 'package:path/path.dart';
 
-final _formKey = GlobalKey<FormState>();
-
-class ForgotPasswordPage extends StatelessWidget {
+class ForgotPasswordPage extends StatefulWidget {
   const ForgotPasswordPage({super.key});
 
+  @override
+  State<ForgotPasswordPage> createState() => _ForgotPasswordPageState();
+}
+
+class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
+  final _formKey = 
+  GlobalKey<FormState>();
+
+  final TextEditingController passwordController=TextEditingController();
+
+  void _submit(){
+    final isValid=_formKey.currentState!.validate();
+    if(!isValid){
+      return;
+    }else{
+      ScaffoldMessenger.of(context as BuildContext).showSnackBar(
+        SnackBar(
+          backgroundColor: Colors.yellow.shade300,
+          content: Text(
+            "OTP Sent Successfully. Please check your SMS",
+          ),
+          )
+      );
+    }
+    _formKey.currentState!.save();
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,57 +72,26 @@ class ForgotPasswordPage extends StatelessWidget {
       body: 
       ListView(
         children: [
+           SizedBox(
+            height: MediaQuery.of(context).size.width*0.15,),
+          Center(
+            child: Text("Forgot Password Form",
+            style:TextStyle(
+              fontSize:24.0,
+              fontWeight:FontWeight.bold),
+            ),
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.width*0.015,),
           Form(
             key: _formKey,
             child: Padding(
               padding: const EdgeInsets.all(25.0),
-              child: ForgotPasswordWidget(),),
-          ),
-        ],
-      )
-    );
-  }
-}
+              child:
+              Column(
+                children: [
 
-//forgot passwod widget
-class ForgotPasswordWidget extends StatefulWidget {
-  const ForgotPasswordWidget({super.key});
-
-  @override
-  State<ForgotPasswordWidget> createState() => _ForgotPasswordWidgetState();
-}
-
-class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
-
-  _submit(){
-    final isValid=_formKey.currentState!.validate();
-  if(!isValid){
-    return;
-  }else{
-    Navigator.push(context as BuildContext,MaterialPageRoute(builder: (_)=>OTPFormPage()) );
-
-    ScaffoldMessenger.of(context as BuildContext).showSnackBar(SnackBar(
-      backgroundColor: Colors.yellow.shade700, 
-      content:Text(
-        "Please enter the OTP sent in your phone")));
-    }
-    _formKey.currentState!.save();
-  }
-
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Text("Forgot Password Form",
-        style:TextStyle(
-          fontSize: 24.0,
-          fontWeight:FontWeight.bold),
-        ),
-        SizedBox(
-        height: MediaQuery.of(context).size.width*0.15,),
-
-         TextFormField( 
+                  TextFormField( 
                   keyboardType: TextInputType.phone,
                   decoration: InputDecoration(
                   border:OutlineInputBorder(),
@@ -109,7 +102,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                 
                 validator:(value){
                     if(value==null|| value.isEmpty){
-                      return 'Please enter your phone number provided at the time of registration';
+                      return 'Please enter your phone number';
 
                     }else if(!RegExp(r'^\+?\d{10,10}$').hasMatch(value)){
                       return 'Enter a valid phone number';
@@ -117,37 +110,48 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                     return null;
                   },
                 ),
-                
-        SizedBox(height: MediaQuery.of(context).size.width*0.1,),
 
-        SizedBox(
+                SizedBox(
+            height: MediaQuery.of(context).size.width*0.15,),
+            
+                SizedBox(
                     width:double.infinity,
                     child:ElevatedButton(
                       style: ButtonStyle(
                         backgroundColor: WidgetStateProperty.all(Colors.blue.shade600),
                       ),
                       child: 
-                      Padding(padding: EdgeInsets.all(8.0),
-                        child: Text('Submit form',
+                      Padding(padding: const EdgeInsets.all(8.0),
+                        child: Text('S U B M I T',
                         style:TextStyle(
                           color:Colors.white,
                           fontSize:14,
                         ),
                         ),
                       ),
-                      onPressed: ()=> _submit,
+                      onPressed: ()=> _submit(),
                     ),
                   ),
+                ],
+              ),
+              
+              ),
+                
 
-        SizedBox(height: MediaQuery.of(context).size.width*0.3,),    
-
-      ],
+          ),
+        ],
+      )
     );
-    
   }
 
-  
+  @override
+  void dispose(){
+    passwordController.dispose();
+    super.dispose();
+  }
 }
+
+
 
 
 

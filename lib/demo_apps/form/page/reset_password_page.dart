@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/news_apps/screens/settings_page.dart';
+import 'package:my_app/demo_apps/form/page/login_form_page.dart';
+import 'package:my_app/news_apps/screens/settings_page.dart' show SettingsPage;
 
 class ResetPasswordForm extends StatefulWidget {
   const ResetPasswordForm({super.key});
@@ -17,15 +18,31 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
   void _submit(){
     final isValid=_formKey.currentState!.validate();
     if(!isValid){
-      return;
+      // return;
+      
+        SnackBar(
+              backgroundColor: Colors.red.shade700,
+              
+          content: Text(
+          "Invalid Password",
+            style: TextStyle(
+             
+            ),
+          )
+        );
+      
       }
       else{
+        Navigator.push(context, MaterialPageRoute(builder: (_)=>LoginFormPage()));
+
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(
+        SnackBar(
+              backgroundColor: Colors.yellow.shade700,
+              
+          content: Text(
           "Your Password has been Reset. Please re-login to continue",
             style: TextStyle(
-              color: Colors.white,
-              backgroundColor: Colors.green.shade400,
+             
             ),
           )
         ),
@@ -58,7 +75,7 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal:20.0),
             child: IconButton(
-            icon: const Icon(Icons.reset_tv_outlined),
+            icon: const Icon(Icons.edit),
             tooltip: 'Reset Password',
             onPressed: () {
               // handle the press
@@ -69,10 +86,13 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
             
             ],
       ),
+      
       body:
+      
       ListView(
         children: [
-          SizedBox(height: 15.0,),
+          SizedBox(
+                    height: MediaQuery.of(context).size.width*0.1),
           Center(
                   child: Text("Reset Password Form",
                   style:TextStyle(
@@ -80,7 +100,8 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
                     fontWeight:FontWeight.bold),
                   ),
                 ),
-          
+           SizedBox(
+                    height: MediaQuery.of(context).size.width*0.01),
           Form(
             key: _formKey,
             child: Padding(
@@ -89,7 +110,7 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
               child: Column(
                 children: <Widget>[
                   
-                  SizedBox(height:MediaQuery.of(context).size.width*0.01,
+                  SizedBox(height:MediaQuery.of(context).size.width*0.15,
                   ),
                   
                   TextFormField(
@@ -120,7 +141,7 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
                     },
                     ),
               
-                  SizedBox(height:MediaQuery.of(context).size.width*0.01,
+                  SizedBox(height:MediaQuery.of(context).size.width*0.05,
                   ),
                   TextFormField(
                     obscureText:_obscureText,
