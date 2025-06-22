@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/demo_apps/form/page/forgot_password_page.dart';
 import 'package:my_app/demo_apps/form/page/login_form_page.dart';
 import 'package:my_app/demo_apps/home/page/home_page.dart';
 
@@ -34,14 +35,25 @@ class _ProfilePageState extends State<ProfilePage> {
     "icon":Icon(Icons.bookmark_outline),
     "routeName":BookmarkPage(bookmarkedItems: [],),
     },
-     
+
+    {
+    "title":"Settings",
+    "icon":Icon(Icons.settings_outlined),
+    "routeName":SettingsPage(),
+    }, 
+
+    {
+    "title":"Change Password",
+    "icon":Icon(Icons.security_outlined),
+    "routeName":ForgotPasswordPage(),
+    }, 
   ];
 
   final List<Map> logoutData =[
     {
     "title":'Logout',
     "icon":Icon(Icons.logout_outlined,color: Colors.red),
-    "routeName":LoginFormPage()
+    "routeName":LoginFormPage(),
     }, 
   ];
 
@@ -154,7 +166,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       //email address
                       Text("mahesh.sharma@gmail.com"),
                       //phone number
-                      Text("Phone: +977 98100000"),
+                      Text("Phone: +977 9810000000"),
 
                       // edit profile button
                       Padding(

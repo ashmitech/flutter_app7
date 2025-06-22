@@ -5,10 +5,11 @@ class SettingsPage extends StatelessWidget {
    SettingsPage({super.key});
 
   final List<Map> profileData =[
-    
-    {"title":"Language", "icon":Icon(Icons.language_outlined)}, //English // Nepali
     {"title":"Font Size", "icon":Icon(Icons.font_download_outlined)}, //change font size
+    {"title":"Time Zome", "icon":Icon(Icons.home_outlined)}, // Time Zone
+    {"title":"Language", "icon":Icon(Icons.language_outlined)}, //English // Nepali
     {"title":"Screen Mode", "icon":Icon(Icons.screen_lock_portrait_outlined)}, // Scree mode address
+
   ];
 
   @override

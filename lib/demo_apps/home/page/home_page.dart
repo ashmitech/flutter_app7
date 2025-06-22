@@ -6,14 +6,13 @@ class kHomePage extends StatelessWidget {
   kHomePage({super.key});
 
   final List<Map> homeData=[
-    
-    {"prefixIcon":Icons.newspaper, "name":"News Application", "routeName":"/news_home"},
+    {"prefixIcon":Icons.newspaper, "name":"News Dashboard", "routeName":"/news_home"},
+    // {"prefixIcon":Icons.chrome_reader_mode_outlined, "name":"News Details Screen", "routeName":"/news_details"},
     {"prefixIcon":Icons.format_align_justify_outlined,"name":"Login/Registration Form", "routeName":"/login_form", "suffixIcon":Icons.expand_circle_down_outlined},
-    {"prefixIcon":Icons.verified_user_sharp, "name":"Profile Application", "routeName":"/profile"},
-    {"prefixIcon":Icons.search_outlined, "name":"Search Application", "routeName":"/search_page"},
-    {"prefixIcon":Icons.bookmark_outlined, "name":"Bookmark Application", "routeName":"/bookmark_page"},
-    {"prefixIcon":Icons.settings_outlined, "name":"Settings Application", "routeName":"/settings_page"},
-
+    {"prefixIcon":Icons.verified_user_sharp, "name":"Profile Screen", "routeName":"/profile"},
+    {"prefixIcon":Icons.search_outlined, "name":"Search Screen", "routeName":"/search_page"},
+    {"prefixIcon":Icons.bookmark_outlined, "name":"Bookmark Screen", "routeName":"/bookmark_page"},
+    {"prefixIcon":Icons.settings_outlined, "name":"Settings Screen", "routeName":"/settings_page"},
   ];
      
   @override

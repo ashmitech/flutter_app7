@@ -1,0 +1,153 @@
+import 'package:flutter/material.dart';
+import 'package:my_app/news_apps/screens/settings_page.dart';
+import 'package:path/path.dart';
+
+final _formKey = GlobalKey<FormState>();
+
+class OTPFormPage extends StatelessWidget {
+  const OTPFormPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: 
+      AppBar(
+        backgroundColor: const Color.fromRGBO(25, 118, 210, 1),
+        foregroundColor: Colors.white,
+        title: Text("News Apps Demo", 
+        style: TextStyle(color: Colors.white70,
+         fontWeight: FontWeight.bold)),
+        centerTitle: false,
+         actions: [
+          Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          child: 
+
+          InkWell(
+          onTap: () => Navigator.push(context, 
+          MaterialPageRoute(builder: (_)=>SettingsPage())),
+          child: Icon(Icons.zoom_in_outlined, color: Colors.white,),
+          )
+          
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal:20.0),
+            child: IconButton(
+
+            icon: Icon(Icons.output),
+            tooltip: 'OTP Form',
+            onPressed: () {
+              // handle the press
+            },
+          ),
+            
+            ),
+            
+            ],
+      ),
+      body: 
+      ListView(
+        children: [
+          Form(
+            key: _formKey,
+            child: Padding(
+              padding: const EdgeInsets.all(25.0),
+              child: OTPFormWidget(),),
+          ),
+        ],
+      )
+    );
+  }
+}
+
+//otp form widget
+class OTPFormWidget extends StatefulWidget {
+  const OTPFormWidget({super.key});
+
+  @override
+  State<OTPFormWidget> createState() => _OTPFormWidgetState();
+}
+
+class _OTPFormWidgetState extends State<OTPFormWidget> {
+
+  _submit_OTP(){
+    final isValid=_formKey.currentState!.validate();
+  if(!isValid){
+    return;
+  }else{
+    // Navigator.push(context as BuildContext,MaterialPageRoute(builder: (_)=>OTPFormPage()) );
+    
+    ScaffoldMessenger.of(context as BuildContext).showSnackBar(SnackBar(
+      backgroundColor: Colors.green, 
+      content:Text(
+        "Please your new Password.")));
+    }
+    _formKey.currentState!.save();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        
+        SizedBox(
+        height: MediaQuery.of(context).size.width*0.15,),
+
+        Text("Online Transaction Pin",
+        style:TextStyle(
+          fontSize: 24.0,
+          fontWeight:FontWeight.bold),
+        ),
+
+        SizedBox(height: MediaQuery.of(context).size.width*0.15,),
+
+        TextFormField( 
+                  keyboardType: TextInputType.phone,
+                  decoration: InputDecoration(
+                  border:OutlineInputBorder(),
+                  labelText:'Please enter OTP Pin number',
+                  prefixText: '',
+                  prefixIcon: Icon(Icons.output),
+                  ),
+                
+                validator:(value){
+                    if(value==null|| value.isEmpty){
+                      return 'Please enter the OTP message on your Phone';
+
+                    }else if(!RegExp(r'^\+?\d{4,4}$').hasMatch(value)){
+                      return 'Enter a OTP Number';
+                    }
+                    return null;
+                  },
+                ),  
+        SizedBox(height: MediaQuery.of(context).size.width*0.15,),
+        
+        SizedBox(
+          width: double.infinity,
+          child: ElevatedButton(
+            style: ButtonStyle(
+              backgroundColor: WidgetStateProperty.all(Colors.blue.shade600), 
+            ),
+
+            child:
+            Padding(padding: EdgeInsets.all(8.0),
+            child: Text('Submit OTP',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize:14,
+            ),
+            ),),
+            onPressed: ()=>_submit_OTP),
+            ),          
+      ],
+    );   
+  }  
+}
+
+
+// TODO
+  // on validate otp pin number from the sms, redirect to the password reset page else show the invalid otp number  
+
+
+

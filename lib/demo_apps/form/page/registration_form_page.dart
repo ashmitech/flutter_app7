@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/demo_apps/form/page/login_form_page.dart';
+import 'package:my_app/demo_apps/form/page/terms_and_conditions_page.dart' show TermsAndConditionsPage;
 import 'package:my_app/news_apps/screens/settings_page.dart';
 
 class RegistrationForm extends StatefulWidget {
@@ -11,7 +13,7 @@ class RegistrationForm extends StatefulWidget {
 
 class _RegistrationFormState extends State<RegistrationForm> {
   final _formKey= GlobalKey<FormState>();
-  bool? value= false; //initialize as nullable bool 
+  bool? value= true; //initialize as nullable bool 
   bool _obscureText=true;
 
   void _submit(){
@@ -21,12 +23,12 @@ class _RegistrationFormState extends State<RegistrationForm> {
       }
       else{
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(
+        SnackBar(
+          backgroundColor: Colors.green.shade300,
+          content: Text(
+          
           "Registration Successful. Thank you.",
-            style: TextStyle(
-              color: Colors.white,
-              backgroundColor: Colors.green,
-            ),
+            
           )
         ),
       );
@@ -37,6 +39,8 @@ class _RegistrationFormState extends State<RegistrationForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
+
       appBar:AppBar(
         backgroundColor: const Color.fromRGBO(25, 118, 210, 1),
         foregroundColor: Colors.white,
@@ -58,8 +62,8 @@ class _RegistrationFormState extends State<RegistrationForm> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal:20.0),
             child: IconButton(
-            icon: const Icon(Icons.app_registration_rounded),
-            tooltip: 'Registration Form',
+            icon: const Icon(Icons.app_registration),
+            tooltip: 'Edit Profile Details',
             onPressed: () {
               // handle the press
             },
@@ -72,7 +76,8 @@ class _RegistrationFormState extends State<RegistrationForm> {
       body:
       ListView(
         children: [
-          SizedBox(height: 15.0,),
+          SizedBox(
+                    height: MediaQuery.of(context).size.width*0.1,),
           Center(
                   child: Text("Registration Form",
                   style:TextStyle(
@@ -89,7 +94,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
               child: Column(
                 children: <Widget>[
                   SizedBox(
-                    height: MediaQuery.of(context).size.width*0.1),
+                    height: MediaQuery.of(context).size.width*0.01),
                   TextFormField( 
                     decoration: 
                     InputDecoration(
@@ -107,7 +112,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                   ),
                   
                   SizedBox(
-                    height: MediaQuery.of(context).size.width*0.01,),
+                    height: MediaQuery.of(context).size.width*0.05,),
 
                   TextFormField( 
                     decoration: InputDecoration(
@@ -126,7 +131,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                   ),
               
                   SizedBox(
-                    height: MediaQuery.of(context).size.width*0.01),
+                    height: MediaQuery.of(context).size.width*0.05),
                   
                   TextFormField( decoration: InputDecoration(
                     border:OutlineInputBorder(),
@@ -147,14 +152,12 @@ class _RegistrationFormState extends State<RegistrationForm> {
                   ),
               
                   SizedBox(
-                    height: MediaQuery.of(context).size.width*0.01,),
+                    height: MediaQuery.of(context).size.width*0.05,),
                   TextFormField( 
                     decoration: InputDecoration(
                     border:OutlineInputBorder(),
                     labelText:'E-mail Address',
-                    
                     prefixIcon: Icon(Icons.email),
-
                     ),
                   keyboardType: TextInputType.emailAddress,
                   validator:(value){
@@ -165,7 +168,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                     },
                   ),
                   
-                  SizedBox(height:MediaQuery.of(context).size.width*0.01,
+                  SizedBox(height:MediaQuery.of(context).size.width*0.05,
                   ),
                   
                   TextFormField(
@@ -196,7 +199,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                     },
                     ),
               
-                  SizedBox(height:MediaQuery.of(context).size.width*0.01,
+                  SizedBox(height:MediaQuery.of(context).size.width*0.05,
                   ),
                   TextFormField(
                     obscureText:_obscureText,
@@ -238,8 +241,24 @@ class _RegistrationFormState extends State<RegistrationForm> {
                             });
                           }
                         ),
+                        SizedBox(width: 4.0,),
                         Text("I agree the"),
-                        Text("Terms and Conditions"),
+                        SizedBox(width: 4.0,),
+                        
+                        InkWell(
+                          onTap:()=>Navigator.push(context, 
+                          MaterialPageRoute(builder: (BuildContext context)=>const TermsAndConditionsPage(),)),
+
+                          child: Text("Terms and Conditions", 
+                          style: TextStyle(
+                          color: Colors.blue,
+                          decoration: TextDecoration.underline,
+                          decorationColor: Colors.blue,
+                        ),
+                        )
+
+                        ),
+                        
                       ],
                     ),
                   SizedBox(height: MediaQuery.of(context).size.width*0.1,),
@@ -261,6 +280,36 @@ class _RegistrationFormState extends State<RegistrationForm> {
                         onPressed: ()=> _submit(),
                       ),
                     ),
+
+                  SizedBox(height: MediaQuery.of(context).size.width*0.1,),
+                    
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Already Registered?"),
+                        SizedBox(width: 8.0,),
+                        InkWell(
+                          child: Text("Login here", 
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.blue,
+                              decoration:TextDecoration.underline, 
+                              decorationColor: Colors.blue,
+                              ),
+                          ),
+
+                          onTap:(){
+                            Navigator.push(context, 
+                            MaterialPageRoute<void>(
+                              builder: (BuildContext context)
+                              => const LoginFormPage(),
+                              ),
+                            );
+                          } 
+                        ),
+                      ],
+                    ),
+                  SizedBox(height: MediaQuery.of(context).size.width*0.1,),
                 ],
               ),
             ),   
@@ -271,57 +320,6 @@ class _RegistrationFormState extends State<RegistrationForm> {
   }
 }
 
-class RegistrationFormWidget extends StatelessWidget {
-  final dynamic prefixIcon;
-  final dynamic labelText;
 
-  const RegistrationFormWidget
-  ({super.key, 
-      //attributes
-      this.labelText,
-      this.prefixIcon,
-      required featureValidationMethod,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return 
-    TextFormField( 
-                    decoration: 
-                    InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: "Full Name",
-                    prefixIcon: Icon(Icons.near_me),
-                    ),
-                  keyboardType: TextInputType.text,
-                  validator:(value){
-                    if(value!.isEmpty||(value.length<5)){
-                      return 'Please enter your full name';
-                    }
-                    return null;
-                  }
-                  );
-  }
-}
-
-class LargeSizedBoxWidget extends StatelessWidget {
-  const LargeSizedBoxWidget({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return 
-    SizedBox(height:MediaQuery.of(context).size.width*0.1);
-  }
-}
-
-class SmallSizedBoxWidget extends StatelessWidget {
-  const SmallSizedBoxWidget({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return 
-    SizedBox(height:MediaQuery.of(context).size.width*0.01);
-  }
-}
 
 
