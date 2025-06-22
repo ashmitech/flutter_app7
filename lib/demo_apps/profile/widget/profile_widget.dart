@@ -88,7 +88,7 @@ class ProfileListWidget extends StatelessWidget {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('You have successfully Logged out. Please re-login to continue.'), 
-          backgroundColor: Colors.orange,
+          backgroundColor: Colors.red.shade700,
         ),
         );
       }, child: Text("Ok"),
@@ -119,7 +119,6 @@ class LogoutListWidget extends StatelessWidget {
       children: [
         Divider(),
         SizedBox(height: 5,),
-
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical:10),
           child: 
@@ -141,17 +140,14 @@ class LogoutListWidget extends StatelessWidget {
                     onTap:(){
                      _showLogoutDialog(context);
                     },
-                    
                     child: Text(
                     featureName??"Text",
-                     
                     style: TextStyle(
                     fontSize: 14,
-                    color: Colors.red,
+                    color: Colors.red.shade700,
                     ), 
                   ),
                   ),
-                  
                 ],
               ),
               suffixIcon??Icon(Icons.error),
@@ -159,9 +155,7 @@ class LogoutListWidget extends StatelessWidget {
           ),
           ),
         ),
-      
       ],
-
     );
   }
 }
