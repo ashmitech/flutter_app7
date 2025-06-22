@@ -8,6 +8,7 @@ class MenuButtonWidget extends StatelessWidget {
     super.key,
     required this.onSelected,
   });
+
   @override
   Widget build(BuildContext context) {
     if(!isUserLoggedIn){
@@ -18,17 +19,40 @@ class MenuButtonWidget extends StatelessWidget {
         MaterialPageRoute(builder: (_)=> LoginFormPage()),
         ),
         child: Text("Login", style: TextStyle(color: Colors.white),),
-        
       );
 
     }else{
     return 
     PopupMenuButton <String>(
+      color: Colors.blue.shade50,
       onSelected: onSelected,
       itemBuilder: (context)=>
       [
-        PopupMenuItem(value: 'profile', child: Text('Profile')),
-        PopupMenuItem(value: 'logout', child: Text('Logout')),    
+        PopupMenuItem(
+          value: 'profile', 
+          child: 
+          Column(
+            children: [
+              SizedBox(height:10,),
+              Text('Profile'),
+                SizedBox(height:5,),
+                Divider(
+                  color: Colors.blue.shade300,
+                ),
+            ],
+          ),
+          ),
+        
+      PopupMenuItem(
+        value: 'logout',
+        child: 
+          Center(
+          child: 
+            Text('Logout')
+          ,
+        ),
+        
+        ),    
       ], 
       child: UserLoginWidget(isUserLoggedIn));
   }  

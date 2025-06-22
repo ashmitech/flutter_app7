@@ -54,13 +54,13 @@ class _NewsHomePageState extends State<NewsHomePage> {
       break;
     }
   }
-  /* function to display message are you sure you want to logout when user press on logout menu*/
-        
+
+  // function to conform logout from user      
   void _showLogoutDialog(BuildContext context){
     showDialog(context: context,
     builder: (BuildContext context){
       return AlertDialog(
-        //if user press yes logout the screen with message on snack bar successfully logout else continue to the same screen
+        // title
         title: Text("Conform Logout?",),
         //content description
         content: Text("This will close your application. You'll need to re-login."),
@@ -76,8 +76,6 @@ class _NewsHomePageState extends State<NewsHomePage> {
               // close the dialog and continue to the same page
             }, 
 
-            // style: TextStyle(decoration: TextDecoration.underline),
-
             child: Text("Cancel", style: TextStyle(color: Colors.red.shade300, decoration: TextDecoration.underline, decorationColor: Colors.red.shade300),),
           ),
           TextButton(
@@ -90,7 +88,7 @@ class _NewsHomePageState extends State<NewsHomePage> {
              ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text('You have successfully Logged out. Please re-login to continue.'), 
-                backgroundColor: Colors.orange,
+                backgroundColor: Colors.red.shade300,
               ),
               );
             },
@@ -101,16 +99,6 @@ class _NewsHomePageState extends State<NewsHomePage> {
       );
     });
     }
-
-      
-
-     
-  //     }, child: Text("Ok"),
-  //     )
-      
-    
-  //   }
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -182,6 +170,6 @@ class _NewsHomePageState extends State<NewsHomePage> {
   }
 }
 
-/* TODO:
-// make esewa subscription button inside the subscription of the profile page.
-// in place of esewa button write test as logged in as username*/
+// TODO:
+  // make esewa subscription button inside the subscription of the profile page or alert dialog box subscription after some time of reading.
+  // in place of profile picture show login when user is not logged in, show profile picture if user is logged in
