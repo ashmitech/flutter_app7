@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/news_apps/screens/home_page.dart';
+import 'package:my_app/demo_apps/form/page/login_form_page.dart';
 
 class ProfileListWidget extends StatelessWidget {
   const ProfileListWidget
@@ -73,14 +73,19 @@ class ProfileListWidget extends StatelessWidget {
               Navigator.of(context).pop(); 
               // close the dialog and continue to the same page
             }, 
-            child: Text("Cancel", style: TextStyle(color: Colors.red.shade300),),
+            child: Text(
+              "Cancel", 
+              style: TextStyle(
+                color: Colors.red.shade300,
+                decoration: TextDecoration.underline,
+                decorationColor: Colors.red.shade300,),),
           ),
           TextButton(onPressed: (){
             Navigator.of(context).pop(); 
             // close the dialog with navigation to home page with a scaffold message
             Navigator.push(
             context, 
-            MaterialPageRoute(builder: (_)=>NewsHomePage()),
+            MaterialPageRoute(builder: (_)=>LoginFormPage()),
       );
 
       /*if user press yes logout the screen with message on snack bar successfully logout else continue to the same screen.*/
@@ -88,10 +93,14 @@ class ProfileListWidget extends StatelessWidget {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('You have successfully Logged out. Please re-login to continue.'), 
-          backgroundColor: Colors.red.shade700,
+          backgroundColor: Colors.red.shade300,
         ),
         );
-      }, child: Text("Ok"),
+      }, child: Text(
+        "Ok",
+        style: TextStyle(
+          decoration: TextDecoration.underline),
+          ),
       ),
         ],
       );
@@ -144,7 +153,7 @@ class LogoutListWidget extends StatelessWidget {
                     featureName??"Text",
                     style: TextStyle(
                     fontSize: 14,
-                    color: Colors.red.shade700,
+                    color: Colors.red.shade300,
                     ), 
                   ),
                   ),
