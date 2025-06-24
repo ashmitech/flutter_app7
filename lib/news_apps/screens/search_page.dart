@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/news_apps/screens/widgets/search_page_widget.dart' show SearchPageWidget;
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
@@ -10,22 +11,31 @@ class _SearchPageState extends State<SearchPage> {
   String _searchQuery = "";
   final TextEditingController _searchController = TextEditingController();
 
-  final List<String> _items = [
-    "Technology News",
-    "Politics News",
-    "Economics News",
-    "Social News",
+  // final List _items = [
+  //   "Technology News",
+  //   "Politics News",
+  //   "Economics News",
+  //   "Social News",
+  // ];
+
+  final List<Map> searchData=[
+    {
+      "items":"Technology News",
+      "routeName":"/technology_news", 
+    }
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: 
-      AppBar(
+      appBar: AppBar(
         // title: Text("Bookmarked Items")
         backgroundColor: Colors.blue.shade600,
         foregroundColor: Colors.white,
         centerTitle:false,
-        title:Text("Search", 
+        title:
+        
+          Text("Search", 
         style: TextStyle(
           fontSize: 18.0,
           fontWeight: FontWeight.bold,
@@ -45,9 +55,12 @@ class _SearchPageState extends State<SearchPage> {
       ),
       body: Column(
         children: [
+          SizedBox(height: 25.0),
           Padding(
             padding: EdgeInsets.all(10),
-            child: TextField(
+            child: 
+            
+            TextField(
               controller: _searchController,
               onChanged: (value) {
                 setState(() {
@@ -76,17 +89,35 @@ class _SearchPageState extends State<SearchPage> {
             ),
           ),
           Expanded(
-            child: ListView(
-              children:
-                  _items
-                      .where(
-                        (item) => item.toLowerCase().contains(
-                          _searchQuery.toLowerCase(),
-                        ),
-                      )
-                      .map((item) => ListTile(title: Text(item)))
-                      .toList(),
-            ),
+            child: 
+            // ListView(
+            //   children:
+            //       _items
+            //           .where(
+            //             (item) => item.toLowerCase().contains(
+            //               _searchQuery.toLowerCase(),
+            //             ),
+            //           )
+            //           .map((item) => ListTile(title: Text(item)))
+            //           .toList(),
+            // ),
+            ListView.builder(
+              shrinkWrap: false,
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: searchData.length,
+                itemBuilder: (context,index)
+                {
+                  return Center(
+                    child:
+                    SearchPageWidget(
+                      item:searchData[index]['item'],
+                      routeName:searchData[index]['routeName'],
+                      prefixIcon:searchData[index]['prefixIcon'],
+                      suffixIcon:searchData[index]['suffixIcon'],
+                    ));
+                    
+                }
+                )
           ),
         ],
       ),
