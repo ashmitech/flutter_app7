@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/demo_apps/settings/page/settings_page.dart';
-import 'package:my_app/news_apps/screens/settings_page.dart';
-
 
 class DetailsPage extends StatelessWidget {
   const DetailsPage({super.key});
