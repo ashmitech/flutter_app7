@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/demo_apps/form/page/forgot_password_page.dart';
-import 'package:my_app/demo_apps/form/page/login_form_page.dart';
-import 'package:my_app/demo_apps/home/page/home_page.dart';
-
-// import 'package:my_app/demo_apps/home/page/home_page.dart';
+import 'package:my_app/demo_apps/form/page/forgot_password_page.dart' show ForgotPasswordPage;
+import 'package:my_app/demo_apps/form/page/login_form_page.dart' show LoginFormPage;
+import 'package:my_app/demo_apps/home/page/home_page.dart' show kHomePage;
 import 'package:my_app/demo_apps/profile/widget/profile_widget.dart' show LogoutListWidget, ProfileListWidget;
 import 'package:my_app/demo_apps/profile/page/edit_profile_page.dart' show EditProfilePage;
-import 'package:my_app/news_apps/screens/search_page.dart';
+import 'package:my_app/news_apps/screens/search_page.dart' show SearchPage;
 import 'package:my_app/news_apps/screens/settings_page.dart'show SettingsPage;
 import 'package:my_app/news_apps/screens/bookmark_page.dart'show BookmarkPage;
-
-import 'package:my_app/news_apps/screens/home_page.dart';
+import 'package:my_app/news_apps/screens/home_page.dart' show NewsHomePage;
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
