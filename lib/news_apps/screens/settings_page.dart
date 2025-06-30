@@ -1,15 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/demo_apps/profile/widget/profile_widget.dart';
+import 'package:path/path.dart';
 
 class SettingsPage extends StatelessWidget {
    SettingsPage({super.key});
 
   final List<Map> profileData =[
-    {"title":"Font Size", "icon":Icon(Icons.font_download_outlined)}, //change font size
-    {"title":"Time Zome", "icon":Icon(Icons.home_outlined)}, // Time Zone
-    {"title":"Language", "icon":Icon(Icons.language_outlined)}, //English // Nepali
-    {"title":"Screen Mode", "icon":Icon(Icons.screen_lock_portrait_outlined)}, // Scree mode address
+    {
+      "title":"Time Zome", 
+      "icon":Icon(Icons.home_outlined),
+      "method":timezoneMethod(),
+    }, // Time Zone
+    //change font size
+    {
+      "title":"Language", 
+      "icon":Icon(Icons.language_outlined),
+      "method": selectLanguageMethod(),
+    }, //English // Nepali
 
+    {"title":"Screen Mode", "icon":Icon(Icons.screen_lock_portrait_outlined)}, // Scree mode address
+    {
+      "title":"Font Size", 
+      "icon":Icon(Icons.font_download_outlined),
+    }, 
   ];
 
   @override
@@ -36,6 +49,7 @@ class SettingsPage extends StatelessWidget {
             tooltip: 'Change Settings',
             onPressed: () {
               // handle the press
+              
             },
             ),
           )],
@@ -93,7 +107,27 @@ class SettingsPage extends StatelessWidget {
         ],    
       ),
     );
-    
-    
   }
+  
+  static timezoneMethod() {
+    return ElevatedButton(onPressed: () {  
+      final DateTime now=DateTime.now();
+      showTimePicker(context: context as BuildContext, 
+      initialTime: TimeOfDay(hour:now.hour, minute:now.minute),
+      ).then((TimeOfDay?value){
+        if(value !=null){
+          ScaffoldMessenger.of(context as BuildContext).showSnackBar(
+            SnackBar(content: Text(value.format(context as BuildContext)),
+            action: SnackBarAction(label: 'Ok', 
+            onPressed: (){}),
+          ),
+        );
+        }
+      });
+    }, 
+    child: Text("Font Size"),
+    );
+  }
+  
+  static selectLanguageMethod() {}
 }  

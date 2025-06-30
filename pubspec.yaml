@@ -44,6 +44,8 @@ flutter:
     - assets/images/lake.jpg
     - assets/images/banner.jpg
     - assets/images/news_logo.jpeg
+    - assets/images/flag_nepal.png
+    - assets/images/flag_usa.png
     - assets/weather.json
     
     # - assets/images/sport/explore.jpeg

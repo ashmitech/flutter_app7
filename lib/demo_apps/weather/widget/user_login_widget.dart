@@ -34,7 +34,7 @@ class UserLoginWidget extends StatelessWidget
               width: 50, // Size of the image inside the circle
               height: 50,
               child: 
-              Image.asset('assets/images/profile.jpg'),
+              Image.asset('assets/images/profile.png'),
             ),
           ),
         ),
