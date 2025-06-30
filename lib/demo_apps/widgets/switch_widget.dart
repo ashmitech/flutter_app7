@@ -14,7 +14,6 @@ class _SwitchDemoState extends State<SwitchDemo> {
 
   @override
   Widget build(BuildContext context) {
-    var image = Image.asset('images/profile.png');
     return Scaffold(
       appBar: AppBar(),
       body: 
