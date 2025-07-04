@@ -2,7 +2,34 @@
 
 A new Flutter Application Demo Project.
 
-version 1.1 Basic Layout of Flutter Application with appbar, text, button, image, icon, scaffold, row, column, container, sizedbox, list view, maps 
+version 1.1 Basic Layout of Flutter Application with appbar, text, button, image, icon, scaffold, row, column, container, sizedbox, list view, maps
+
+version 1.2 Basic bookmark post items logic implementation through php and mysql
+
+# folder_structure
+
+#main.dart/ -- entry point for the application
+
+#core/ utilites constatns, themes, etc
+
+#models/ -- Data model example article
+
+#services/ -- API calls, database, etc
+
+#screens/ -- App screen or pages
+
+#widgets/ -- Reusable UI components
+
+#data/ -- Sample or local data
+
+#hive/ hive-related config(hive related config)
+
+#routes/ -- route of application for managing named routes
+
+#providers/ -- for state manament usin provider, riverpod, bloc etc
+
+#assets/ in the root folder for images, fonts, etc.
+
 
 # profile_app
 
