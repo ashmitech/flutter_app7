@@ -106,7 +106,8 @@ class _NewsHomePageState extends State<NewsHomePage> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(25, 118, 210, 1),
-        title: Text("Breaking News", 
+        title: Text(
+          "Breaking News", 
         style: TextStyle(
           color: Colors.white70,
           fontWeight: FontWeight.bold
@@ -142,7 +143,7 @@ class _NewsHomePageState extends State<NewsHomePage> {
                         "Hello, Reader!", 
                         style: TextStyle(
                           color: Colors.white70),
-                      ), 
+                        ), 
                       ] 
                     ),
                   ),

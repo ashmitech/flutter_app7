@@ -114,13 +114,15 @@ class LogoutListWidget extends StatelessWidget {
       this.prefixIcon,
       this.featureName,
       this.suffixIcon, 
-      this.routeName, required featureMethod,
+      this.routeName, 
+      this.featureMethod,
     });
 
     final Icon?prefixIcon;
     final String?featureName;
     final Icon?suffixIcon;
     final dynamic routeName;
+    final dynamic featureMethod;
 
   @override
   Widget build(BuildContext context) {
@@ -159,7 +161,8 @@ class LogoutListWidget extends StatelessWidget {
                   ),
                 ],
               ),
-              suffixIcon??Icon(Icons.error),
+              TextButton(onPressed: featureMethod, 
+              child: suffixIcon??Icon(Icons.error),)
             ],
           ),
           ),
